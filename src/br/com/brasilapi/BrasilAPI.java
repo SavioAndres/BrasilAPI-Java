@@ -9,47 +9,83 @@ import javax.net.ssl.HttpsURLConnection;
 
 import com.google.gson.Gson;
 
-import br.com.brasilapi.api.Cep;
-import br.com.brasilapi.api.Cnpj;
-import br.com.brasilapi.api.Ddd;
+import br.com.brasilapi.api.CEP;
+import br.com.brasilapi.api.CEP2;
+import br.com.brasilapi.api.CNPJ;
+import br.com.brasilapi.api.DDD;
+import br.com.brasilapi.api.Feriados;
 import br.com.brasilapi.api.FipeMarcas;
 import br.com.brasilapi.api.FipePreco;
-import br.com.brasilapi.api.IbgeMunicipios;
-import br.com.brasilapi.api.IbgeUf;
+import br.com.brasilapi.api.IBGEMunicipios;
+import br.com.brasilapi.api.IBGEUF;
+import br.com.brasilapi.api.NCM;
+import br.com.brasilapi.api.RegistroBR;
 
 public class BrasilAPI {
+	private boolean enableLog;
 	private Gson gson;
 	
 	public BrasilAPI() {
+		this(false);
+	}
+	
+	public BrasilAPI(boolean enableLog) {
+		this.enableLog = enableLog;
 		this.gson = new Gson();
 	}
 	
-	public Cep cep(String cep) {
-		String json = Connection.conectar("cep/v2/", cep);
-		return gson.fromJson(json, Cep.class);
+	public CEP cep(String cep) {
+		String json = connection("cep/v1/", cep);
+		return gson.fromJson(json, CEP.class);
 	}
 	
-	public Cnpj cnpj(String cnpj) {
-		String json = Connection.conectar("cnpj/v1/", cnpj);
-		return gson.fromJson(json, Cnpj.class);
+	public CEP2 cep2(String cep2) {
+		String json = connection("cep/v2/", cep2);
+		return gson.fromJson(json, CEP2.class);
 	}
 	
-	public Ddd ddd(String ddd) {
-		String json = Connection.conectar("ddd/v1/", ddd);
-		return gson.fromJson(json, Ddd.class);
+	public CNPJ cnpj(String cnpj) {
+		String json = connection("cnpj/v1/", cnpj);
+		return gson.fromJson(json, CNPJ.class);
 	}
 	
-	public Map<?, ?> feriados(String feriados) {
-		return api("feriados/v1/", feriados);
+	public DDD ddd(String ddd) {
+		String json = connection("ddd/v1/", ddd);
+		return gson.fromJson(json, DDD.class);
+	}
+	
+	public Feriados[] feriados(String feriados) {
+		String json = connection("feriados/v1/", feriados);
+		return gson.fromJson(json, Feriados[].class);
+	}
+	
+	public NCM[] ncm() {
+		String json = connection("api/ncm/v1", "");
+		return gson.fromJson(json, NCM[].class);
+	}
+	
+	public NCM[] ncm(String ncm) {
+		String json = connection("api/ncm/v1/", ncm);
+		return gson.fromJson(json, NCM[].class);
+	}
+	
+	public NCM[] ncmSearch(String ncm) {
+		String json = connection("api/ncm/v1?search=", ncm);
+		return gson.fromJson(json, NCM[].class);
+	}
+	
+	public RegistroBR registroBR(String registroBR) {
+		String json = connection("registrobr/v1/", registroBR);
+		return gson.fromJson(json, RegistroBR.class);
 	}
 	
 	public FipeMarcas[] fipeMarcas(String fipeMarcas) {
-		String json = Connection.conectar("fipe/marcas/v1/", fipeMarcas);
+		String json = connection("fipe/marcas/v1/", fipeMarcas);
 		return gson.fromJson(json, FipeMarcas[].class);
 	}
 	
 	public FipePreco[] fipePreco(String fipePreco) {
-		String json = Connection.conectar("fipe/preco/v1/", fipePreco);
+		String json = connection("fipe/preco/v1/", fipePreco);
 		return gson.fromJson(json, FipePreco[].class);
 	}
 	
@@ -57,26 +93,30 @@ public class BrasilAPI {
 		return api("fipe/tabelas/v1", fipeTabelas);
 	}
 	
-	public IbgeMunicipios[] ibgeMunicipios(String ibgeMunicipios) {
-		String json = Connection.conectar("ibge/municipios/v1/", ibgeMunicipios);
-		return gson.fromJson(json, IbgeMunicipios[].class);
+	public IBGEMunicipios[] ibgeMunicipios(String ibgeMunicipios) {
+		String json = connection("ibge/municipios/v1/", ibgeMunicipios);
+		return gson.fromJson(json, IBGEMunicipios[].class);
 	}
 	
-	public IbgeUf ibgeUf(String ibgeUf) {
-		String json = Connection.conectar("ibge/uf/v1/", ibgeUf);
-		return gson.fromJson(json, IbgeUf.class);
+	public IBGEUF ibgeUf(String ibgeUf) {
+		String json = connection("ibge/uf/v1/", ibgeUf);
+		return gson.fromJson(json, IBGEUF.class);
 	}
 	
 	
 	private Map<?, ?> api(String urlParameter, String cod) {
 		cod = cod.replaceAll("/","");
-		String json = Connection.conectar(urlParameter, cod);
+		String json = connection(urlParameter, cod);
 		return gson.fromJson(json, Map.class);
 	}
 	
-	protected static class Connection {
+	private String connection(String urlParameter, String code) {
+		return Service.connection(urlParameter, code, this.enableLog);
+	}
+	
+	private static class Service {
 		
-		protected static String conectar(String urlParameter, String code) {
+		private static String connection(String urlParameter, String code, boolean enableLog) {
 			String json = null;
 
 			try {
@@ -101,6 +141,10 @@ public class BrasilAPI {
 				}
 				
 				json = retorno;
+				
+				if (enableLog) {
+					System.out.println(json);
+				}
 
 				conector.disconnect();
 

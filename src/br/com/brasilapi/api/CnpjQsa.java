@@ -1,166 +1,128 @@
 package br.com.brasilapi.api;
 
-public class CnpjQsa {
-	private String pais;
-	private String nome_socio;
-	private int codigo_pais;
-	private String faixa_etaria;
-	private String cnpj_cpf_do_socio;
-	private String qualificacao_socio;
-	private int codigo_faixa_etaria;
-	private String data_entrada_sociedade;
-	private int identificador_de_socio;
-	private String cpf_representante_legal;
-	private String nome_representante_legal;
-	private int codigo_qualificacao_socio;
-	private String qualificacao_representante_legal;
-	private int codigo_qualificacao_representante_legal;
-	
-	public CnpjQsa(String pais, String nome_socio, int codigo_pais, String faixa_etaria, String cnpj_cpf_do_socio,
-			String qualificacao_socio, int codigo_faixa_etaria, String data_entrada_sociedade,
-			int identificador_de_socio, String cpf_representante_legal, String nome_representante_legal,
-			int codigo_qualificacao_socio, String qualificacao_representante_legal,
-			int codigo_qualificacao_representante_legal) {
-		super();
-		this.pais = pais;
-		this.nome_socio = nome_socio;
-		this.codigo_pais = codigo_pais;
-		this.faixa_etaria = faixa_etaria;
-		this.cnpj_cpf_do_socio = cnpj_cpf_do_socio;
-		this.qualificacao_socio = qualificacao_socio;
-		this.codigo_faixa_etaria = codigo_faixa_etaria;
-		this.data_entrada_sociedade = data_entrada_sociedade;
-		this.identificador_de_socio = identificador_de_socio;
-		this.cpf_representante_legal = cpf_representante_legal;
-		this.nome_representante_legal = nome_representante_legal;
-		this.codigo_qualificacao_socio = codigo_qualificacao_socio;
-		this.qualificacao_representante_legal = qualificacao_representante_legal;
-		this.codigo_qualificacao_representante_legal = codigo_qualificacao_representante_legal;
-	}
+import com.google.gson.annotations.SerializedName;
 
+public class CNPJQsa {
+	private String pais;
+	@SerializedName("nome_socio")
+	private String nomeSocio;
+	@SerializedName("codigo_pais")
+	private int codigoPais;
+	@SerializedName("faixa_etaria")
+	private String faixaEtaria;
+	@SerializedName("cnpj_cpf_do_socio")
+	private String cnpjCpfDoSocio;
+	@SerializedName("qualificacao_socio")
+	private String qualificacaoSocio;
+	@SerializedName("codigo_faixa_etaria")
+	private int codigoFaixaEtaria;
+	@SerializedName("data_entrada_sociedade")
+	private String dataEntradaSociedade;
+	@SerializedName("identificador_de_socio")
+	private int identificadorDeSocio;
+	@SerializedName("cpf_representante_legal")
+	private String cpfRepresentanteLegal;
+	@SerializedName("nome_representante_legal")
+	private String nomeRepresentanteLegal;
+	@SerializedName("codigo_qualificacao_socio")
+	private int codigoQualificacaoSocio;
+	@SerializedName("qualificacao_representante_legal")
+	private String qualificacaoRepresentanteLegal;
+	@SerializedName("codigo_qualificacao_representante_legal")
+	private int codigoQualificacaoRepresentanteLegal;
 	public String getPais() {
 		return pais;
 	}
-
 	public void setPais(String pais) {
 		this.pais = pais;
 	}
-
-	public String getNome_socio() {
-		return nome_socio;
+	public String getNomeSocio() {
+		return nomeSocio;
 	}
-
-	public void setNome_socio(String nome_socio) {
-		this.nome_socio = nome_socio;
+	public void setNomeSocio(String nomeSocio) {
+		this.nomeSocio = nomeSocio;
 	}
-
-	public int getCodigo_pais() {
-		return codigo_pais;
+	public int getCodigoPais() {
+		return codigoPais;
 	}
-
-	public void setCodigo_pais(int codigo_pais) {
-		this.codigo_pais = codigo_pais;
+	public void setCodigoPais(int codigoPais) {
+		this.codigoPais = codigoPais;
 	}
-
-	public String getFaixa_etaria() {
-		return faixa_etaria;
+	public String getFaixaEtaria() {
+		return faixaEtaria;
 	}
-
-	public void setFaixa_etaria(String faixa_etaria) {
-		this.faixa_etaria = faixa_etaria;
+	public void setFaixaEtaria(String faixaEtaria) {
+		this.faixaEtaria = faixaEtaria;
 	}
-
-	public String getCnpj_cpf_do_socio() {
-		return cnpj_cpf_do_socio;
+	public String getCnpjCpfDoSocio() {
+		return cnpjCpfDoSocio;
 	}
-
-	public void setCnpj_cpf_do_socio(String cnpj_cpf_do_socio) {
-		this.cnpj_cpf_do_socio = cnpj_cpf_do_socio;
+	public void setCnpjCpfDoSocio(String cnpjCpfDoSocio) {
+		this.cnpjCpfDoSocio = cnpjCpfDoSocio;
 	}
-
-	public String getQualificacao_socio() {
-		return qualificacao_socio;
+	public String getQualificacaoSocio() {
+		return qualificacaoSocio;
 	}
-
-	public void setQualificacao_socio(String qualificacao_socio) {
-		this.qualificacao_socio = qualificacao_socio;
+	public void setQualificacaoSocio(String qualificacaoSocio) {
+		this.qualificacaoSocio = qualificacaoSocio;
 	}
-
-	public int getCodigo_faixa_etaria() {
-		return codigo_faixa_etaria;
+	public int getCodigoFaixaEtaria() {
+		return codigoFaixaEtaria;
 	}
-
-	public void setCodigo_faixa_etaria(int codigo_faixa_etaria) {
-		this.codigo_faixa_etaria = codigo_faixa_etaria;
+	public void setCodigoFaixaEtaria(int codigoFaixaEtaria) {
+		this.codigoFaixaEtaria = codigoFaixaEtaria;
 	}
-
-	public String getData_entrada_sociedade() {
-		return data_entrada_sociedade;
+	public String getDataEntradaSociedade() {
+		return dataEntradaSociedade;
 	}
-
-	public void setData_entrada_sociedade(String data_entrada_sociedade) {
-		this.data_entrada_sociedade = data_entrada_sociedade;
+	public void setDataEntradaSociedade(String dataEntradaSociedade) {
+		this.dataEntradaSociedade = dataEntradaSociedade;
 	}
-
-	public int getIdentificador_de_socio() {
-		return identificador_de_socio;
+	public int getIdentificadorDeSocio() {
+		return identificadorDeSocio;
 	}
-
-	public void setIdentificador_de_socio(int identificador_de_socio) {
-		this.identificador_de_socio = identificador_de_socio;
+	public void setIdentificadorDeSocio(int identificadorDeSocio) {
+		this.identificadorDeSocio = identificadorDeSocio;
 	}
-
-	public String getCpf_representante_legal() {
-		return cpf_representante_legal;
+	public String getCpfRepresentanteLegal() {
+		return cpfRepresentanteLegal;
 	}
-
-	public void setCpf_representante_legal(String cpf_representante_legal) {
-		this.cpf_representante_legal = cpf_representante_legal;
+	public void setCpfRepresentanteLegal(String cpfRepresentanteLegal) {
+		this.cpfRepresentanteLegal = cpfRepresentanteLegal;
 	}
-
-	public String getNome_representante_legal() {
-		return nome_representante_legal;
+	public String getNomeRepresentanteLegal() {
+		return nomeRepresentanteLegal;
 	}
-
-	public void setNome_representante_legal(String nome_representante_legal) {
-		this.nome_representante_legal = nome_representante_legal;
+	public void setNomeRepresentanteLegal(String nomeRepresentanteLegal) {
+		this.nomeRepresentanteLegal = nomeRepresentanteLegal;
 	}
-
-	public int getCodigo_qualificacao_socio() {
-		return codigo_qualificacao_socio;
+	public int getCodigoQualificacaoSocio() {
+		return codigoQualificacaoSocio;
 	}
-
-	public void setCodigo_qualificacao_socio(int codigo_qualificacao_socio) {
-		this.codigo_qualificacao_socio = codigo_qualificacao_socio;
+	public void setCodigoQualificacaoSocio(int codigoQualificacaoSocio) {
+		this.codigoQualificacaoSocio = codigoQualificacaoSocio;
 	}
-
-	public String getQualificacao_representante_legal() {
-		return qualificacao_representante_legal;
+	public String getQualificacaoRepresentanteLegal() {
+		return qualificacaoRepresentanteLegal;
 	}
-
-	public void setQualificacao_representante_legal(String qualificacao_representante_legal) {
-		this.qualificacao_representante_legal = qualificacao_representante_legal;
+	public void setQualificacaoRepresentanteLegal(String qualificacaoRepresentanteLegal) {
+		this.qualificacaoRepresentanteLegal = qualificacaoRepresentanteLegal;
 	}
-
-	public int getCodigo_qualificacao_representante_legal() {
-		return codigo_qualificacao_representante_legal;
+	public int getCodigoQualificacaoRepresentanteLegal() {
+		return codigoQualificacaoRepresentanteLegal;
 	}
-
-	public void setCodigo_qualificacao_representante_legal(int codigo_qualificacao_representante_legal) {
-		this.codigo_qualificacao_representante_legal = codigo_qualificacao_representante_legal;
+	public void setCodigoQualificacaoRepresentanteLegal(int codigoQualificacaoRepresentanteLegal) {
+		this.codigoQualificacaoRepresentanteLegal = codigoQualificacaoRepresentanteLegal;
 	}
-
 	@Override
 	public String toString() {
-		return "CnpjQsa [pais=" + pais + ", nome_socio=" + nome_socio + ", codigo_pais=" + codigo_pais
-				+ ", faixa_etaria=" + faixa_etaria + ", cnpj_cpf_do_socio=" + cnpj_cpf_do_socio
-				+ ", qualificacao_socio=" + qualificacao_socio + ", codigo_faixa_etaria=" + codigo_faixa_etaria
-				+ ", data_entrada_sociedade=" + data_entrada_sociedade + ", identificador_de_socio="
-				+ identificador_de_socio + ", cpf_representante_legal=" + cpf_representante_legal
-				+ ", nome_representante_legal=" + nome_representante_legal + ", codigo_qualificacao_socio="
-				+ codigo_qualificacao_socio + ", qualificacao_representante_legal=" + qualificacao_representante_legal
-				+ ", codigo_qualificacao_representante_legal=" + codigo_qualificacao_representante_legal + "]";
+		return "CNPJQsa [pais=" + pais + ", nomeSocio=" + nomeSocio + ", codigoPais=" + codigoPais + ", faixaEtaria="
+				+ faixaEtaria + ", cnpjCpfDoSocio=" + cnpjCpfDoSocio + ", qualificacaoSocio=" + qualificacaoSocio
+				+ ", codigoFaixaEtaria=" + codigoFaixaEtaria + ", dataEntradaSociedade=" + dataEntradaSociedade
+				+ ", identificadorDeSocio=" + identificadorDeSocio + ", cpfRepresentanteLegal=" + cpfRepresentanteLegal
+				+ ", nomeRepresentanteLegal=" + nomeRepresentanteLegal + ", codigoQualificacaoSocio="
+				+ codigoQualificacaoSocio + ", qualificacaoRepresentanteLegal=" + qualificacaoRepresentanteLegal
+				+ ", codigoQualificacaoRepresentanteLegal=" + codigoQualificacaoRepresentanteLegal + "]";
 	}
-	
 	
 }

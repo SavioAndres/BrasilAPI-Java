@@ -1,10 +1,10 @@
 package br.com.brasilapi.api;
 
-public class CepLocation {
+public class CEP2Location {
 	private String type;
-	private CepLocationCoordinates coordinates;
+	private CEP2LocationCoordinates coordinates;
 	
-	public CepLocation(String type, CepLocationCoordinates coordinates) {
+	public CEP2Location(String type, CEP2LocationCoordinates coordinates) {
 		super();
 		this.type = type;
 		this.coordinates = coordinates;
@@ -15,10 +15,10 @@ public class CepLocation {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public CepLocationCoordinates getCoordinates() {
+	public CEP2LocationCoordinates getCoordinates() {
 		return coordinates;
 	}
-	public void setCoordinates(CepLocationCoordinates coordinates) {
+	public void setCoordinates(CEP2LocationCoordinates coordinates) {
 		this.coordinates = coordinates;
 	}
 	@Override

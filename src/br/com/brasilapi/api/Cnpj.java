@@ -1,120 +1,94 @@
 package br.com.brasilapi.api;
 
-import java.util.Arrays;
+import java.util.List;
 
-public class Cnpj {
+import com.google.gson.annotations.SerializedName;
+
+public class CNPJ {
 	private String uf;
 	private String cep;
-	private CnpjQsa[] qsa;
+	private List<CNPJQsa> qsa;
 	private String cnpj;
 	private String pais;
 	private String email;
 	private String porte;
 	private String bairro;
 	private String numero;
-	private String ddd_fax;
+	@SerializedName("ddd_fax")
+	private String dddFax;
 	private String municipio;
 	private String logradouro;
-	private Integer cnae_fiscal;
-	private Integer codigo_pais;
+	@SerializedName("cnae_fiscal")
+	private Integer cnaeFiscal;
+	@SerializedName("codigo_pais")
+	private Integer codigoPais;
 	private String complemento;
-	private Integer codigo_porte;
-	private String razao_social;
-	private String nome_fantasia;
-	private Double capital_social;
-	private String ddd_telefone_1;
-	private String ddd_telefone_2;
-	private String opcao_pelo_mei;
-	private String descricao_porte;
-	private Integer codigo_municipio;
-	private CnpjCnaesSecundario[] cnaes_secundarios;
-	private String natureza_juridica;
-	private String situacao_especial;
-	private String opcao_pelo_simples;
-	private Integer situacao_cadastral;
-	private String data_opcao_pelo_mei;
-	private String data_exclusao_do_mei;
-	private String cnae_fiscal_descricao;
-	private Integer codigo_municipio_ibge;
-	private String data_inicio_atividade;
-	private String data_situacao_especial;
-	private String data_opcao_pelo_simples;
-	private String data_situacao_cadastral;
-	private String nome_cidade_no_exterior;
-	private Integer codigo_natureza_juridica;
-	private String data_exclusao_do_simples;
-	private Integer motivo_situacao_cadastral;
-	private String ente_federativo_responsavel;
-	private Integer identificador_matriz_filial;
-	private Integer qualificacao_do_responsavel;
-	private String descricao_situacao_cadastral;
-	private String descricao_tipo_de_logradouro;
-	private String descricao_motivo_situacao_cadastral;
-	private String descricao_identificador_matriz_filial;
-	public Cnpj(String uf, String cep, CnpjQsa[] qsa, String cnpj, String pais, String email, String porte,
-			String bairro, String numero, String ddd_fax, String municipio, String logradouro, Integer cnae_fiscal,
-			Integer codigo_pais, String complemento, Integer codigo_porte, String razao_social, String nome_fantasia,
-			Double capital_social, String ddd_telefone_1, String ddd_telefone_2, String opcao_pelo_mei,
-			String descricao_porte, Integer codigo_municipio, CnpjCnaesSecundario[] cnaes_secundarios,
-			String natureza_juridica, String situacao_especial, String opcao_pelo_simples, Integer situacao_cadastral,
-			String data_opcao_pelo_mei, String data_exclusao_do_mei, String cnae_fiscal_descricao,
-			Integer codigo_municipio_ibge, String data_inicio_atividade, String data_situacao_especial,
-			String data_opcao_pelo_simples, String data_situacao_cadastral, String nome_cidade_no_exterior,
-			Integer codigo_natureza_juridica, String data_exclusao_do_simples, Integer motivo_situacao_cadastral,
-			String ente_federativo_responsavel, Integer identificador_matriz_filial,
-			Integer qualificacao_do_responsavel, String descricao_situacao_cadastral,
-			String descricao_tipo_de_logradouro, String descricao_motivo_situacao_cadastral,
-			String descricao_identificador_matriz_filial) {
-		super();
-		this.uf = uf;
-		this.cep = cep;
-		this.qsa = qsa;
-		this.cnpj = cnpj;
-		this.pais = pais;
-		this.email = email;
-		this.porte = porte;
-		this.bairro = bairro;
-		this.numero = numero;
-		this.ddd_fax = ddd_fax;
-		this.municipio = municipio;
-		this.logradouro = logradouro;
-		this.cnae_fiscal = cnae_fiscal;
-		this.codigo_pais = codigo_pais;
-		this.complemento = complemento;
-		this.codigo_porte = codigo_porte;
-		this.razao_social = razao_social;
-		this.nome_fantasia = nome_fantasia;
-		this.capital_social = capital_social;
-		this.ddd_telefone_1 = ddd_telefone_1;
-		this.ddd_telefone_2 = ddd_telefone_2;
-		this.opcao_pelo_mei = opcao_pelo_mei;
-		this.descricao_porte = descricao_porte;
-		this.codigo_municipio = codigo_municipio;
-		this.cnaes_secundarios = cnaes_secundarios;
-		this.natureza_juridica = natureza_juridica;
-		this.situacao_especial = situacao_especial;
-		this.opcao_pelo_simples = opcao_pelo_simples;
-		this.situacao_cadastral = situacao_cadastral;
-		this.data_opcao_pelo_mei = data_opcao_pelo_mei;
-		this.data_exclusao_do_mei = data_exclusao_do_mei;
-		this.cnae_fiscal_descricao = cnae_fiscal_descricao;
-		this.codigo_municipio_ibge = codigo_municipio_ibge;
-		this.data_inicio_atividade = data_inicio_atividade;
-		this.data_situacao_especial = data_situacao_especial;
-		this.data_opcao_pelo_simples = data_opcao_pelo_simples;
-		this.data_situacao_cadastral = data_situacao_cadastral;
-		this.nome_cidade_no_exterior = nome_cidade_no_exterior;
-		this.codigo_natureza_juridica = codigo_natureza_juridica;
-		this.data_exclusao_do_simples = data_exclusao_do_simples;
-		this.motivo_situacao_cadastral = motivo_situacao_cadastral;
-		this.ente_federativo_responsavel = ente_federativo_responsavel;
-		this.identificador_matriz_filial = identificador_matriz_filial;
-		this.qualificacao_do_responsavel = qualificacao_do_responsavel;
-		this.descricao_situacao_cadastral = descricao_situacao_cadastral;
-		this.descricao_tipo_de_logradouro = descricao_tipo_de_logradouro;
-		this.descricao_motivo_situacao_cadastral = descricao_motivo_situacao_cadastral;
-		this.descricao_identificador_matriz_filial = descricao_identificador_matriz_filial;
-	}
+	@SerializedName("codigo_porte")
+	private Integer codigoPorte;
+	@SerializedName("razao_social")
+	private String razaoSocial;
+	@SerializedName("nome_fantasia")
+	private String nomeFantasia;
+	@SerializedName("capital_social")
+	private Double capitalSocial;
+	@SerializedName("ddd_telefone_1")
+	private String dddTelefone1;
+	@SerializedName("ddd_telefone_2")
+	private String dddTelefone2;
+	@SerializedName("opcao_pelo_mei")
+	private String opcaoPeloMei;
+	@SerializedName("descricao_porte")
+	private String descricaoPorte;
+	@SerializedName("codigo_municipio")
+	private Integer codigoMunicipio;
+	@SerializedName("cnaes_secundarios")
+	private List<CNPJCnaesSecundario> cnaesSecundarios;
+	@SerializedName("natureza_juridica")
+	private String naturezaJuridica;
+	@SerializedName("situacao_especial")
+	private String situacaoEspecial;
+	@SerializedName("opcao_pelo_simples")
+	private String opcaoPeloSimples;
+	@SerializedName("situacao_cadastral")
+	private Integer situacaoCadastral;
+	@SerializedName("data_opcao_pelo_mei")
+	private String dataOpcaoPeloMei;
+	@SerializedName("data_exclusao_do_mei")
+	private String dataExclusaoDoMei;
+	@SerializedName("cnae_fiscal_descricao")
+	private String cnaeFiscalDescricao;
+	@SerializedName("codigo_municipio_ibge")
+	private Integer codigoMunicipioIbge;
+	@SerializedName("data_inicio_atividade")
+	private String dataInicioAtividade;
+	@SerializedName("data_situacao_especial")
+	private String dataSituacaoEspecial;
+	@SerializedName("data_opcao_pelo_simples")
+	private String dataOpcaoPeloSimples;
+	@SerializedName("data_situacao_cadastral")
+	private String dataSituacaoCadastral;
+	@SerializedName("nome_cidade_no_exterior")
+	private String nomeCidadeNoExterior;
+	@SerializedName("codigo_natureza_juridica")
+	private Integer codigoNaturezaJuridica;
+	@SerializedName("data_exclusao_do_simples")
+	private String dataExclusaoDoSimples;
+	@SerializedName("motivo_situacao_cadastral")
+	private Integer motivoSituacaoCadastral;
+	@SerializedName("ente_federativo_responsavel")
+	private String enteFederativoResponsavel;
+	@SerializedName("identificador_matriz_filial")
+	private Integer identificadorMatrizFilial;
+	@SerializedName("qualificacao_do_responsavel")
+	private Integer qualificacaoDoResponsavel;
+	@SerializedName("descricao_situacao_cadastral")
+	private String descricaoSituacaoCadastral;
+	@SerializedName("descricao_tipo_de_logradouro")
+	private String descricaoTipoDeLogradouro;
+	@SerializedName("descricao_motivo_situacao_cadastral")
+	private String descricaoMotivoSituacaoCadastral;
+	@SerializedName("descricao_identificador_matriz_filial")
+	private String descricaoIdentificadorMatrizFilial;
 	public String getUf() {
 		return uf;
 	}
@@ -127,10 +101,10 @@ public class Cnpj {
 	public void setCep(String cep) {
 		this.cep = cep;
 	}
-	public CnpjQsa[] getQsa() {
+	public List<CNPJQsa> getQsa() {
 		return qsa;
 	}
-	public void setQsa(CnpjQsa[] qsa) {
+	public void setQsa(List<CNPJQsa> qsa) {
 		this.qsa = qsa;
 	}
 	public String getCnpj() {
@@ -169,11 +143,11 @@ public class Cnpj {
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
-	public String getDdd_fax() {
-		return ddd_fax;
+	public String getDddFax() {
+		return dddFax;
 	}
-	public void setDdd_fax(String ddd_fax) {
-		this.ddd_fax = ddd_fax;
+	public void setDddFax(String dddFax) {
+		this.dddFax = dddFax;
 	}
 	public String getMunicipio() {
 		return municipio;
@@ -187,17 +161,17 @@ public class Cnpj {
 	public void setLogradouro(String logradouro) {
 		this.logradouro = logradouro;
 	}
-	public Integer getCnae_fiscal() {
-		return cnae_fiscal;
+	public Integer getCnaeFiscal() {
+		return cnaeFiscal;
 	}
-	public void setCnae_fiscal(Integer cnae_fiscal) {
-		this.cnae_fiscal = cnae_fiscal;
+	public void setCnaeFiscal(Integer cnaeFiscal) {
+		this.cnaeFiscal = cnaeFiscal;
 	}
-	public Integer getCodigo_pais() {
-		return codigo_pais;
+	public Integer getCodigoPais() {
+		return codigoPais;
 	}
-	public void setCodigo_pais(Integer codigo_pais) {
-		this.codigo_pais = codigo_pais;
+	public void setCodigoPais(Integer codigoPais) {
+		this.codigoPais = codigoPais;
 	}
 	public String getComplemento() {
 		return complemento;
@@ -205,231 +179,229 @@ public class Cnpj {
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
-	public Integer getCodigo_porte() {
-		return codigo_porte;
+	public Integer getCodigoPorte() {
+		return codigoPorte;
 	}
-	public void setCodigo_porte(Integer codigo_porte) {
-		this.codigo_porte = codigo_porte;
+	public void setCodigoPorte(Integer codigoPorte) {
+		this.codigoPorte = codigoPorte;
 	}
-	public String getRazao_social() {
-		return razao_social;
+	public String getRazaoSocial() {
+		return razaoSocial;
 	}
-	public void setRazao_social(String razao_social) {
-		this.razao_social = razao_social;
+	public void setRazaoSocial(String razaoSocial) {
+		this.razaoSocial = razaoSocial;
 	}
-	public String getNome_fantasia() {
-		return nome_fantasia;
+	public String getNomeFantasia() {
+		return nomeFantasia;
 	}
-	public void setNome_fantasia(String nome_fantasia) {
-		this.nome_fantasia = nome_fantasia;
+	public void setNomeFantasia(String nomeFantasia) {
+		this.nomeFantasia = nomeFantasia;
 	}
-	public Double getCapital_social() {
-		return capital_social;
+	public Double getCapitalSocial() {
+		return capitalSocial;
 	}
-	public void setCapital_social(Double capital_social) {
-		this.capital_social = capital_social;
+	public void setCapitalSocial(Double capitalSocial) {
+		this.capitalSocial = capitalSocial;
 	}
-	public String getDdd_telefone_1() {
-		return ddd_telefone_1;
+	public String getDddTelefone1() {
+		return dddTelefone1;
 	}
-	public void setDdd_telefone_1(String ddd_telefone_1) {
-		this.ddd_telefone_1 = ddd_telefone_1;
+	public void setDddTelefone1(String dddTelefone1) {
+		this.dddTelefone1 = dddTelefone1;
 	}
-	public String getDdd_telefone_2() {
-		return ddd_telefone_2;
+	public String getDddTelefone2() {
+		return dddTelefone2;
 	}
-	public void setDdd_telefone_2(String ddd_telefone_2) {
-		this.ddd_telefone_2 = ddd_telefone_2;
+	public void setDddTelefone2(String dddTelefone2) {
+		this.dddTelefone2 = dddTelefone2;
 	}
-	public String getOpcao_pelo_mei() {
-		return opcao_pelo_mei;
+	public String getOpcaoPeloMei() {
+		return opcaoPeloMei;
 	}
-	public void setOpcao_pelo_mei(String opcao_pelo_mei) {
-		this.opcao_pelo_mei = opcao_pelo_mei;
+	public void setOpcaoPeloMei(String opcaoPeloMei) {
+		this.opcaoPeloMei = opcaoPeloMei;
 	}
-	public String getDescricao_porte() {
-		return descricao_porte;
+	public String getDescricaoPorte() {
+		return descricaoPorte;
 	}
-	public void setDescricao_porte(String descricao_porte) {
-		this.descricao_porte = descricao_porte;
+	public void setDescricaoPorte(String descricaoPorte) {
+		this.descricaoPorte = descricaoPorte;
 	}
-	public Integer getCodigo_municipio() {
-		return codigo_municipio;
+	public Integer getCodigoMunicipio() {
+		return codigoMunicipio;
 	}
-	public void setCodigo_municipio(Integer codigo_municipio) {
-		this.codigo_municipio = codigo_municipio;
+	public void setCodigoMunicipio(Integer codigoMunicipio) {
+		this.codigoMunicipio = codigoMunicipio;
 	}
-	public CnpjCnaesSecundario[] getCnaes_secundarios() {
-		return cnaes_secundarios;
+	public List<CNPJCnaesSecundario> getCnaesSecundarios() {
+		return cnaesSecundarios;
 	}
-	public void setCnaes_secundarios(CnpjCnaesSecundario[] cnaes_secundarios) {
-		this.cnaes_secundarios = cnaes_secundarios;
+	public void setCnaesSecundarios(List<CNPJCnaesSecundario> cnaesSecundarios) {
+		this.cnaesSecundarios = cnaesSecundarios;
 	}
-	public String getNatureza_juridica() {
-		return natureza_juridica;
+	public String getNaturezaJuridica() {
+		return naturezaJuridica;
 	}
-	public void setNatureza_juridica(String natureza_juridica) {
-		this.natureza_juridica = natureza_juridica;
+	public void setNaturezaJuridica(String naturezaJuridica) {
+		this.naturezaJuridica = naturezaJuridica;
 	}
-	public String getSituacao_especial() {
-		return situacao_especial;
+	public String getSituacaoEspecial() {
+		return situacaoEspecial;
 	}
-	public void setSituacao_especial(String situacao_especial) {
-		this.situacao_especial = situacao_especial;
+	public void setSituacaoEspecial(String situacaoEspecial) {
+		this.situacaoEspecial = situacaoEspecial;
 	}
-	public String getOpcao_pelo_simples() {
-		return opcao_pelo_simples;
+	public String getOpcaoPeloSimples() {
+		return opcaoPeloSimples;
 	}
-	public void setOpcao_pelo_simples(String opcao_pelo_simples) {
-		this.opcao_pelo_simples = opcao_pelo_simples;
+	public void setOpcaoPeloSimples(String opcaoPeloSimples) {
+		this.opcaoPeloSimples = opcaoPeloSimples;
 	}
-	public Integer getSituacao_cadastral() {
-		return situacao_cadastral;
+	public Integer getSituacaoCadastral() {
+		return situacaoCadastral;
 	}
-	public void setSituacao_cadastral(Integer situacao_cadastral) {
-		this.situacao_cadastral = situacao_cadastral;
+	public void setSituacaoCadastral(Integer situacaoCadastral) {
+		this.situacaoCadastral = situacaoCadastral;
 	}
-	public String getData_opcao_pelo_mei() {
-		return data_opcao_pelo_mei;
+	public String getDataOpcaoPeloMei() {
+		return dataOpcaoPeloMei;
 	}
-	public void setData_opcao_pelo_mei(String data_opcao_pelo_mei) {
-		this.data_opcao_pelo_mei = data_opcao_pelo_mei;
+	public void setDataOpcaoPeloMei(String dataOpcaoPeloMei) {
+		this.dataOpcaoPeloMei = dataOpcaoPeloMei;
 	}
-	public String getData_exclusao_do_mei() {
-		return data_exclusao_do_mei;
+	public String getDataExclusaoDoMei() {
+		return dataExclusaoDoMei;
 	}
-	public void setData_exclusao_do_mei(String data_exclusao_do_mei) {
-		this.data_exclusao_do_mei = data_exclusao_do_mei;
+	public void setDataExclusaoDoMei(String dataExclusaoDoMei) {
+		this.dataExclusaoDoMei = dataExclusaoDoMei;
 	}
-	public String getCnae_fiscal_descricao() {
-		return cnae_fiscal_descricao;
+	public String getCnaeFiscalDescricao() {
+		return cnaeFiscalDescricao;
 	}
-	public void setCnae_fiscal_descricao(String cnae_fiscal_descricao) {
-		this.cnae_fiscal_descricao = cnae_fiscal_descricao;
+	public void setCnaeFiscalDescricao(String cnaeFiscalDescricao) {
+		this.cnaeFiscalDescricao = cnaeFiscalDescricao;
 	}
-	public Integer getCodigo_municipio_ibge() {
-		return codigo_municipio_ibge;
+	public Integer getCodigoMunicipioIbge() {
+		return codigoMunicipioIbge;
 	}
-	public void setCodigo_municipio_ibge(Integer codigo_municipio_ibge) {
-		this.codigo_municipio_ibge = codigo_municipio_ibge;
+	public void setCodigoMunicipioIbge(Integer codigoMunicipioIbge) {
+		this.codigoMunicipioIbge = codigoMunicipioIbge;
 	}
-	public String getData_inicio_atividade() {
-		return data_inicio_atividade;
+	public String getDataInicioAtividade() {
+		return dataInicioAtividade;
 	}
-	public void setData_inicio_atividade(String data_inicio_atividade) {
-		this.data_inicio_atividade = data_inicio_atividade;
+	public void setDataInicioAtividade(String dataInicioAtividade) {
+		this.dataInicioAtividade = dataInicioAtividade;
 	}
-	public String getData_situacao_especial() {
-		return data_situacao_especial;
+	public String getDataSituacaoEspecial() {
+		return dataSituacaoEspecial;
 	}
-	public void setData_situacao_especial(String data_situacao_especial) {
-		this.data_situacao_especial = data_situacao_especial;
+	public void setDataSituacaoEspecial(String dataSituacaoEspecial) {
+		this.dataSituacaoEspecial = dataSituacaoEspecial;
 	}
-	public String getData_opcao_pelo_simples() {
-		return data_opcao_pelo_simples;
+	public String getDataOpcaoPeloSimples() {
+		return dataOpcaoPeloSimples;
 	}
-	public void setData_opcao_pelo_simples(String data_opcao_pelo_simples) {
-		this.data_opcao_pelo_simples = data_opcao_pelo_simples;
+	public void setDataOpcaoPeloSimples(String dataOpcaoPeloSimples) {
+		this.dataOpcaoPeloSimples = dataOpcaoPeloSimples;
 	}
-	public String getData_situacao_cadastral() {
-		return data_situacao_cadastral;
+	public String getDataSituacaoCadastral() {
+		return dataSituacaoCadastral;
 	}
-	public void setData_situacao_cadastral(String data_situacao_cadastral) {
-		this.data_situacao_cadastral = data_situacao_cadastral;
+	public void setDataSituacaoCadastral(String dataSituacaoCadastral) {
+		this.dataSituacaoCadastral = dataSituacaoCadastral;
 	}
-	public String getNome_cidade_no_exterior() {
-		return nome_cidade_no_exterior;
+	public String getNomeCidadeNoExterior() {
+		return nomeCidadeNoExterior;
 	}
-	public void setNome_cidade_no_exterior(String nome_cidade_no_exterior) {
-		this.nome_cidade_no_exterior = nome_cidade_no_exterior;
+	public void setNomeCidadeNoExterior(String nomeCidadeNoExterior) {
+		this.nomeCidadeNoExterior = nomeCidadeNoExterior;
 	}
-	public Integer getCodigo_natureza_juridica() {
-		return codigo_natureza_juridica;
+	public Integer getCodigoNaturezaJuridica() {
+		return codigoNaturezaJuridica;
 	}
-	public void setCodigo_natureza_juridica(Integer codigo_natureza_juridica) {
-		this.codigo_natureza_juridica = codigo_natureza_juridica;
+	public void setCodigoNaturezaJuridica(Integer codigoNaturezaJuridica) {
+		this.codigoNaturezaJuridica = codigoNaturezaJuridica;
 	}
-	public String getData_exclusao_do_simples() {
-		return data_exclusao_do_simples;
+	public String getDataExclusaoDoSimples() {
+		return dataExclusaoDoSimples;
 	}
-	public void setData_exclusao_do_simples(String data_exclusao_do_simples) {
-		this.data_exclusao_do_simples = data_exclusao_do_simples;
+	public void setDataExclusaoDoSimples(String dataExclusaoDoSimples) {
+		this.dataExclusaoDoSimples = dataExclusaoDoSimples;
 	}
-	public Integer getMotivo_situacao_cadastral() {
-		return motivo_situacao_cadastral;
+	public Integer getMotivoSituacaoCadastral() {
+		return motivoSituacaoCadastral;
 	}
-	public void setMotivo_situacao_cadastral(Integer motivo_situacao_cadastral) {
-		this.motivo_situacao_cadastral = motivo_situacao_cadastral;
+	public void setMotivoSituacaoCadastral(Integer motivoSituacaoCadastral) {
+		this.motivoSituacaoCadastral = motivoSituacaoCadastral;
 	}
-	public String getEnte_federativo_responsavel() {
-		return ente_federativo_responsavel;
+	public String getEnteFederativoResponsavel() {
+		return enteFederativoResponsavel;
 	}
-	public void setEnte_federativo_responsavel(String ente_federativo_responsavel) {
-		this.ente_federativo_responsavel = ente_federativo_responsavel;
+	public void setEnteFederativoResponsavel(String enteFederativoResponsavel) {
+		this.enteFederativoResponsavel = enteFederativoResponsavel;
 	}
-	public Integer getIdentificador_matriz_filial() {
-		return identificador_matriz_filial;
+	public Integer getIdentificadorMatrizFilial() {
+		return identificadorMatrizFilial;
 	}
-	public void setIdentificador_matriz_filial(Integer identificador_matriz_filial) {
-		this.identificador_matriz_filial = identificador_matriz_filial;
+	public void setIdentificadorMatrizFilial(Integer identificadorMatrizFilial) {
+		this.identificadorMatrizFilial = identificadorMatrizFilial;
 	}
-	public Integer getQualificacao_do_responsavel() {
-		return qualificacao_do_responsavel;
+	public Integer getQualificacaoDoResponsavel() {
+		return qualificacaoDoResponsavel;
 	}
-	public void setQualificacao_do_responsavel(Integer qualificacao_do_responsavel) {
-		this.qualificacao_do_responsavel = qualificacao_do_responsavel;
+	public void setQualificacaoDoResponsavel(Integer qualificacaoDoResponsavel) {
+		this.qualificacaoDoResponsavel = qualificacaoDoResponsavel;
 	}
-	public String getDescricao_situacao_cadastral() {
-		return descricao_situacao_cadastral;
+	public String getDescricaoSituacaoCadastral() {
+		return descricaoSituacaoCadastral;
 	}
-	public void setDescricao_situacao_cadastral(String descricao_situacao_cadastral) {
-		this.descricao_situacao_cadastral = descricao_situacao_cadastral;
+	public void setDescricaoSituacaoCadastral(String descricaoSituacaoCadastral) {
+		this.descricaoSituacaoCadastral = descricaoSituacaoCadastral;
 	}
-	public String getDescricao_tipo_de_logradouro() {
-		return descricao_tipo_de_logradouro;
+	public String getDescricaoTipoDeLogradouro() {
+		return descricaoTipoDeLogradouro;
 	}
-	public void setDescricao_tipo_de_logradouro(String descricao_tipo_de_logradouro) {
-		this.descricao_tipo_de_logradouro = descricao_tipo_de_logradouro;
+	public void setDescricaoTipoDeLogradouro(String descricaoTipoDeLogradouro) {
+		this.descricaoTipoDeLogradouro = descricaoTipoDeLogradouro;
 	}
-	public String getDescricao_motivo_situacao_cadastral() {
-		return descricao_motivo_situacao_cadastral;
+	public String getDescricaoMotivoSituacaoCadastral() {
+		return descricaoMotivoSituacaoCadastral;
 	}
-	public void setDescricao_motivo_situacao_cadastral(String descricao_motivo_situacao_cadastral) {
-		this.descricao_motivo_situacao_cadastral = descricao_motivo_situacao_cadastral;
+	public void setDescricaoMotivoSituacaoCadastral(String descricaoMotivoSituacaoCadastral) {
+		this.descricaoMotivoSituacaoCadastral = descricaoMotivoSituacaoCadastral;
 	}
-	public String getDescricao_identificador_matriz_filial() {
-		return descricao_identificador_matriz_filial;
+	public String getDescricaoIdentificadorMatrizFilial() {
+		return descricaoIdentificadorMatrizFilial;
 	}
-	public void setDescricao_identificador_matriz_filial(String descricao_identificador_matriz_filial) {
-		this.descricao_identificador_matriz_filial = descricao_identificador_matriz_filial;
-	}
-	@Override
-	public String toString() {
-		return "Cnpj [uf=" + uf + ", cep=" + cep + ", qsa=" + Arrays.toString(qsa) + ", cnpj=" + cnpj + ", pais=" + pais
-				+ ", email=" + email + ", porte=" + porte + ", bairro=" + bairro + ", numero=" + numero + ", ddd_fax="
-				+ ddd_fax + ", municipio=" + municipio + ", logradouro=" + logradouro + ", cnae_fiscal=" + cnae_fiscal
-				+ ", codigo_pais=" + codigo_pais + ", complemento=" + complemento + ", codigo_porte=" + codigo_porte
-				+ ", razao_social=" + razao_social + ", nome_fantasia=" + nome_fantasia + ", capital_social="
-				+ capital_social + ", ddd_telefone_1=" + ddd_telefone_1 + ", ddd_telefone_2=" + ddd_telefone_2
-				+ ", opcao_pelo_mei=" + opcao_pelo_mei + ", descricao_porte=" + descricao_porte + ", codigo_municipio="
-				+ codigo_municipio + ", cnaes_secundarios=" + Arrays.toString(cnaes_secundarios)
-				+ ", natureza_juridica=" + natureza_juridica + ", situacao_especial=" + situacao_especial
-				+ ", opcao_pelo_simples=" + opcao_pelo_simples + ", situacao_cadastral=" + situacao_cadastral
-				+ ", data_opcao_pelo_mei=" + data_opcao_pelo_mei + ", data_exclusao_do_mei=" + data_exclusao_do_mei
-				+ ", cnae_fiscal_descricao=" + cnae_fiscal_descricao + ", codigo_municipio_ibge="
-				+ codigo_municipio_ibge + ", data_inicio_atividade=" + data_inicio_atividade
-				+ ", data_situacao_especial=" + data_situacao_especial + ", data_opcao_pelo_simples="
-				+ data_opcao_pelo_simples + ", data_situacao_cadastral=" + data_situacao_cadastral
-				+ ", nome_cidade_no_exterior=" + nome_cidade_no_exterior + ", codigo_natureza_juridica="
-				+ codigo_natureza_juridica + ", data_exclusao_do_simples=" + data_exclusao_do_simples
-				+ ", motivo_situacao_cadastral=" + motivo_situacao_cadastral + ", ente_federativo_responsavel="
-				+ ente_federativo_responsavel + ", identificador_matriz_filial=" + identificador_matriz_filial
-				+ ", qualificacao_do_responsavel=" + qualificacao_do_responsavel + ", descricao_situacao_cadastral="
-				+ descricao_situacao_cadastral + ", descricao_tipo_de_logradouro=" + descricao_tipo_de_logradouro
-				+ ", descricao_motivo_situacao_cadastral=" + descricao_motivo_situacao_cadastral
-				+ ", descricao_identificador_matriz_filial=" + descricao_identificador_matriz_filial + "]";
+	public void setDescricaoIdentificadorMatrizFilial(String descricaoIdentificadorMatrizFilial) {
+		this.descricaoIdentificadorMatrizFilial = descricaoIdentificadorMatrizFilial;
 	}
 	
+	@Override
+	public String toString() {
+		return "CNPJ [uf=" + uf + ", cep=" + cep + ", qsa=" + qsa + ", cnpj=" + cnpj + ", pais=" + pais + ", email="
+				+ email + ", porte=" + porte + ", bairro=" + bairro + ", numero=" + numero + ", dddFax=" + dddFax
+				+ ", municipio=" + municipio + ", logradouro=" + logradouro + ", cnaeFiscal=" + cnaeFiscal
+				+ ", codigoPais=" + codigoPais + ", complemento=" + complemento + ", codigoPorte=" + codigoPorte
+				+ ", razaoSocial=" + razaoSocial + ", nomeFantasia=" + nomeFantasia + ", capitalSocial=" + capitalSocial
+				+ ", dddTelefone1=" + dddTelefone1 + ", dddTelefone2=" + dddTelefone2 + ", opcaoPeloMei=" + opcaoPeloMei
+				+ ", descricaoPorte=" + descricaoPorte + ", codigoMunicipio=" + codigoMunicipio + ", cnaesSecundarios="
+				+ cnaesSecundarios + ", naturezaJuridica=" + naturezaJuridica + ", situacaoEspecial=" + situacaoEspecial
+				+ ", opcaoPeloSimples=" + opcaoPeloSimples + ", situacaoCadastral=" + situacaoCadastral
+				+ ", dataOpcaoPeloMei=" + dataOpcaoPeloMei + ", dataExclusaoDoMei=" + dataExclusaoDoMei
+				+ ", cnaeFiscalDescricao=" + cnaeFiscalDescricao + ", codigoMunicipioIbge=" + codigoMunicipioIbge
+				+ ", dataInicioAtividade=" + dataInicioAtividade + ", dataSituacaoEspecial=" + dataSituacaoEspecial
+				+ ", dataOpcaoPeloSimples=" + dataOpcaoPeloSimples + ", dataSituacaoCadastral=" + dataSituacaoCadastral
+				+ ", nomeCidadeNoExterior=" + nomeCidadeNoExterior + ", codigoNaturezaJuridica="
+				+ codigoNaturezaJuridica + ", dataExclusaoDoSimples=" + dataExclusaoDoSimples
+				+ ", motivoSituacaoCadastral=" + motivoSituacaoCadastral + ", enteFederativoResponsavel="
+				+ enteFederativoResponsavel + ", identificadorMatrizFilial=" + identificadorMatrizFilial
+				+ ", qualificacaoDoResponsavel=" + qualificacaoDoResponsavel + ", descricaoSituacaoCadastral="
+				+ descricaoSituacaoCadastral + ", descricaoTipoDeLogradouro=" + descricaoTipoDeLogradouro
+				+ ", descricaoMotivoSituacaoCadastral=" + descricaoMotivoSituacaoCadastral
+				+ ", descricaoIdentificadorMatrizFilial=" + descricaoIdentificadorMatrizFilial + "]";
+	}
 	
 	
 }

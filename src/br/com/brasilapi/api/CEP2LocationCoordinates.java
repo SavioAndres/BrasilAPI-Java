@@ -1,10 +1,10 @@
 package br.com.brasilapi.api;
 
-public class CepLocationCoordinates {
+public class CEP2LocationCoordinates {
 	private String longitude;
 	private String latitude;
 	
-	public CepLocationCoordinates(String longitude, String latitude) {
+	public CEP2LocationCoordinates(String longitude, String latitude) {
 		super();
 		this.longitude = longitude;
 		this.latitude = latitude;

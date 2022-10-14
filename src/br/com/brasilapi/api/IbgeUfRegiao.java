@@ -1,11 +1,11 @@
 package br.com.brasilapi.api;
 
-public class IbgeUfRegiao {
+public class IBGEUFRegiao {
 	private int id;
 	private String sigla;
 	private String nome;
 	
-	public IbgeUfRegiao(int id, String sigla, String nome) {
+	public IBGEUFRegiao(int id, String sigla, String nome) {
 		super();
 		this.id = id;
 		this.sigla = sigla;

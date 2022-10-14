@@ -1,10 +1,10 @@
 package br.com.brasilapi.api;
 
-public class IbgeMunicipios {
+public class IBGEMunicipios {
 	private String nome;
 	private String codigo_ibge;
 	
-	public IbgeMunicipios(String nome, String codigo_ibge) {
+	public IBGEMunicipios(String nome, String codigo_ibge) {
 		super();
 		this.nome = nome;
 		this.codigo_ibge = codigo_ibge;

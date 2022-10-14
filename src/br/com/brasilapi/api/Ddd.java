@@ -1,15 +1,12 @@
 package br.com.brasilapi.api;
 
-import java.util.Arrays;
 import java.util.List;
 
-public class Ddd {
+public class DDD {
 	private String state;
 	private List<String> cities;
-	
-	
 
-	public Ddd(String state, List<String> cities) {
+	public DDD(String state, List<String> cities) {
 		super();
 		this.state = state;
 		this.cities = cities;

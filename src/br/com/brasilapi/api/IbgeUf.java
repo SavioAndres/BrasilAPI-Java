@@ -1,12 +1,12 @@
 package br.com.brasilapi.api;
 
-public class IbgeUf {
+public class IBGEUF {
 	private int id;
 	private String sigla;
 	private String nome;
-	private IbgeUfRegiao regiao;
+	private IBGEUFRegiao regiao;
 	
-	public IbgeUf(int id, String sigla, String nome, IbgeUfRegiao regiao) {
+	public IBGEUF(int id, String sigla, String nome, IBGEUFRegiao regiao) {
 		super();
 		this.id = id;
 		this.sigla = sigla;
@@ -31,10 +31,10 @@ public class IbgeUf {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public IbgeUfRegiao getRegiao() {
+	public IBGEUFRegiao getRegiao() {
 		return regiao;
 	}
-	public void setRegiao(IbgeUfRegiao regiao) {
+	public void setRegiao(IBGEUFRegiao regiao) {
 		this.regiao = regiao;
 	}
 	@Override
