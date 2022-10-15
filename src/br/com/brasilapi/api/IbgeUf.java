@@ -1,22 +1,22 @@
 package br.com.brasilapi.api;
 
-public class IBGEUF {
-	private int id;
+public class IBGEUF implements Cloneable {
+	private Integer id;
 	private String sigla;
 	private String nome;
 	private IBGEUFRegiao regiao;
 	
-	public IBGEUF(int id, String sigla, String nome, IBGEUFRegiao regiao) {
+	public IBGEUF(Integer id, String sigla, String nome, IBGEUFRegiao regiao) {
 		super();
 		this.id = id;
 		this.sigla = sigla;
 		this.nome = nome;
 		this.regiao = regiao;
 	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getSigla() {
@@ -42,5 +42,8 @@ public class IBGEUF {
 		return "IbgeUf [id=" + id + ", sigla=" + sigla + ", nome=" + nome + ", regiao=" + regiao + "]";
 	}
 	
-	
+	@Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 }
