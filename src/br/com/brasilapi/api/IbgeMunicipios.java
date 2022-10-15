@@ -1,30 +1,27 @@
 package br.com.brasilapi.api;
 
-public class IBGEMunicipios {
+import com.google.gson.annotations.SerializedName;
+
+public class IBGEMunicipios extends API {
 	private String nome;
-	private String codigo_ibge;
+	@SerializedName("codigo_ibge")
+	private String codigoIbge;
 	
-	public IBGEMunicipios(String nome, String codigo_ibge) {
-		super();
-		this.nome = nome;
-		this.codigo_ibge = codigo_ibge;
-	}
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getCodigo_ibge() {
-		return codigo_ibge;
+	public String getCodigoIbge() {
+		return codigoIbge;
 	}
-	public void setCodigo_ibge(String codigo_ibge) {
-		this.codigo_ibge = codigo_ibge;
+	public void setCodigoIbge(String codigoIbge) {
+		this.codigoIbge = codigoIbge;
 	}
 	@Override
 	public String toString() {
-		return "IBGEMunicipios [nome=" + nome + ", codigo_ibge=" + codigo_ibge + "]";
+		return "IBGEMunicipios [nome=" + nome + ", codigoIbge=" + codigoIbge + "]";
 	}
-	
 	
 }

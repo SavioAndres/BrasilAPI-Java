@@ -1,16 +1,10 @@
 package br.com.brasilapi.api;
 
-import java.util.List;
+import java.util.Arrays;
 
-public class DDD {
+public class DDD extends API {
 	private String state;
-	private List<String> cities;
-
-	public DDD(String state, List<String> cities) {
-		super();
-		this.state = state;
-		this.cities = cities;
-	}
+	private String[] cities;
 
 	public String getState() {
 		return state;
@@ -20,19 +14,18 @@ public class DDD {
 		this.state = state;
 	}
 
-	public List<String> getCities() {
+	public String[] getCities() {
 		return cities;
 	}
 
-	public void setCities(List<String> cities) {
+	public void setCities(String[] cities) {
 		this.cities = cities;
 	}
 
 	@Override
 	public String toString() {
-		return "Ddd [state=" + state + ", cities=" + cities + "]";
+		return "DDD [state=" + state + ", cities=" + Arrays.toString(cities) + "]";
 	}
-
 	
 	
 }

@@ -4,12 +4,6 @@ public class CNPJCnaesSecundario {
 	private Long codigo;
 	private String descricao;
 	
-	public CNPJCnaesSecundario(Long codigo, String descricao) {
-		super();
-		this.codigo = codigo;
-		this.descricao = descricao;
-	}
-
 	public Long getCodigo() {
 		return codigo;
 	}

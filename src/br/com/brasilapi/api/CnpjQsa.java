@@ -7,7 +7,7 @@ public class CNPJQsa {
 	@SerializedName("nome_socio")
 	private String nomeSocio;
 	@SerializedName("codigo_pais")
-	private int codigoPais;
+	private Integer codigoPais;
 	@SerializedName("faixa_etaria")
 	private String faixaEtaria;
 	@SerializedName("cnpj_cpf_do_socio")
@@ -15,21 +15,22 @@ public class CNPJQsa {
 	@SerializedName("qualificacao_socio")
 	private String qualificacaoSocio;
 	@SerializedName("codigo_faixa_etaria")
-	private int codigoFaixaEtaria;
+	private Integer codigoFaixaEtaria;
 	@SerializedName("data_entrada_sociedade")
 	private String dataEntradaSociedade;
 	@SerializedName("identificador_de_socio")
-	private int identificadorDeSocio;
+	private Integer identificadorDeSocio;
 	@SerializedName("cpf_representante_legal")
 	private String cpfRepresentanteLegal;
 	@SerializedName("nome_representante_legal")
 	private String nomeRepresentanteLegal;
 	@SerializedName("codigo_qualificacao_socio")
-	private int codigoQualificacaoSocio;
+	private Integer codigoQualificacaoSocio;
 	@SerializedName("qualificacao_representante_legal")
 	private String qualificacaoRepresentanteLegal;
 	@SerializedName("codigo_qualificacao_representante_legal")
-	private int codigoQualificacaoRepresentanteLegal;
+	private Integer codigoQualificacaoRepresentanteLegal;
+	
 	public String getPais() {
 		return pais;
 	}
@@ -42,10 +43,10 @@ public class CNPJQsa {
 	public void setNomeSocio(String nomeSocio) {
 		this.nomeSocio = nomeSocio;
 	}
-	public int getCodigoPais() {
+	public Integer getCodigoPais() {
 		return codigoPais;
 	}
-	public void setCodigoPais(int codigoPais) {
+	public void setCodigoPais(Integer codigoPais) {
 		this.codigoPais = codigoPais;
 	}
 	public String getFaixaEtaria() {
@@ -66,10 +67,10 @@ public class CNPJQsa {
 	public void setQualificacaoSocio(String qualificacaoSocio) {
 		this.qualificacaoSocio = qualificacaoSocio;
 	}
-	public int getCodigoFaixaEtaria() {
+	public Integer getCodigoFaixaEtaria() {
 		return codigoFaixaEtaria;
 	}
-	public void setCodigoFaixaEtaria(int codigoFaixaEtaria) {
+	public void setCodigoFaixaEtaria(Integer codigoFaixaEtaria) {
 		this.codigoFaixaEtaria = codigoFaixaEtaria;
 	}
 	public String getDataEntradaSociedade() {
@@ -78,10 +79,10 @@ public class CNPJQsa {
 	public void setDataEntradaSociedade(String dataEntradaSociedade) {
 		this.dataEntradaSociedade = dataEntradaSociedade;
 	}
-	public int getIdentificadorDeSocio() {
+	public Integer getIdentificadorDeSocio() {
 		return identificadorDeSocio;
 	}
-	public void setIdentificadorDeSocio(int identificadorDeSocio) {
+	public void setIdentificadorDeSocio(Integer identificadorDeSocio) {
 		this.identificadorDeSocio = identificadorDeSocio;
 	}
 	public String getCpfRepresentanteLegal() {
@@ -96,10 +97,10 @@ public class CNPJQsa {
 	public void setNomeRepresentanteLegal(String nomeRepresentanteLegal) {
 		this.nomeRepresentanteLegal = nomeRepresentanteLegal;
 	}
-	public int getCodigoQualificacaoSocio() {
+	public Integer getCodigoQualificacaoSocio() {
 		return codigoQualificacaoSocio;
 	}
-	public void setCodigoQualificacaoSocio(int codigoQualificacaoSocio) {
+	public void setCodigoQualificacaoSocio(Integer codigoQualificacaoSocio) {
 		this.codigoQualificacaoSocio = codigoQualificacaoSocio;
 	}
 	public String getQualificacaoRepresentanteLegal() {
@@ -108,10 +109,10 @@ public class CNPJQsa {
 	public void setQualificacaoRepresentanteLegal(String qualificacaoRepresentanteLegal) {
 		this.qualificacaoRepresentanteLegal = qualificacaoRepresentanteLegal;
 	}
-	public int getCodigoQualificacaoRepresentanteLegal() {
+	public Integer getCodigoQualificacaoRepresentanteLegal() {
 		return codigoQualificacaoRepresentanteLegal;
 	}
-	public void setCodigoQualificacaoRepresentanteLegal(int codigoQualificacaoRepresentanteLegal) {
+	public void setCodigoQualificacaoRepresentanteLegal(Integer codigoQualificacaoRepresentanteLegal) {
 		this.codigoQualificacaoRepresentanteLegal = codigoQualificacaoRepresentanteLegal;
 	}
 	@Override

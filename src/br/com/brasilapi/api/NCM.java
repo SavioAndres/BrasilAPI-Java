@@ -1,14 +1,20 @@
 package br.com.brasilapi.api;
 
-public class NCM {
+import com.google.gson.annotations.SerializedName;
+
+public class NCM extends API {
 	private String codigo;
 	private String descricao;
-	private String data_inicio;
-	private String data_fim;
-	private String tipo_ato;
-	private String numero_ato;
-	private String ano_ato;
-	
+	@SerializedName("data_inicio")
+	private String dataInicio;
+	@SerializedName("data_fim")
+	private String dataFim;
+	@SerializedName("tipo_ato")
+	private String tipoAto;
+	@SerializedName("numero_ato")
+	private String numeroAto;
+	@SerializedName("ano_ato")
+	private String anoAto;
 	public String getCodigo() {
 		return codigo;
 	}
@@ -22,40 +28,39 @@ public class NCM {
 		this.descricao = descricao;
 	}
 	public String getDataInicio() {
-		return data_inicio;
+		return dataInicio;
 	}
 	public void setDataInicio(String dataInicio) {
-		this.data_inicio = dataInicio;
+		this.dataInicio = dataInicio;
 	}
 	public String getDataFim() {
-		return data_fim;
+		return dataFim;
 	}
 	public void setDataFim(String dataFim) {
-		this.data_fim = dataFim;
+		this.dataFim = dataFim;
 	}
-	public String getTipo_ato() {
-		return tipo_ato;
+	public String getTipoAto() {
+		return tipoAto;
 	}
 	public void setTipoAto(String tipoAto) {
-		this.tipo_ato = tipoAto;
+		this.tipoAto = tipoAto;
 	}
 	public String getNumeroAto() {
-		return numero_ato;
+		return numeroAto;
 	}
 	public void setNumeroAto(String numeroAto) {
-		this.numero_ato = numeroAto;
+		this.numeroAto = numeroAto;
 	}
 	public String getAnoAto() {
-		return ano_ato;
+		return anoAto;
 	}
 	public void setAnoAto(String anoAto) {
-		this.ano_ato = anoAto;
+		this.anoAto = anoAto;
 	}
 	@Override
 	public String toString() {
-		return "NCM [codigo=" + codigo + ", descricao=" + descricao + ", data_inicio=" + data_inicio + ", data_fim="
-				+ data_fim + ", tipo_ato=" + tipo_ato + ", numero_ato=" + numero_ato + ", ano_ato=" + ano_ato + "]";
+		return "NCM [codigo=" + codigo + ", descricao=" + descricao + ", dataInicio=" + dataInicio + ", dataFim="
+				+ dataFim + ", tipoAto=" + tipoAto + ", numeroAto=" + numeroAto + ", anoAto=" + anoAto + "]";
 	}
-	
 	
 }

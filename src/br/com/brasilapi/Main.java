@@ -40,6 +40,7 @@ public class Main {
 //		IBGEUF rr4 = brasilAPI.ibgeUf("SE");
 //		System.out.println(rr4);
 		BrasilAPI.setEnableCache(true);
+		BrasilAPI.setCacheTime(60000L);
 		IBGEUF obg = BrasilAPI.ibgeUf("SE");
 		obg.setNome("AAA");
 		
@@ -59,8 +60,8 @@ public class Main {
 		System.out.println(obg5);
 		
 		
-		IBGEMunicipios[] mu = BrasilAPI.ibgeMunicipios("SE");
-		System.out.println(mu[0]);
+//		IBGEMunicipios[] mu = BrasilAPI.ibgeMunicipios("SE");
+//		System.out.println(mu[0]);
 		
 		IBGEUF obg6 = BrasilAPI.ibgeUf("SE");
 		

@@ -1,22 +1,26 @@
 package br.com.brasilapi.api;
 
-public class CEP {
+/**
+ * Classe CEP. Representa o CEP com seus atributos.
+ * 
+ * O CEP (Código de Endereçamento Postal) é um sistema de códigos que 
+ * visa racionalizar o processo de encaminhamento e entrega de 
+ * correspondências através da divisão do país em regiões postais. ... 
+ * Atualmente, o CEP é composto por oito dígitos, cinco de um lado e 
+ * três de outro. Cada algarismo do CEP possui um significado.
+ * 
+ * @version 1
+ * @author Sávio Andres
+ * @see br.com.brasilapi.api.CEP2
+ * @see <a href="https://brasilapi.com.br/docs#tag/CEP">https://brasilapi.com.br/docs#tag/CEP</a>
+ */
+public class CEP extends API {
 	private String cep;
 	private String state;
 	private String city;
 	private String neighborhood;
 	private String street;
 	private String service;
-	
-	public CEP(String cep, String state, String city, String neighborhood, String street, String service) {
-		super();
-		this.cep = cep;
-		this.state = state;
-		this.city = city;
-		this.neighborhood = neighborhood;
-		this.street = street;
-		this.service = service;
-	}
 	
 	public String getCep() {
 		return cep;

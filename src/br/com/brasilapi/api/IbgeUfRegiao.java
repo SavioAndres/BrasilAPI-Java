@@ -1,20 +1,14 @@
 package br.com.brasilapi.api;
 
 public class IBGEUFRegiao {
-	private int id;
+	private Integer id;
 	private String sigla;
 	private String nome;
 	
-	public IBGEUFRegiao(int id, String sigla, String nome) {
-		super();
-		this.id = id;
-		this.sigla = sigla;
-		this.nome = nome;
-	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getSigla() {

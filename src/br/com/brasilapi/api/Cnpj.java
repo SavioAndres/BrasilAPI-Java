@@ -1,13 +1,22 @@
 package br.com.brasilapi.api;
 
-import java.util.List;
+import java.util.Arrays;
 
 import com.google.gson.annotations.SerializedName;
 
-public class CNPJ {
+/**
+ * O Cadastro Nacional da Pessoa Jurídica é um número único que 
+ * identifica uma pessoa jurídica e outros tipos de arranjo 
+ * jurídico sem personalidade jurídica junto à Receita Federal.
+ * 
+ * @version 1
+ * @author Sávio Andres
+ * @see <a href="https://brasilapi.com.br/docs#tag/CNPJ">https://brasilapi.com.br/docs#tag/CNPJ</a>
+ */
+public class CNPJ extends API {
 	private String uf;
 	private String cep;
-	private List<CNPJQsa> qsa;
+	private CNPJQsa[] qsa;
 	private String cnpj;
 	private String pais;
 	private String email;
@@ -42,7 +51,7 @@ public class CNPJ {
 	@SerializedName("codigo_municipio")
 	private Integer codigoMunicipio;
 	@SerializedName("cnaes_secundarios")
-	private List<CNPJCnaesSecundario> cnaesSecundarios;
+	private CNPJCnaesSecundario[] cnaesSecundarios;
 	@SerializedName("natureza_juridica")
 	private String naturezaJuridica;
 	@SerializedName("situacao_especial")
@@ -89,6 +98,7 @@ public class CNPJ {
 	private String descricaoMotivoSituacaoCadastral;
 	@SerializedName("descricao_identificador_matriz_filial")
 	private String descricaoIdentificadorMatrizFilial;
+	
 	public String getUf() {
 		return uf;
 	}
@@ -101,10 +111,10 @@ public class CNPJ {
 	public void setCep(String cep) {
 		this.cep = cep;
 	}
-	public List<CNPJQsa> getQsa() {
+	public CNPJQsa[] getQsa() {
 		return qsa;
 	}
-	public void setQsa(List<CNPJQsa> qsa) {
+	public void setQsa(CNPJQsa[] qsa) {
 		this.qsa = qsa;
 	}
 	public String getCnpj() {
@@ -233,10 +243,10 @@ public class CNPJ {
 	public void setCodigoMunicipio(Integer codigoMunicipio) {
 		this.codigoMunicipio = codigoMunicipio;
 	}
-	public List<CNPJCnaesSecundario> getCnaesSecundarios() {
+	public CNPJCnaesSecundario[] getCnaesSecundarios() {
 		return cnaesSecundarios;
 	}
-	public void setCnaesSecundarios(List<CNPJCnaesSecundario> cnaesSecundarios) {
+	public void setCnaesSecundarios(CNPJCnaesSecundario[] cnaesSecundarios) {
 		this.cnaesSecundarios = cnaesSecundarios;
 	}
 	public String getNaturezaJuridica() {
@@ -377,23 +387,22 @@ public class CNPJ {
 	public void setDescricaoIdentificadorMatrizFilial(String descricaoIdentificadorMatrizFilial) {
 		this.descricaoIdentificadorMatrizFilial = descricaoIdentificadorMatrizFilial;
 	}
-	
 	@Override
 	public String toString() {
-		return "CNPJ [uf=" + uf + ", cep=" + cep + ", qsa=" + qsa + ", cnpj=" + cnpj + ", pais=" + pais + ", email="
-				+ email + ", porte=" + porte + ", bairro=" + bairro + ", numero=" + numero + ", dddFax=" + dddFax
-				+ ", municipio=" + municipio + ", logradouro=" + logradouro + ", cnaeFiscal=" + cnaeFiscal
+		return "CNPJ [uf=" + uf + ", cep=" + cep + ", qsa=" + Arrays.toString(qsa) + ", cnpj=" + cnpj + ", pais=" + pais
+				+ ", email=" + email + ", porte=" + porte + ", bairro=" + bairro + ", numero=" + numero + ", dddFax="
+				+ dddFax + ", municipio=" + municipio + ", logradouro=" + logradouro + ", cnaeFiscal=" + cnaeFiscal
 				+ ", codigoPais=" + codigoPais + ", complemento=" + complemento + ", codigoPorte=" + codigoPorte
 				+ ", razaoSocial=" + razaoSocial + ", nomeFantasia=" + nomeFantasia + ", capitalSocial=" + capitalSocial
 				+ ", dddTelefone1=" + dddTelefone1 + ", dddTelefone2=" + dddTelefone2 + ", opcaoPeloMei=" + opcaoPeloMei
 				+ ", descricaoPorte=" + descricaoPorte + ", codigoMunicipio=" + codigoMunicipio + ", cnaesSecundarios="
-				+ cnaesSecundarios + ", naturezaJuridica=" + naturezaJuridica + ", situacaoEspecial=" + situacaoEspecial
-				+ ", opcaoPeloSimples=" + opcaoPeloSimples + ", situacaoCadastral=" + situacaoCadastral
-				+ ", dataOpcaoPeloMei=" + dataOpcaoPeloMei + ", dataExclusaoDoMei=" + dataExclusaoDoMei
-				+ ", cnaeFiscalDescricao=" + cnaeFiscalDescricao + ", codigoMunicipioIbge=" + codigoMunicipioIbge
-				+ ", dataInicioAtividade=" + dataInicioAtividade + ", dataSituacaoEspecial=" + dataSituacaoEspecial
-				+ ", dataOpcaoPeloSimples=" + dataOpcaoPeloSimples + ", dataSituacaoCadastral=" + dataSituacaoCadastral
-				+ ", nomeCidadeNoExterior=" + nomeCidadeNoExterior + ", codigoNaturezaJuridica="
+				+ Arrays.toString(cnaesSecundarios) + ", naturezaJuridica=" + naturezaJuridica + ", situacaoEspecial="
+				+ situacaoEspecial + ", opcaoPeloSimples=" + opcaoPeloSimples + ", situacaoCadastral="
+				+ situacaoCadastral + ", dataOpcaoPeloMei=" + dataOpcaoPeloMei + ", dataExclusaoDoMei="
+				+ dataExclusaoDoMei + ", cnaeFiscalDescricao=" + cnaeFiscalDescricao + ", codigoMunicipioIbge="
+				+ codigoMunicipioIbge + ", dataInicioAtividade=" + dataInicioAtividade + ", dataSituacaoEspecial="
+				+ dataSituacaoEspecial + ", dataOpcaoPeloSimples=" + dataOpcaoPeloSimples + ", dataSituacaoCadastral="
+				+ dataSituacaoCadastral + ", nomeCidadeNoExterior=" + nomeCidadeNoExterior + ", codigoNaturezaJuridica="
 				+ codigoNaturezaJuridica + ", dataExclusaoDoSimples=" + dataExclusaoDoSimples
 				+ ", motivoSituacaoCadastral=" + motivoSituacaoCadastral + ", enteFederativoResponsavel="
 				+ enteFederativoResponsavel + ", identificadorMatrizFilial=" + identificadorMatrizFilial
@@ -402,6 +411,8 @@ public class CNPJ {
 				+ ", descricaoMotivoSituacaoCadastral=" + descricaoMotivoSituacaoCadastral
 				+ ", descricaoIdentificadorMatrizFilial=" + descricaoIdentificadorMatrizFilial + "]";
 	}
+	
+	
 	
 	
 }

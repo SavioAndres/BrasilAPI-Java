@@ -1,6 +1,6 @@
 package br.com.brasilapi.api;
 
-public class FipePreco {
+public class FipePreco extends API {
 	private String valor;
 	private String marca;
 	private String modelo;
@@ -12,20 +12,6 @@ public class FipePreco {
 	private String siglaCombustivel;
 	private String dataConsulta;
 	
-	public FipePreco(String valor, String marca, String modelo, String anoModelo, String combustivel, String codigoFipe,
-			String mesReferencia, String tipoVeiculo, String siglaCombustivel, String dataConsulta) {
-		super();
-		this.valor = valor;
-		this.marca = marca;
-		this.modelo = modelo;
-		this.anoModelo = anoModelo;
-		this.combustivel = combustivel;
-		this.codigoFipe = codigoFipe;
-		this.mesReferencia = mesReferencia;
-		this.tipoVeiculo = tipoVeiculo;
-		this.siglaCombustivel = siglaCombustivel;
-		this.dataConsulta = dataConsulta;
-	}
 	public String getValor() {
 		return valor;
 	}

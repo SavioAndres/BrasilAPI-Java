@@ -4,11 +4,6 @@ public class CEP2Location {
 	private String type;
 	private CEP2LocationCoordinates coordinates;
 	
-	public CEP2Location(String type, CEP2LocationCoordinates coordinates) {
-		super();
-		this.type = type;
-		this.coordinates = coordinates;
-	}
 	public String getType() {
 		return type;
 	}

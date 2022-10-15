@@ -1,16 +1,9 @@
 package br.com.brasilapi.api;
 
-public class Feriados {
+public class Feriados extends API {
 	private String date;
 	private String name;
 	private String type;
-	
-	public Feriados(String date, String name, String type) {
-		super();
-		this.date = date;
-		this.name = name;
-		this.type = type;
-	}
 	
 	public String getDate() {
 		return date;

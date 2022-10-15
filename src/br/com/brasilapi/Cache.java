@@ -4,16 +4,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 class Cache {
-	protected static boolean enableCache = false;
-	protected static Long cacheTime = 10000L;
-	private static Map<EModels, Map<String, Object>> mapCache = new HashMap<>();
+	private static boolean enableCache = false;
+	private static Long startTime = System.currentTimeMillis();
+	private static Long cacheTime = 600000L;
+	private static Map<Class<?>, Map<String, Object>> mapCache = new HashMap<>();
 	
 	protected Cache() {
-		
 	}
 	
 	protected static void setEnableCache(boolean enableCache) {
 		Cache.enableCache = enableCache;
+	}
+	
+	protected static boolean getEnableCache() {
+		return Cache.enableCache;
 	}
 	
 	protected static void setCacheTime(Long time) {
@@ -21,21 +25,36 @@ class Cache {
 		Cache.cacheTime = time;
 	}
 	
-	protected static void setCache(EModels model, String code, Object obj) {
-		if (!mapCache.containsKey(model)) {
-			Map<String, Object> mapObj = new HashMap<>();
-			mapCache.put(model, mapObj);
-		}
-		
-		mapCache.get(model).put(code, obj);
+	protected static Long getCacheTime() {
+		return Cache.cacheTime;
 	}
 	
-	protected static Object getCache(EModels model, String code) {
-		if (!mapCache.containsKey(model)) {
+	protected static void setCache(Class<?> classAPIModel, String code, Object obj) {
+		updateCache();
+		
+		if (!mapCache.containsKey(classAPIModel)) {
+			Map<String, Object> mapObj = new HashMap<>();
+			mapCache.put(classAPIModel, mapObj);
+		}
+		
+		mapCache.get(classAPIModel).put(code, obj);
+	}
+	
+	protected static Object getCache(Class<?> classAPIModel, String code) {
+		updateCache();
+		
+		if (!mapCache.containsKey(classAPIModel)) {
 			return null;
 		}
 		
-		return mapCache.get(model).get(code);
+		return mapCache.get(classAPIModel).get(code);
+	}
+	
+	private static void updateCache() {
+		if (System.currentTimeMillis() - startTime > cacheTime) {
+			mapCache = new HashMap<>();
+			startTime = System.currentTimeMillis();
+		}
 	}
 	
 }

@@ -1,14 +1,9 @@
 package br.com.brasilapi.api;
 
-public class FipeMarcas {
+public class FipeMarcas extends API {
 	private String nome;
 	private String valor;
 	
-	public FipeMarcas(String nome, String valor) {
-		super();
-		this.nome = nome;
-		this.valor = valor;
-	}
 	public String getNome() {
 		return nome;
 	}

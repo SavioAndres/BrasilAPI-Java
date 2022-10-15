@@ -29,7 +29,7 @@ class Service {
 			conector.setRequestMethod("GET");
 			
 			if (conector.getResponseCode() != 200) {
-				System.out.print("ERROR... HTTP error code : " + conector.getResponseCode());
+				System.err.print("ERROR. HTTP error code: " + conector.getResponseCode());
 			}
 
 			BufferedReader br = new BufferedReader(new InputStreamReader((conector.getInputStream())));
@@ -37,7 +37,7 @@ class Service {
 			String output, retorno=""; 
 			 
 			while ((output = br.readLine()) != null) {
-				retorno+=output;
+				retorno += output;
 			}
 			
 			json = retorno;

@@ -1,22 +1,22 @@
 package br.com.brasilapi.api;
 
-import java.util.List;
+import java.util.Arrays;
 
 import com.google.gson.annotations.SerializedName;
 
-public class RegistroBR {
+public class RegistroBR extends API {
 	@SerializedName("status_code")
 	private Integer statusCode;
 	private String status;
 	private String fqdn;
 	private String fqdnace;
 	private Boolean exempt;
-	private List<String> hosts;
+	private String[] hosts;
 	@SerializedName("publication-status")
 	private String publicationStatus;
 	@SerializedName("expires-at")
 	private String expiresAt;
-	private List<String> suggestions;
+	private String[] suggestions;
 	
 	public Integer getStatusCode() {
 		return statusCode;
@@ -58,11 +58,11 @@ public class RegistroBR {
 		this.exempt = exempt;
 	}
 
-	public List<String> getHosts() {
+	public String[] getHosts() {
 		return hosts;
 	}
 
-	public void setHosts(List<String> hosts) {
+	public void setHosts(String[] hosts) {
 		this.hosts = hosts;
 	}
 
@@ -82,21 +82,21 @@ public class RegistroBR {
 		this.expiresAt = expiresAt;
 	}
 
-	public List<String> getSuggestions() {
+	public String[] getSuggestions() {
 		return suggestions;
 	}
 
-	public void setSuggestions(List<String> suggestions) {
+	public void setSuggestions(String[] suggestions) {
 		this.suggestions = suggestions;
 	}
 
 	@Override
 	public String toString() {
 		return "RegistroBR [statusCode=" + statusCode + ", status=" + status + ", fqdn=" + fqdn + ", fqdnace=" + fqdnace
-				+ ", exempt=" + exempt + ", hosts=" + hosts + ", publicationStatus=" + publicationStatus
-				+ ", expiresAt=" + expiresAt + ", suggestions=" + suggestions + "]";
+				+ ", exempt=" + exempt + ", hosts=" + Arrays.toString(hosts) + ", publicationStatus="
+				+ publicationStatus + ", expiresAt=" + expiresAt + ", suggestions=" + Arrays.toString(suggestions)
+				+ "]";
 	}
-	
 	
 	
 }
