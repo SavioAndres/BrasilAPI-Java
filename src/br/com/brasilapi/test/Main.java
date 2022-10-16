@@ -1,10 +1,12 @@
-package br.com.brasilapi;
+package br.com.brasilapi.test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import br.com.brasilapi.BrasilAPI;
 import br.com.brasilapi.api.CEP;
 import br.com.brasilapi.api.CEP2;
 import br.com.brasilapi.api.CNPJ;
@@ -39,25 +41,25 @@ public class Main {
 //		System.out.println(rr3);
 //		IBGEUF rr4 = brasilAPI.ibgeUf("SE");
 //		System.out.println(rr4);
-		BrasilAPI.setEnableCache(true);
-		BrasilAPI.setCacheTime(60000L);
+		//BrasilAPI.setEnableCache(true);
+		//BrasilAPI.setCacheTime(500L);
+		//BrasilAPI.setEnableLog(true);
 		IBGEUF obg = BrasilAPI.ibgeUf("SE");
 		obg.setNome("AAA");
 		
-		System.out.println(obg);
-		BrasilAPI.setEnableLog(false);
+		//System.out.println(obg);
 		IBGEUF obg2 = BrasilAPI.ibgeUf("SE");
 		
-		System.out.println(obg2);
+		//System.out.println(obg2);
 		IBGEUF obg3 = BrasilAPI.ibgeUf("SP");
 		
-		System.out.println(obg3);
+		//System.out.println(obg3);
 		IBGEUF obg4 = BrasilAPI.ibgeUf("SE");
 		obg4.setId(000000);
-		System.out.println(obg4);
+		//System.out.println(obg4);
 		IBGEUF obg5 = BrasilAPI.ibgeUf("SE");
 		
-		System.out.println(obg5);
+		//System.out.println(obg5);
 		
 		
 //		IBGEMunicipios[] mu = BrasilAPI.ibgeMunicipios("SE");
@@ -65,25 +67,26 @@ public class Main {
 		
 		IBGEUF obg6 = BrasilAPI.ibgeUf("SE");
 		
-		System.out.println(obg6);
+		//System.out.println(obg6);
 		IBGEUF obg7 = BrasilAPI.ibgeUf("SP");
 		
-		System.out.println(obg7);
+		//System.out.println(obg7);
 		
 		IBGEMunicipios[] mu2 = BrasilAPI.ibgeMunicipios("Sp");
-		System.out.println(mu2[0]);
+		//System.out.println(mu2[0]);
 		
 		
 		IBGEUF obg8 = BrasilAPI.ibgeUf("SE");
 		
-		System.out.println(obg8);
+		//System.out.println(obg8);
 		IBGEMunicipios[] mu3 = BrasilAPI.ibgeMunicipios("SE");
-		System.out.println(mu3[0]);
+		//System.out.println(mu3[0]);
 		IBGEUF obg9 = BrasilAPI.ibgeUf("SE");
 		
 		System.out.println(obg9);
 		//System.out.println(cnpj2);
 		//}
+		//System.out.println(Arrays.toString(BrasilAPI.ncm()));
 	}
 
 }

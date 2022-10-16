@@ -1,5 +1,11 @@
 package br.com.brasilapi.api;
 
+/**
+ * Informações sobre estados provenientes do IBGE.
+ * 
+ * @author Sávio Andres
+ * @see <a href="https://brasilapi.com.br/docs#tag/IBGE">https://brasilapi.com.br/docs#tag/IBGE</a>
+ */
 public class IBGEUF extends API {
 	private Integer id;
 	private String sigla;

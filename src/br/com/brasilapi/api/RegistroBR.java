@@ -4,6 +4,12 @@ import java.util.Arrays;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Avalia um dominio no registro.br
+ * 
+ * @author Sávio Andres
+ * @see https://brasilapi.com.br/docs#tag/REGISTRO-BR
+ */
 public class RegistroBR extends API {
 	@SerializedName("status_code")
 	private Integer statusCode;

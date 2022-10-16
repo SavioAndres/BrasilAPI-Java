@@ -7,13 +7,17 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 
 class Service {
-	protected static boolean enableLog = false;
+	private static boolean enableLog = false;
 	
 	protected Service() {
 	}
 	
 	protected static void setEnableLog(boolean enableLog) {
 		Service.enableLog = enableLog;
+	}
+	
+	protected static boolean getEnableLog() {
+		return Service.enableLog;
 	}
 	
 	protected static String connection(String urlParameter, String code) {
@@ -23,6 +27,10 @@ class Service {
 			code = code.replaceAll("/","");
 			
 			URL url = new URL("https://brasilapi.com.br/api/" + urlParameter + code);
+			
+			if (Service.enableLog) {
+				System.out.println("Acessando: " + url);
+			}
 			
 			HttpsURLConnection conector = (HttpsURLConnection) url.openConnection();
 			conector.setDoOutput(true);
@@ -43,7 +51,7 @@ class Service {
 			json = retorno;
 			
 			if (Service.enableLog) {
-				System.out.println(json);
+				System.out.println("Json retornado: " + json);
 			}
 
 			conector.disconnect();

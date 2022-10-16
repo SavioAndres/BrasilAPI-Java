@@ -35,6 +35,9 @@ class Cache {
 		if (!mapCache.containsKey(classAPIModel)) {
 			Map<String, Object> mapObj = new HashMap<>();
 			mapCache.put(classAPIModel, mapObj);
+			if (Service.getEnableLog()) {
+				System.out.println("Salvo em Cache.");
+			}
 		}
 		
 		mapCache.get(classAPIModel).put(code, obj);
@@ -47,13 +50,26 @@ class Cache {
 			return null;
 		}
 		
-		return mapCache.get(classAPIModel).get(code);
+		Object obj = mapCache.get(classAPIModel).get(code);
+		
+		if (obj != null) {
+			if (Service.getEnableLog()) {
+				System.out.println("Obtido do Cache.");
+			}
+			return obj;
+		}
+		
+		return null;
 	}
 	
 	private static void updateCache() {
 		if (System.currentTimeMillis() - startTime > cacheTime) {
 			mapCache = new HashMap<>();
 			startTime = System.currentTimeMillis();
+			
+			if (Service.getEnableLog()) {
+				System.out.println("Tempo de " + cacheTime + " milissegundos excedido. Cache limpo.");
+			}
 		}
 	}
 	

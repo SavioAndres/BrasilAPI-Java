@@ -2,6 +2,12 @@ package br.com.brasilapi.api;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Informações sobre municípios provenientes do IBGE.
+ * 
+ * @author Sávio Andres
+ * @see <a href="https://brasilapi.com.br/docs#tag/IBGE">https://brasilapi.com.br/docs#tag/IBGE</a>
+ */
 public class IBGEMunicipios extends API {
 	private String nome;
 	@SerializedName("codigo_ibge")
