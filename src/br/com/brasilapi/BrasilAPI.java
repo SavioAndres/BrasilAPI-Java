@@ -217,7 +217,33 @@ public class BrasilAPI {
 		IBGEMunicipios[] obj = (IBGEMunicipios[]) api(
 				IBGEMunicipios[].class, 
 				"ibge/municipios/v1/", 
-				siglaUF + "?providers=dados-abertos-br,gov,wikipedia");
+				siglaUF);
+		return (IBGEMunicipios[]) obj.clone();
+	}
+	
+	/**
+	 * Informações sobre municípios de determinado estados provenientes do IBGE.
+	 * 
+	 * @param siglaUF Sigla da unidade federativa, por exemplo: SP, RJ, SC, etc.
+	 * @param providers Array de String. Provedores dos dados. 
+	 * Provedores disponíves: dados-abertos-br, gov, wikipedia.
+	 * @return Array de {@link IBGEMunicipios}
+	 * @see <a href="https://brasilapi.com.br/docs#tag/IBGE">https://brasilapi.com.br/docs#tag/IBGE</a>
+	 */
+	public static IBGEMunicipios[] ibgeMunicipios(String siglaUF, String[] providers) {
+		String providesParameter = "?providers=dados-abertos-br,gov,wikipedia";
+		if (providers != null) {
+			providesParameter = "?providers=";
+			for (String provider : providers) {
+				providesParameter += provider + ",";
+			}
+			providesParameter = providesParameter.substring(0, providesParameter.length() - 1);
+		}
+		
+		IBGEMunicipios[] obj = (IBGEMunicipios[]) api(
+				IBGEMunicipios[].class, 
+				"ibge/municipios/v1/", 
+				siglaUF + providesParameter);
 		return (IBGEMunicipios[]) obj.clone();
 	}
 	
@@ -299,6 +325,24 @@ public class BrasilAPI {
 	public static Taxas taxas(String sigla) {
 		Taxas obj = (Taxas) api(Taxas.class, "taxas/v1/", sigla);
 		return (Taxas) obj.clone();
+	}
+	
+	/**
+	 * 
+	 * @param classe
+	 * @param parametro
+	 * @return
+	 */
+	public static Object setAPI(Class<?> classe, String parametro) {
+		String[] parametros = parametro.split("/");
+		String code = parametros[parametros.length - 1];
+		parametro = "";
+		
+		for (int i = 0; i < parametros.length - 1; i++) {
+			parametro += parametros[i] + "/";
+		}
+		
+		return api(classe, parametro, code);
 	}
 	
 	/**

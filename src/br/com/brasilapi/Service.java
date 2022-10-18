@@ -40,7 +40,7 @@ class Service {
 				System.err.print("ERROR. HTTP error code: " + conector.getResponseCode());
 			}
 
-			BufferedReader br = new BufferedReader(new InputStreamReader((conector.getInputStream())));
+			BufferedReader br = new BufferedReader(new InputStreamReader(conector.getInputStream(), "UTF-8"));
 
 			String output, retorno=""; 
 			 
