@@ -7,7 +7,7 @@ package br.com.brasilapi.api;
  * @author Sávio Andres
  * @see <a href="https://brasilapi.com.br/docs#tag/FIPE">https://brasilapi.com.br/docs#tag/FIPE</a>
  */
-public class FipeMarcas extends API {
+public class FipeMarca extends API {
 	private String nome;
 	private String valor;
 	

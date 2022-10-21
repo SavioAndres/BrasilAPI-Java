@@ -5,7 +5,7 @@ package br.com.brasilapi.api;
  * @author Sávio Andres
  * @see <a href="https://brasilapi.com.br/docs#tag/BANKS">https://brasilapi.com.br/docs#tag/BANKS</a>
  */
-public class Banks extends API {
+public class Bank extends API {
 	private String ispb;
 	private String name;
 	private String code;

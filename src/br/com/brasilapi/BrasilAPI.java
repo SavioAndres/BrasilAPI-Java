@@ -2,20 +2,21 @@ package br.com.brasilapi;
 
 import com.google.gson.Gson;
 
-import br.com.brasilapi.api.Banks;
+import br.com.brasilapi.api.Bank;
 import br.com.brasilapi.api.CEP;
 import br.com.brasilapi.api.CEP2;
 import br.com.brasilapi.api.CNPJ;
 import br.com.brasilapi.api.DDD;
 import br.com.brasilapi.api.Feriados;
-import br.com.brasilapi.api.FipeMarcas;
+import br.com.brasilapi.api.FipeMarca;
 import br.com.brasilapi.api.FipePreco;
-import br.com.brasilapi.api.FipeTabelas;
-import br.com.brasilapi.api.IBGEMunicipios;
+import br.com.brasilapi.api.FipeTabela;
+import br.com.brasilapi.api.IBGEMunicipio;
 import br.com.brasilapi.api.IBGEUF;
+import br.com.brasilapi.api.ISBN;
 import br.com.brasilapi.api.NCM;
 import br.com.brasilapi.api.RegistroBR;
-import br.com.brasilapi.api.Taxas;
+import br.com.brasilapi.api.Taxa;
 
 /**
  * Biblioteca criada para facilitar o acesso à API BrasilAPI na linguagem de programação Java.
@@ -78,19 +79,19 @@ public class BrasilAPI {
 	 * Retorna informações de todos os bancos do Brasil.
 	 * @return Array de {@link Bank}
 	 */
-	public static Banks[] banks() {
-		Banks[] obj = (Banks[]) api(Banks[].class, "banks/v1", "");
-		return (Banks[]) obj.clone();
+	public static Bank[] banks() {
+		Bank[] obj = (Bank[]) api(Bank[].class, "banks/v1", "");
+		return (Bank[]) obj.clone();
 	}
 	
 	/**
 	 * Retorna informações de um banco do Brasil de determinado código.
 	 * @param code Código
-	 * @return {@link Banks}
+	 * @return {@link Bank}
 	 */
-	public static Banks banks(String code) {
-		Banks obj = (Banks) api(Banks.class, "banks/v1/", code);
-		return (Banks) obj.clone();
+	public static Bank banks(String code) {
+		Bank obj = (Bank) api(Bank.class, "banks/v1/", code);
+		return (Bank) obj.clone();
 	}
 	
 	/**
@@ -178,11 +179,11 @@ public class BrasilAPI {
 	 * as marcas de todos os tipos de veículos.
 	 * 
 	 * @param tipoVeiculo
-	 * @return Array de {@link FipeMarcas}
+	 * @return Array de {@link FipeMarca}
 	 */
-	public static FipeMarcas[] fipeMarcas(String tipoVeiculo) {
-		FipeMarcas[] obj = (FipeMarcas[]) api(FipeMarcas[].class, "fipe/marcas/v1/", tipoVeiculo);
-		return (FipeMarcas[]) obj.clone();
+	public static FipeMarca[] fipeMarcas(String tipoVeiculo) {
+		FipeMarca[] obj = (FipeMarca[]) api(FipeMarca[].class, "fipe/marcas/v1/", tipoVeiculo);
+		return (FipeMarca[]) obj.clone();
 	}
 	
 	/**
@@ -200,25 +201,25 @@ public class BrasilAPI {
 	/**
 	 * Lista as tabelas de referência existentes.
 	 * 
-	 * @return Array de {@link FipeTabelas}
+	 * @return Array de {@link FipeTabela}
 	 */
-	public static FipeTabelas[] fipeTabelas() {
-		FipeTabelas[] obj = (FipeTabelas[]) api(FipeTabelas[].class, "fipe/tabelas/v1", "");
-		return (FipeTabelas[]) obj.clone();
+	public static FipeTabela[] fipeTabelas() {
+		FipeTabela[] obj = (FipeTabela[]) api(FipeTabela[].class, "fipe/tabelas/v1", "");
+		return (FipeTabela[]) obj.clone();
 	}
 	
 	/**
 	 * Informações sobre municípios de determinado estados provenientes do IBGE.
 	 * 
 	 * @param siglaUF Sigla da unidade federativa, por exemplo SP, RJ, SC, etc.
-	 * @return Array de {@link IBGEMunicipios}
+	 * @return Array de {@link IBGEMunicipio}
 	 */
-	public static IBGEMunicipios[] ibgeMunicipios(String siglaUF) {
-		IBGEMunicipios[] obj = (IBGEMunicipios[]) api(
-				IBGEMunicipios[].class, 
+	public static IBGEMunicipio[] ibgeMunicipios(String siglaUF) {
+		IBGEMunicipio[] obj = (IBGEMunicipio[]) api(
+				IBGEMunicipio[].class, 
 				"ibge/municipios/v1/", 
 				siglaUF);
-		return (IBGEMunicipios[]) obj.clone();
+		return (IBGEMunicipio[]) obj.clone();
 	}
 	
 	/**
@@ -227,10 +228,10 @@ public class BrasilAPI {
 	 * @param siglaUF Sigla da unidade federativa, por exemplo: SP, RJ, SC, etc.
 	 * @param providers Array de String. Provedores dos dados. 
 	 * Provedores disponíves: dados-abertos-br, gov, wikipedia.
-	 * @return Array de {@link IBGEMunicipios}
+	 * @return Array de {@link IBGEMunicipio}
 	 * @see <a href="https://brasilapi.com.br/docs#tag/IBGE">https://brasilapi.com.br/docs#tag/IBGE</a>
 	 */
-	public static IBGEMunicipios[] ibgeMunicipios(String siglaUF, String[] providers) {
+	public static IBGEMunicipio[] ibgeMunicipios(String siglaUF, String[] providers) {
 		String providesParameter = "?providers=dados-abertos-br,gov,wikipedia";
 		if (providers != null) {
 			providesParameter = "?providers=";
@@ -240,11 +241,11 @@ public class BrasilAPI {
 			providesParameter = providesParameter.substring(0, providesParameter.length() - 1);
 		}
 		
-		IBGEMunicipios[] obj = (IBGEMunicipios[]) api(
-				IBGEMunicipios[].class, 
+		IBGEMunicipio[] obj = (IBGEMunicipio[]) api(
+				IBGEMunicipio[].class, 
 				"ibge/municipios/v1/", 
 				siglaUF + providesParameter);
-		return (IBGEMunicipios[]) obj.clone();
+		return (IBGEMunicipio[]) obj.clone();
 	}
 	
 	/**
@@ -266,6 +267,52 @@ public class BrasilAPI {
 	public static IBGEUF ibgeUf(String sigla) {
 		IBGEUF obj = (IBGEUF) api(IBGEUF.class, "ibge/uf/v1/", sigla);
 		return (IBGEUF) obj.clone();
+	}
+	
+	/**
+	 * Sistema internacional de identificação de livros.
+	 * 
+	 * O código informado pode conter traços (-) e ambos 
+	 * os formatos são aceitos, sendo eles o obsoleto 
+	 * de 10 dígitos e o atual de 13 dígitos.
+	 * 
+	 * @param isbn
+	 * @return {@link ISBN}
+	 */
+	public static ISBN isbn(String isbn) {
+		ISBN obj = (ISBN) api(ISBN.class, "isbn/v1/", isbn);
+		return (ISBN) obj.clone();
+	}
+	
+	/**
+	 * Sistema internacional de identificação de livros.
+	 * 
+	 * O código informado pode conter traços (-) e ambos 
+	 * os formatos são aceitos, sendo eles o obsoleto 
+	 * de 10 dígitos e o atual de 13 dígitos.
+	 * 
+	 * Lista de provedores separados por vírgula. 
+	 * Se não especificado, será realizado uma 
+	 * busca em todos os provedores e o que retornar 
+	 * as informações mais rapidamente será o escolhido.
+	 * 
+	 * @param isbn
+	 * @param providers Array de String. Provedores dos dados. 
+	 * Provedores disponíves: cbl, mercado-editorial, open-library, google-books.
+	 * @return {@link ISBN}
+	 */
+	public static ISBN isbn(String isbn, String[] providers) {
+		String providesParameter = "";
+		if (providers != null) {
+			providesParameter = "?providers=";
+			for (String provider : providers) {
+				providesParameter += provider + ",";
+			}
+			providesParameter = providesParameter.substring(0, providesParameter.length() - 1);
+		}
+		
+		ISBN obj = (ISBN) api(ISBN.class, "isbn/v1/", isbn + providesParameter);
+		return (ISBN) obj.clone();
 	}
 	
 	/**
@@ -310,39 +357,21 @@ public class BrasilAPI {
 	
 	/**
 	 * Retorna as taxas de juros e alguns índices oficiais do Brasil.
-	 * @return Array de {@link Taxas}
+	 * @return Array de {@link Taxa}
 	 */
-	public static Taxas[] taxas() {
-		Taxas[] obj = (Taxas[]) api(Taxas[].class, "taxas/v1", "");
-		return (Taxas[]) obj.clone();
+	public static Taxa[] taxas() {
+		Taxa[] obj = (Taxa[]) api(Taxa[].class, "taxas/v1", "");
+		return (Taxa[]) obj.clone();
 	}
 	
 	/**
 	 * Busca as informações de uma taxa a partir do seu nome/sigla.
 	 * @param sigla
-	 * @return {@link Taxas}
+	 * @return {@link Taxa}
 	 */
-	public static Taxas taxas(String sigla) {
-		Taxas obj = (Taxas) api(Taxas.class, "taxas/v1/", sigla);
-		return (Taxas) obj.clone();
-	}
-	
-	/**
-	 * 
-	 * @param classe
-	 * @param parametro
-	 * @return
-	 */
-	public static Object setAPI(Class<?> classe, String parametro) {
-		String[] parametros = parametro.split("/");
-		String code = parametros[parametros.length - 1];
-		parametro = "";
-		
-		for (int i = 0; i < parametros.length - 1; i++) {
-			parametro += parametros[i] + "/";
-		}
-		
-		return api(classe, parametro, code);
+	public static Taxa taxas(String sigla) {
+		Taxa obj = (Taxa) api(Taxa.class, "taxas/v1/", sigla);
+		return (Taxa) obj.clone();
 	}
 	
 	/**

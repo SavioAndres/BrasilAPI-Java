@@ -6,7 +6,7 @@ package br.com.brasilapi.api;
  * @author Sávio Andres
  * @see <a href="https://brasilapi.com.br/docs#tag/TAXAS">https://brasilapi.com.br/docs#tag/TAXAS</a>
  */
-public class Taxas extends API {
+public class Taxa extends API {
 	private String nome;
 	private Float valor;
 	

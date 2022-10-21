@@ -13,10 +13,11 @@ import br.com.brasilapi.api.CNPJ;
 import br.com.brasilapi.api.DDD;
 import br.com.brasilapi.api.Feriados;
 import br.com.brasilapi.api.FipePreco;
-import br.com.brasilapi.api.IBGEMunicipios;
+import br.com.brasilapi.api.IBGEMunicipio;
 import br.com.brasilapi.api.IBGEUF;
+import br.com.brasilapi.api.ISBN;
 import br.com.brasilapi.api.RegistroBR;
-import br.com.brasilapi.api.Taxas;
+import br.com.brasilapi.api.Taxa;
 
 public class Main {
 
@@ -89,7 +90,6 @@ public class Main {
 		//}
 		//System.out.println(Arrays.toString(BrasilAPI.ncm()));
 		//String[] k = new String[] {"gov", "dados-abertos-br"};
-		
 	}
 
 }

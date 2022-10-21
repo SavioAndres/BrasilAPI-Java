@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
  * @author Sávio Andres
  * @see <a href="https://brasilapi.com.br/docs#tag/IBGE">https://brasilapi.com.br/docs#tag/IBGE</a>
  */
-public class IBGEMunicipios extends API {
+public class IBGEMunicipio extends API {
 	private String nome;
 	@SerializedName("codigo_ibge")
 	private String codigoIbge;

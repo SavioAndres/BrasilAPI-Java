@@ -1,6 +1,6 @@
 package br.com.brasilapi.api;
 
-public class FipeTabelas extends API {
+public class FipeTabela extends API {
 	private Integer codigo;
 	private String mes;
 	
