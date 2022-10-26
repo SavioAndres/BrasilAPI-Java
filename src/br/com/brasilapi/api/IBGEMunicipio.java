@@ -3,9 +3,9 @@ package br.com.brasilapi.api;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Informações sobre municípios provenientes do IBGE.
+ * InformaÃ§Ãµes sobre municÃ­pios provenientes do IBGE.
  * 
- * @author Sávio Andres
+ * @author SÃ¡vio Andres
  * @see <a href="https://brasilapi.com.br/docs#tag/IBGE">https://brasilapi.com.br/docs#tag/IBGE</a>
  */
 public class IBGEMunicipio extends API {

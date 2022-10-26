@@ -1,9 +1,9 @@
 package br.com.brasilapi.api;
 
 /**
- * Taxas de juros e índices oficiais do Brasil.
+ * Taxas de juros e Ã­ndices oficiais do Brasil.
  * 
- * @author Sávio Andres
+ * @author SÃ¡vio Andres
  * @see <a href="https://brasilapi.com.br/docs#tag/TAXAS">https://brasilapi.com.br/docs#tag/TAXAS</a>
  */
 public class Taxa extends API {

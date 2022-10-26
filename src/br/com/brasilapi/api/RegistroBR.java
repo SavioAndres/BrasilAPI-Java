@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Avalia um dominio no registro.br
  * 
- * @author Sávio Andres
+ * @author SÃ¡vio Andres
  * @see https://brasilapi.com.br/docs#tag/REGISTRO-BR
  */
 public class RegistroBR extends API {

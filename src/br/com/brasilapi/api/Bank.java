@@ -1,8 +1,8 @@
 package br.com.brasilapi.api;
 
 /**
- * Retorna informações de todos os bancos do Brasil.
- * @author Sávio Andres
+ * Retorna informaÃ§Ãµes de todos os bancos do Brasil.
+ * @author SÃ¡vio Andres
  * @see <a href="https://brasilapi.com.br/docs#tag/BANKS">https://brasilapi.com.br/docs#tag/BANKS</a>
  */
 public class Bank extends API {

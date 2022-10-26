@@ -1,23 +1,5 @@
 package br.com.brasilapi.test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
-import br.com.brasilapi.BrasilAPI;
-import br.com.brasilapi.api.CEP;
-import br.com.brasilapi.api.CEP2;
-import br.com.brasilapi.api.CNPJ;
-import br.com.brasilapi.api.DDD;
-import br.com.brasilapi.api.Feriados;
-import br.com.brasilapi.api.FipePreco;
-import br.com.brasilapi.api.IBGEMunicipio;
-import br.com.brasilapi.api.IBGEUF;
-import br.com.brasilapi.api.ISBN;
-import br.com.brasilapi.api.RegistroBR;
-import br.com.brasilapi.api.Taxa;
 
 public class Main {
 

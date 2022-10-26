@@ -3,14 +3,14 @@ package br.com.brasilapi.api;
 /**
  * Classe CEP. Representa o CEP com seus atributos.
  * 
- * O CEP (Código de Endereçamento Postal) é um sistema de códigos que 
- * visa racionalizar o processo de encaminhamento e entrega de 
- * correspondências através da divisão do país em regiões postais. ... 
- * Atualmente, o CEP é composto por oito dígitos, cinco de um lado e 
- * três de outro. Cada algarismo do CEP possui um significado.
+ * O CEP (CÃ³digo de EndereÃ§amento Postal) Ã© um sistema de cÃ³digos 
+ * que visa racionalizar o processo de encaminhamento e entrega de 
+ * correspondÃªncias atravÃ©s da divisÃ£o do paÃ¡s em regiÃµes postais. ... 
+ * Atualmente, o CEP Ã© composto por oito dÃ­gitos, cinco de um lado e 
+ * trÃªs de outro. Cada algarismo do CEP possui um significado.
  * 
  * @version 1
- * @author Sávio Andres
+ * @author SÃ¡vio Andres
  * @see br.com.brasilapi.api.CEP2
  * @see <a href="https://brasilapi.com.br/docs#tag/CEP">https://brasilapi.com.br/docs#tag/CEP</a>
  */

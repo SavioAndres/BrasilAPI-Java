@@ -3,7 +3,7 @@ package br.com.brasilapi.api;
 /**
  * Lista os feriados nacionais de determinado ano.
  * 
- * @author Sávio Andres
+ * @author SÃ¡vio Andres
  * @see <a href="https://brasilapi.com.br/docs#tag/Feriados-Nacionais">https://brasilapi.com.br/docs#tag/Feriados-Nacionais</a>
  */
 public class Feriados extends API {

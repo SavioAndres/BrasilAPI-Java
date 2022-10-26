@@ -1,10 +1,10 @@
 package br.com.brasilapi.api;
 
 /**
- * Informações sobre Preço Médio de Veículos fornecido 
- * pela FIPE (Fundação Instituto de Pesquisas Econômicas).
+ * InformaÃ§Ãµes sobre Preï¿½o Mï¿½dio de VeÃ­culos fornecido 
+ * pela FIPE (FundaÃ§Ã£o Instituto de Pesquisas EconÃ´micas).
  * 
- * @author Sávio Andres
+ * @author SÃ¡vio Andres
  * @see <a href="https://brasilapi.com.br/docs#tag/FIPE">https://brasilapi.com.br/docs#tag/FIPE</a>
  */
 public class FipePreco extends API {

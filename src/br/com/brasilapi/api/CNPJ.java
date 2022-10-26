@@ -5,12 +5,12 @@ import java.util.Arrays;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * O Cadastro Nacional da Pessoa Jurídica é um número único que 
- * identifica uma pessoa jurídica e outros tipos de arranjo 
- * jurídico sem personalidade jurídica junto à Receita Federal.
+ * O Cadastro Nacional da Pessoa JurÃ­dica Ã© um nÃºmero Ãºnico que 
+ * identifica uma pessoa jurÃ­dica e outros tipos de arranjo 
+ * jurÃ­dico sem personalidade jurÃ­dica junto Ã  Receita Federal.
  * 
  * @version 1
- * @author Sávio Andres
+ * @author SÃ¡vio Andres
  * @see <a href="https://brasilapi.com.br/docs#tag/CNPJ">https://brasilapi.com.br/docs#tag/CNPJ</a>
  */
 public class CNPJ extends API {

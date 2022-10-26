@@ -3,15 +3,15 @@ package br.com.brasilapi.api;
 import java.util.Arrays;
 
 /**
- * DDD significa Discagem Direta à Distância. 
- * É um sistema de ligação telefônica automática 
- * entre diferentes áreas urbanas nacionais. 
- * O DDD é um código constituído por 2 dígitos que 
- * identificam as principais cidades do país e devem 
- * ser adicionados ao nº de telefone, 
- * juntamente com o código da operadora.
+ * DDD significa Discagem Direta Ã  DistÃ¢ncia. 
+ * Ã© um sistema de ligaÃ§Ã£o telefÃ´nica automÃ¡tica 
+ * entre diferentes ï¿½reas urbanas nacionais. 
+ * O DDD Ã© um cÃ³digo constituÃ­do por 2 dÃ­gitos que 
+ * identificam as principais cidades do paÃ­s e devem 
+ * ser adicionados ao nÂº de telefone, 
+ * juntamente com o cÃ³digo da operadora.
  * 
- * @author Sávio Andres
+ * @author SÃ¡vio Andres
  * @see <a href="https://brasilapi.com.br/docs#tag/DDD">https://brasilapi.com.br/docs#tag/DDD</a>
  */
 public class DDD extends API {

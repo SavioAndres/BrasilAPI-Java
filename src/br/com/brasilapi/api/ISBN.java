@@ -5,12 +5,12 @@ import java.util.Arrays;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Informações sobre livros publicados no Brasil (prefixo 65 ou 85) 
- * a partir do ISBN, um sistema internacional de identificação 
- * de livros que utiliza números para classificá-los por título, 
- * autor, país, editora e edição.
+ * InformaÃ§Ãµes sobre livros publicados no Brasil (prefixo 65 ou 85) 
+ * a partir do ISBN, um sistema internacional de identificaÃ§Ã£o 
+ * de livros que utiliza nÃºmeros para classificÃ¡-los por tÃ­tulo, 
+ * autor, paÃ­s, editora e ediÃ§Ã£o.
  * 
- * @author Sávio Andres
+ * @author SÃ¡vio Andres
  * @see <a href="https://brasilapi.com.br/docs#tag/ISBN">https://brasilapi.com.br/docs#tag/ISBN</a>
  */
 public class ISBN extends API {

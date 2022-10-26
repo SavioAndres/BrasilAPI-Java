@@ -3,10 +3,10 @@ package br.com.brasilapi.api;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Informações referentes a NCMs. 
+ * InformaÃ§Ãµes referentes a NCMs. 
  * Nomenclatura Comum do Mercosul (NCM).
  * 
- * @author Sávio Andres
+ * @author SÃ¡vio Andres
  * @see <a href="https://brasilapi.com.br/docs#tag/NCM">https://brasilapi.com.br/docs#tag/NCM</a>
  */
 public class NCM extends API {

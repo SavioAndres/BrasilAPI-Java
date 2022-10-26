@@ -19,19 +19,19 @@ import br.com.brasilapi.api.RegistroBR;
 import br.com.brasilapi.api.Taxa;
 
 /**
- * Biblioteca criada para facilitar o acesso à API BrasilAPI na linguagem de programação Java.
+ * Biblioteca criada para facilitar o acesso Ã  API BrasilAPI na linguagem de programaÃ§Ã£o Java.
  * 
- * Acesso programático de informações é algo fundamental na comunicação entre 
- * sistemas, mas, para nossa surpresa, uma informação tão útil e pública 
- * quanto um CEP não consegue ser acessada diretamente por um navegador por 
- * conta da API dos Correios não possuir CORS habilitado. Dado a isso, este projeto 
+ * Acesso programÃ¡tico de informaÃ§Ãµes Ã© algo fundamental na comunicaÃ§Ã£o entre 
+ * sistemas, mas, para nossa surpresa, uma informaÃ§Ã£o tÃ£o Ãºtil e pÃºblica quanto 
+ * um CEP nÃ£o consegue ser acessada diretamente por um navegador por conta da 
+ * API dos Correios nÃ£o possuir CORS habilitado. Dado a isso, este projeto 
  * experimental tem como objetivo centralizar e disponibilizar endpoints modernos 
- * com baixíssima latência utilizando tecnologias como Vercel Smart CDN responsável 
- * por fazer o cache das informações em atualmente 23 regiões distribuídas ao 
- * longo do mundo (incluindo Brasil). Então não importa o quão devagar for a fonte 
- * dos dados, nós queremos disponibilizá-la da forma mais rápida e moderna possível.
+ * com baixÃ­ssima latÃªncia utilizando tecnologias como Vercel Smart CDN responsÃ¡vel 
+ * por fazer o cache das informaÃ§Ãµes em atualmente 23 regiÃµes distribuÃ­das ao longo 
+ * do mundo (incluindo Brasil). EntÃ£o nÃ£o importa o quÃ£o devagar for a fonte dos 
+ * dados, nÃ³s queremos disponibilizÃ¡-la da forma mais rÃ¡pida e moderna possÃ­vel.
  * 
- * @author Sávio Andres {@link <a href="https://savio.pw">https://savio.pw</a>}
+ * @author SÃ¡vio Andres {@link <a href="https://savio.pw">https://savio.pw</a>}
  * @see <a href="https://brasilapi.com.br/docs">https://brasilapi.com.br/docs</a>
  * @see <a href="https://github.com/BrasilAPI/BrasilAPI">https://github.com/BrasilAPI/BrasilAPI</a>
  * @see <a href="https://github.com/SavioAndres/BrasilAPI-Java">https://github.com/SavioAndres/BrasilAPI-Java</a>
@@ -49,8 +49,8 @@ public class BrasilAPI {
 	
 	/**
 	 * Habilitar ou desabilitar Cache.
-	 * Milissegundos padrão para o tempo de vida do 
-	 * cache é de 600000, equivalente à 10 minutos.
+	 * Milissegundos padrÃ£o para o tempo de vida do 
+	 * cache Ã© de 600000, equivalente a 10 minutos.
 	 * @param enableCache
 	 */
 	public static void setEnableCache(boolean enableCache) {
@@ -59,7 +59,7 @@ public class BrasilAPI {
 	
 	/**
 	 * Definir o tempo de vida do Cache em <strong>milissegundos</strong>, 
-	 * o tempo padrão é de 600000 milissegundos, equivalente à 10 minutos.
+	 * o tempo padrÃ£o Ã© de 600000 milissegundos, equivalente a 10 minutos.
 	 * @param time
 	 */
 	public static void setCacheTime(Long time) {
@@ -68,7 +68,7 @@ public class BrasilAPI {
 	
 	/**
 	 * Definir o tempo de vida do Cache em <strong>minutos</strong>, 
-	 * o tempo padrão é de 600000 milissegundos, equivalente à 10 minutos.
+	 * o tempo padrÃ£o Ã© de 600000 milissegundos, equivalente a 10 minutos.
 	 * @param time
 	 */
 	public static void setCacheTimeMinutes(Long time) {
@@ -76,7 +76,7 @@ public class BrasilAPI {
 	}
 	
 	/**
-	 * Retorna informações de todos os bancos do Brasil.
+	 * Retorna informaÃ§Ãµes de todos os bancos do Brasil.
 	 * @return Array de {@link Bank}
 	 */
 	public static Bank[] banks() {
@@ -85,8 +85,8 @@ public class BrasilAPI {
 	}
 	
 	/**
-	 * Retorna informações de um banco do Brasil de determinado código.
-	 * @param code Código
+	 * Retorna informaÃ§Ãµes de um banco do Brasil de determinado cÃ³digo.
+	 * @param code Cï¿½digo
 	 * @return {@link Bank}
 	 */
 	public static Bank banks(String code) {
@@ -95,16 +95,16 @@ public class BrasilAPI {
 	}
 	
 	/**
-	 * Adicione o código do CEP e obtenha o objeto CEP.
-	 * Método da versão 1.
+	 * Adicione o cÃ³digo do CEP e obtenha o objeto CEP.
+	 * Mï¿½todo da versÃ£o 1.
 	 * 
-	 * O CEP (Código de Endereçamento Postal) é um sistema de códigos 
+	 * O CEP (CÃ³digo de EndereÃ§amento Postal) Ã© um sistema de cÃ³digos 
 	 * que visa racionalizar o processo de encaminhamento e entrega de 
-	 * correspondências através da divisão do país em regiões postais. ... 
-	 * Atualmente, o CEP é composto por oito dígitos, cinco de um lado e 
-	 * três de outro. Cada algarismo do CEP possui um significado.
+	 * correspondÃªncias atravÃ©s da divisÃ£o do paÃ¡s em regiÃµes postais. ... 
+	 * Atualmente, o CEP Ã© composto por oito dÃ­gitos, cinco de um lado e 
+	 * trÃªs de outro. Cada algarismo do CEP possui um significado.
 	 * 
-	 * @param cep Código de Endereçamento Postal.
+	 * @param cep Cï¿½digo de Endereï¿½amento Postal.
 	 * @return {@link CEP}
 	 * @see #cep2(String)
 	 */
@@ -114,16 +114,16 @@ public class BrasilAPI {
 	}
 	
 	/**
-	 * Adicione o código do CEP e obtenha o objeto CEP.
-	 * Método da versão 2.
+	 * Adicione o cÃ³digo do CEP e obtenha o objeto CEP.
+	 * MÃ©todo da versÃ£o 2.
 	 * 
-	 * O CEP (Código de Endereçamento Postal) é um sistema de códigos 
+	 * O CEP (CÃ³digo de EndereÃ§amento Postal) Ã© um sistema de cÃ³digos 
 	 * que visa racionalizar o processo de encaminhamento e entrega de 
-	 * correspondências através da divisão do país em regiões postais. ... 
-	 * Atualmente, o CEP é composto por oito dígitos, cinco de um lado e 
-	 * três de outro. Cada algarismo do CEP possui um significado.
+	 * correspondÃªncias atravÃ©s da divisÃ£o do paÃ¡s em regiÃµes postais. ... 
+	 * Atualmente, o CEP Ã© composto por oito dÃ­gitos, cinco de um lado e 
+	 * trÃªs de outro. Cada algarismo do CEP possui um significado.
 	 * 
-	 * @param cep Código de Endereçamento Postal.
+	 * @param cep CÃ³digo de Endereï¿½amento Postal.
 	 * @return {@link CEP2}
 	 */
 	public static CEP2 cep2(String cep) {
@@ -132,10 +132,10 @@ public class BrasilAPI {
 	}
 	
 	/**
-	 * O Cadastro Nacional da Pessoa Jurídica é um número 
-	 * único que identifica uma pessoa jurídica e outros 
-	 * tipos de arranjo jurídico sem personalidade 
-	 * jurídica junto à Receita Federal.
+	 * O Cadastro Nacional da Pessoa JurÃ­dica Ã© um nÃºmero 
+	 * Ãºnico que identifica uma pessoa jurÃ­dica e outros 
+	 * tipos de arranjo jurÃ­dico sem personalidade 
+	 * jurÃ­dica junto Ã  Receita Federal.
 	 * 
 	 * @param cnpj
 	 * @return {@link CNPJ}
@@ -146,13 +146,13 @@ public class BrasilAPI {
 	}
 	
 	/**
-	 * DDD significa Discagem Direta à Distância. 
-	 * É um sistema de ligação telefônica automática 
-	 * entre diferentes áreas urbanas nacionais. 
-	 * O DDD é um código constituído por 2 dígitos que 
-	 * identificam as principais cidades do país e devem 
-	 * ser adicionados ao nº de telefone, 
-	 * juntamente com o código da operadora.
+	 * DDD significa Discagem Direta Ã  DistÃ¢ncia. 
+	 * Ã© um sistema de ligaÃ§Ã£o telefÃ´nica automÃ¡tica 
+	 * entre diferentes ï¿½reas urbanas nacionais. 
+	 * O DDD Ã© um cÃ³digo constituÃ­do por 2 dÃ­gitos que 
+	 * identificam as principais cidades do paÃ­s e devem 
+	 * ser adicionados ao nÂº de telefone, 
+	 * juntamente com o cÃ³digo da operadora.
 	 * 
 	 * @param ddd
 	 * @return {@link DDD}
@@ -174,9 +174,9 @@ public class BrasilAPI {
 	}
 	
 	/**
-	 * Os tipos suportados são <i>caminhoes</i>, <i>carros</i> e <i>motos</i>. 
-	 * Quando o tipo não é específicado são buscada 
-	 * as marcas de todos os tipos de veículos.
+	 * Os tipos suportados sÃ£o <i>caminhoes</i>, <i>carros</i> e <i>motos</i>. 
+	 * Quando o tipo nÃ£o Ã© especificado sÃ£o buscada 
+	 * as marcas de todos os tipos de veÃ­culos.
 	 * 
 	 * @param tipoVeiculo
 	 * @return Array de {@link FipeMarca}
@@ -187,10 +187,10 @@ public class BrasilAPI {
 	}
 	
 	/**
-	 * Código da tabela fipe de referência. 
-	 * Por padrão é utilizado o código da tabela fipe atual.
+	 * CÃ³digo da tabela fipe de referÃªncia. 
+	 * Por padrÃ£o Ã© utilizado o cÃ³digo da tabela fipe atual.
 	 * 
-	 * @param codigoFipe Código fipe do veículo.
+	 * @param codigoFipe CÃ³digo fipe do veï¿½culo.
 	 * @return Array de {@link FipePreco}
 	 */
 	public static FipePreco[] fipePreco(String codigoFipe) {
@@ -199,7 +199,7 @@ public class BrasilAPI {
 	}
 	
 	/**
-	 * Lista as tabelas de referência existentes.
+	 * Lista as tabelas de referÃªncia existentes.
 	 * 
 	 * @return Array de {@link FipeTabela}
 	 */
@@ -209,7 +209,7 @@ public class BrasilAPI {
 	}
 	
 	/**
-	 * Informações sobre municípios de determinado estados provenientes do IBGE.
+	 * InformaÃ§Ãµes sobre municÃ­pios de determinado estados provenientes do IBGE.
 	 * 
 	 * @param siglaUF Sigla da unidade federativa, por exemplo SP, RJ, SC, etc.
 	 * @return Array de {@link IBGEMunicipio}
@@ -223,11 +223,11 @@ public class BrasilAPI {
 	}
 	
 	/**
-	 * Informações sobre municípios de determinado estados provenientes do IBGE.
+	 * InformaÃ§Ãµes sobre municÃ­pios de determinado estados provenientes do IBGE.
 	 * 
 	 * @param siglaUF Sigla da unidade federativa, por exemplo: SP, RJ, SC, etc.
 	 * @param providers Array de String. Provedores dos dados. 
-	 * Provedores disponíves: dados-abertos-br, gov, wikipedia.
+	 * Provedores disponÃ­ves: dados-abertos-br, gov, wikipedia.
 	 * @return Array de {@link IBGEMunicipio}
 	 * @see <a href="https://brasilapi.com.br/docs#tag/IBGE">https://brasilapi.com.br/docs#tag/IBGE</a>
 	 */
@@ -249,7 +249,7 @@ public class BrasilAPI {
 	}
 	
 	/**
-	 * Retorna informações de todos estados do Brasil.
+	 * Retorna informaÃ§Ãµes de todos estados do Brasil.
 	 * 
 	 * @return Array de {@link IBGEUF}
 	 */
@@ -259,7 +259,7 @@ public class BrasilAPI {
 	}
 	
 	/**
-	 * Retorna informações de determinado estados do Brasil.
+	 * Retorna informaÃ§Ãµes de determinado estados do Brasil.
 	 * 
 	 * @param sigla ou id
 	 * @return {@link IBGEUF}
@@ -270,11 +270,11 @@ public class BrasilAPI {
 	}
 	
 	/**
-	 * Sistema internacional de identificação de livros.
+	 * Sistema internacional de identificaÃ§Ã£o de livros.
 	 * 
-	 * O código informado pode conter traços (-) e ambos 
-	 * os formatos são aceitos, sendo eles o obsoleto 
-	 * de 10 dígitos e o atual de 13 dígitos.
+	 * O cÃ³digo informado pode conter traÃ§os (-) e ambos 
+	 * os formatos sÃ£o aceitos, sendo eles o obsoleto 
+	 * de 10 dÃ­gitos e o atual de 13 dÃ­gitos.
 	 * 
 	 * @param isbn
 	 * @return {@link ISBN}
@@ -285,20 +285,20 @@ public class BrasilAPI {
 	}
 	
 	/**
-	 * Sistema internacional de identificação de livros.
+	 * Sistema internacional de identificaÃ§Ã£o de livros.
 	 * 
-	 * O código informado pode conter traços (-) e ambos 
-	 * os formatos são aceitos, sendo eles o obsoleto 
-	 * de 10 dígitos e o atual de 13 dígitos.
+	 * O cÃ³digo informado pode conter traÃ§os (-) e ambos 
+	 * os formatos sÃ£o aceitos, sendo eles o obsoleto 
+	 * de 10 dÃ­gitos e o atual de 13 dÃ­gitos.
 	 * 
-	 * Lista de provedores separados por vírgula. 
-	 * Se não especificado, será realizado uma 
+	 * Lista de provedores separados por vÃ­rgula. 
+	 * Se nÃ£o especificado, serÃ¡ realizado uma 
 	 * busca em todos os provedores e o que retornar 
-	 * as informações mais rapidamente será o escolhido.
+	 * as informaÃ§Ãµes mais rapidamente serÃ¡ o escolhido.
 	 * 
 	 * @param isbn
 	 * @param providers Array de String. Provedores dos dados. 
-	 * Provedores disponíves: cbl, mercado-editorial, open-library, google-books.
+	 * Provedores disponï¿½ves: cbl, mercado-editorial, open-library, google-books.
 	 * @return {@link ISBN}
 	 */
 	public static ISBN isbn(String isbn, String[] providers) {
@@ -316,7 +316,7 @@ public class BrasilAPI {
 	}
 	
 	/**
-	 * Retorna informações de todos os NCMs.
+	 * Retorna informaÃ§Ãµes de todos os NCMs.
 	 * @return Array de {@link NCM}
 	 */
 	public static NCM[] ncm() {
@@ -325,7 +325,7 @@ public class BrasilAPI {
 	}
 	
 	/**
-	 * Busca as informações de um NCM a partir de um código.
+	 * Busca as informaÃ§Ãµes de um NCM a partir de um cÃ³digo.
 	 * @param code
 	 * @return Array de {@link NCM}
 	 */
@@ -335,8 +335,8 @@ public class BrasilAPI {
 	}
 	
 	/**
-	 * Pesquisa por NCMs a partir de um código ou descrição.
-	 * @param code ou descrição
+	 * Pesquisa por NCMs a partir de um cÃ³digo ou descriÃ§Ã£o.
+	 * @param code ou descriï¿½ï¿½o
 	 * @return Array de {@link NCM}
 	 */
 	public static NCM[] ncmSearch(String code) {
@@ -356,7 +356,7 @@ public class BrasilAPI {
 	}
 	
 	/**
-	 * Retorna as taxas de juros e alguns índices oficiais do Brasil.
+	 * Retorna as taxas de juros e alguns Ã­ndices oficiais do Brasil.
 	 * @return Array de {@link Taxa}
 	 */
 	public static Taxa[] taxas() {
@@ -365,7 +365,7 @@ public class BrasilAPI {
 	}
 	
 	/**
-	 * Busca as informações de uma taxa a partir do seu nome/sigla.
+	 * Busca as informaÃ§Ãµes de uma taxa a partir do seu nome/sigla.
 	 * @param sigla
 	 * @return {@link Taxa}
 	 */
@@ -375,14 +375,14 @@ public class BrasilAPI {
 	}
 	
 	/**
-	 * Método responsável por verificar se o Cache está habilitado 
-	 * e fazer enviar os dados para conexão com a WEB, 
-	 * após isso fazer a conversão do dado bruto em 
-	 * Json para o Objeto em questão.
+	 * Mï¿½todo responsÃ¡vel por verificar se o Cache estÃ¡ habilitado 
+	 * e fazer enviar os dados para conexÃ£o com a WEB, 
+	 * apÃ³s isso fazer a conversÃ£o do dado bruto em 
+	 * Json para o Objeto em questÃ£o.
 	 * 
-	 * @param classAPIModel Classe Objeto da qual está tratando.
+	 * @param classAPIModel Classe Objeto da qual estÃ¡ tratando.
 	 * @param parameter da URL.
-	 * @param code valor enviada com o parâmetro.
+	 * @param code valor enviada com o parï¿½metro.
 	 * @return {@link Object}
 	 */
 	private static Object api(Class<?> classAPIModel, String parameter, String code) {
