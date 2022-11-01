@@ -48,6 +48,14 @@ public class BrasilAPI {
 	}
 	
 	/**
+	 * Obter a situação do Log, true = habilitado, false = desabilitado.
+	 * @return Situação do Log
+	 */
+	public static boolean getEnableLog() {
+		return Service.getEnableLog();
+	}
+	
+	/**
 	 * Habilitar ou desabilitar Cache.
 	 * Milissegundos padrão para o tempo de vida do 
 	 * cache é de 600000, equivalente a 10 minutos.
@@ -55,6 +63,14 @@ public class BrasilAPI {
 	 */
 	public static void setEnableCache(boolean enableCache) {
 		Cache.setEnableCache(enableCache);
+	}
+	
+	/**
+	 * Obter a situação do Cache, true = habilitado, false = desabilitado.
+	 * @return Situação do Cache
+	 */
+	public static boolean getEnableCache() {
+		return Cache.getEnableCache();
 	}
 	
 	/**
@@ -67,12 +83,28 @@ public class BrasilAPI {
 	}
 	
 	/**
+	 * Obter o tempo de vida do Cache em <strong>milissegundos</strong>.
+	 * @return Long milissegundos
+	 */
+	public static Long getCacheTime() {
+		return Cache.getCacheTime();
+	}
+	
+	/**
 	 * Definir o tempo de vida do Cache em <strong>minutos</strong>, 
 	 * o tempo padrão é de 600000 milissegundos, equivalente a 10 minutos.
 	 * @param time
 	 */
 	public static void setCacheTimeMinutes(Long time) {
 		Cache.setCacheTime(time * 60000);
+	}
+	
+	/**
+	 * Obter o tempo de vida do Cache em <strong>minutos</strong>.
+	 * @return Long minutos
+	 */
+	public static Long getCacheTimeMinutes() {
+		return Cache.getCacheTime() / 60000;
 	}
 	
 	/**
@@ -86,10 +118,10 @@ public class BrasilAPI {
 	
 	/**
 	 * Retorna informações de um banco do Brasil de determinado código.
-	 * @param code C�digo
+	 * @param code Código
 	 * @return {@link Bank}
 	 */
-	public static Bank banks(String code) {
+	public static Bank bank(String code) {
 		Bank obj = (Bank) api(Bank.class, "banks/v1/", code);
 		return (Bank) obj.clone();
 	}
@@ -104,7 +136,7 @@ public class BrasilAPI {
 	 * Atualmente, o CEP é composto por oito dígitos, cinco de um lado e 
 	 * três de outro. Cada algarismo do CEP possui um significado.
 	 * 
-	 * @param cep C�digo de Endere�amento Postal.
+	 * @param cep Código de Endereçamento Postal.
 	 * @return {@link CEP}
 	 * @see #cep2(String)
 	 */
@@ -123,7 +155,7 @@ public class BrasilAPI {
 	 * Atualmente, o CEP é composto por oito dígitos, cinco de um lado e 
 	 * três de outro. Cada algarismo do CEP possui um significado.
 	 * 
-	 * @param cep Código de Endere�amento Postal.
+	 * @param cep Código de Endereçamento Postal.
 	 * @return {@link CEP2}
 	 */
 	public static CEP2 cep2(String cep) {
@@ -178,7 +210,7 @@ public class BrasilAPI {
 	 * Quando o tipo não é especificado são buscada 
 	 * as marcas de todos os tipos de veículos.
 	 * 
-	 * @param tipoVeiculo
+	 * @param tipoVeiculo caminhoes, carros, motos.
 	 * @return Array de {@link FipeMarca}
 	 */
 	public static FipeMarca[] fipeMarcas(String tipoVeiculo) {
@@ -190,10 +222,10 @@ public class BrasilAPI {
 	 * Código da tabela fipe de referência. 
 	 * Por padrão é utilizado o código da tabela fipe atual.
 	 * 
-	 * @param codigoFipe Código fipe do ve�culo.
+	 * @param codigoFipe Código fipe do veículo.
 	 * @return Array de {@link FipePreco}
 	 */
-	public static FipePreco[] fipePreco(String codigoFipe) {
+	public static FipePreco[] fipePrecos(String codigoFipe) {
 		FipePreco[] obj = (FipePreco[]) api(FipePreco[].class, "fipe/preco/v1/", codigoFipe);
 		return (FipePreco[]) obj.clone();
 	}
@@ -298,7 +330,7 @@ public class BrasilAPI {
 	 * 
 	 * @param isbn
 	 * @param providers Array de String. Provedores dos dados. 
-	 * Provedores dispon�ves: cbl, mercado-editorial, open-library, google-books.
+	 * Provedores disponíves: cbl, mercado-editorial, open-library, google-books.
 	 * @return {@link ISBN}
 	 */
 	public static ISBN isbn(String isbn, String[] providers) {
@@ -329,14 +361,14 @@ public class BrasilAPI {
 	 * @param code
 	 * @return Array de {@link NCM}
 	 */
-	public static NCM[] ncm(String code) {
-		NCM[] obj = (NCM[]) api(NCM[].class, "ncm/v1/", code);
-		return (NCM[]) obj.clone();
+	public static NCM ncm(String code) {
+		NCM obj = (NCM) api(NCM.class, "ncm/v1/", code);
+		return (NCM) obj.clone();
 	}
 	
 	/**
 	 * Pesquisa por NCMs a partir de um código ou descrição.
-	 * @param code ou descri��o
+	 * @param code ou descrição
 	 * @return Array de {@link NCM}
 	 */
 	public static NCM[] ncmSearch(String code) {
@@ -369,7 +401,7 @@ public class BrasilAPI {
 	 * @param sigla
 	 * @return {@link Taxa}
 	 */
-	public static Taxa taxas(String sigla) {
+	public static Taxa taxa(String sigla) {
 		Taxa obj = (Taxa) api(Taxa.class, "taxas/v1/", sigla);
 		return (Taxa) obj.clone();
 	}
