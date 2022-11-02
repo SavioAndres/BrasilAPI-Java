@@ -1,4 +1,4 @@
-package test;
+package test.br.com.brasilapi;
 
 import static org.junit.jupiter.api.Assertions.*;
 

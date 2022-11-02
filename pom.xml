@@ -2,9 +2,10 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>BrasilAPI-Java</groupId>
   <artifactId>BrasilAPI-Java</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0</version>
   <build>
-    <sourceDirectory>src</sourceDirectory>
+    <sourceDirectory>src/br/com/brasilapi</sourceDirectory>
+    <testSourceDirectory>src/test/br/com/brasilapi</testSourceDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
