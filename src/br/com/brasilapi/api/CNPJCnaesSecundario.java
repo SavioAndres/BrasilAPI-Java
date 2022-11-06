@@ -3,7 +3,7 @@ package br.com.brasilapi.api;
 public class CNPJCnaesSecundario {
 	private Long codigo;
 	private String descricao;
-	
+
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -24,6 +24,5 @@ public class CNPJCnaesSecundario {
 	public String toString() {
 		return "CnpjCnaesSecundario [codigo=" + codigo + ", descricao=" + descricao + "]";
 	}
-	
-	
+
 }

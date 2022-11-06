@@ -23,7 +23,7 @@ public class RegistroBR extends API {
 	@SerializedName("expires-at")
 	private String expiresAt;
 	private String[] suggestions;
-	
+
 	public Integer getStatusCode() {
 		return statusCode;
 	}
@@ -103,6 +103,5 @@ public class RegistroBR extends API {
 				+ publicationStatus + ", expiresAt=" + expiresAt + ", suggestions=" + Arrays.toString(suggestions)
 				+ "]";
 	}
-	
-	
+
 }
