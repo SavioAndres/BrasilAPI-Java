@@ -3,7 +3,11 @@ Biblioteca criada para facilitar o acesso à API BrasilAPI na linguagem de progr
 
 https://github.com/BrasilAPI/BrasilAPI
 
-## Dependência
+## Instalação
+### Download da biblioteca
+<a href="https://github.com/SavioAndres/BrasilAPI-Java/releases/download/v1.0.0/BrasilAPI.jar">BrasilAPI.jar</a>
+
+### Dependência Maven
 ```xml
 <dependency>
     <groupId>com.google.code.gson</groupId>
