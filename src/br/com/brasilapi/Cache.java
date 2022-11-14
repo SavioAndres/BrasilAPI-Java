@@ -35,9 +35,7 @@ class Cache {
 		if (!mapCache.containsKey(classAPIModel)) {
 			Map<String, Object> mapObj = new HashMap<>();
 			mapCache.put(classAPIModel, mapObj);
-			if (Service.getEnableLog()) {
-				System.out.println("Salvo em Cache.");
-			}
+			Log.setConsole("Salvo em Cache.");
 		}
 
 		mapCache.get(classAPIModel).put(code, obj);
@@ -53,23 +51,34 @@ class Cache {
 		Object obj = mapCache.get(classAPIModel).get(code);
 
 		if (obj != null) {
-			if (Service.getEnableLog()) {
-				System.out.println("Obtido do Cache.");
-			}
+			Log.setConsole("Obtido do Cache.");
 			return obj;
 		}
 
 		return null;
 	}
 
+	/**
+	 * Verifica e atualiza o Cache limpando e redefinido o tempo atual.
+	 */
 	private static void updateCache() {
-		if (System.currentTimeMillis() - startTime > cacheTime) {
-			mapCache = new HashMap<>();
+		// Caso o tempo do Cache definido do Cache tenha excedido
+		if (!mapCache.isEmpty() && System.currentTimeMillis() - startTime > cacheTime) {
+			
+			// Log do Cache a ser limpo
+			Log.setConsole("Cache atual a ser limpo: " + mapCache.toString());
+			
+			// Limpar Cache
+			mapCache.clear();
+			
+			// Atualizar tempo atual
 			startTime = System.currentTimeMillis();
 
-			if (Service.getEnableLog()) {
-				System.out.println("Tempo de " + cacheTime + " milissegundos excedido. Cache limpo.");
-			}
+			// Log do Cache atual
+			Log.setConsole("Tempo de " + cacheTime 
+					+ " milissegundos excedido.\nCache limpo. Cache atual: " 
+					+ mapCache.toString());
+			
 		}
 	}
 

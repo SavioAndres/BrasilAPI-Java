@@ -4,7 +4,7 @@ package br.com.brasilapi.api;
  * Informações sobre Preço Médio de Veículos fornecido pela FIPE (Fundação
  * Instituto de Pesquisas Econômicas).
  * 
- * @author S�vio Andres
+ * @author Sávio Andres
  * @see <a href=
  *      "https://brasilapi.com.br/docs#tag/FIPE">https://brasilapi.com.br/docs#tag/FIPE</a>
  */

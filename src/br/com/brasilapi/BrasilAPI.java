@@ -1,5 +1,7 @@
 package br.com.brasilapi;
 
+import javax.net.ssl.HttpsURLConnection;
+
 import com.google.gson.Gson;
 
 import br.com.brasilapi.api.Bank;
@@ -45,12 +47,20 @@ public class BrasilAPI {
 	private static Gson gson = new Gson();
 
 	/**
+	 * 
+	 * @return
+	 */
+	public static HttpsURLConnection getHttpsURLConnection() {
+		return Service.getHttpsURLConnection();
+	}
+	
+	/**
 	 * Habilitar ou desabilitar Log.
 	 * 
 	 * @param enableLog
 	 */
 	public static void setEnableLog(boolean enableLog) {
-		Service.setEnableLog(enableLog);
+		Log.setEnable(enableLog);
 	}
 
 	/**
@@ -59,7 +69,7 @@ public class BrasilAPI {
 	 * @return Situação do Log
 	 */
 	public static boolean getEnableLog() {
-		return Service.getEnableLog();
+		return Log.getEnable();
 	}
 
 	/**
@@ -126,7 +136,7 @@ public class BrasilAPI {
 	 */
 	public static Bank[] banks() {
 		Bank[] obj = (Bank[]) api(Bank[].class, "banks/v1", "");
-		return (Bank[]) obj.clone();
+		return obj != null ? (Bank[]) obj.clone() : null;
 	}
 
 	/**
@@ -137,7 +147,7 @@ public class BrasilAPI {
 	 */
 	public static Bank bank(String code) {
 		Bank obj = (Bank) api(Bank.class, "banks/v1/", code);
-		return (Bank) obj.clone();
+		return obj != null ? (Bank) obj.clone() : null;
 	}
 
 	/**
@@ -155,7 +165,7 @@ public class BrasilAPI {
 	 */
 	public static CEP cep(String cep) {
 		CEP obj = (CEP) api(CEP.class, "cep/v1/", cep);
-		return (CEP) obj.clone();
+		return obj != null ? (CEP) obj.clone() : null;
 	}
 
 	/**
@@ -172,7 +182,7 @@ public class BrasilAPI {
 	 */
 	public static CEP2 cep2(String cep) {
 		CEP2 obj = (CEP2) api(CEP2.class, "cep/v2/", cep);
-		return (CEP2) obj.clone();
+		return obj != null ? (CEP2) obj.clone() : null;
 	}
 
 	/**
@@ -185,7 +195,7 @@ public class BrasilAPI {
 	 */
 	public static CNPJ cnpj(String cnpj) {
 		CNPJ obj = (CNPJ) api(CNPJ.class, "cnpj/v1/", cnpj);
-		return (CNPJ) obj.clone();
+		return obj != null ? (CNPJ) obj.clone() : null;
 	}
 
 	/**
@@ -200,7 +210,7 @@ public class BrasilAPI {
 	 */
 	public static DDD ddd(String ddd) {
 		DDD obj = (DDD) api(DDD.class, "ddd/v1/", ddd);
-		return (DDD) obj.clone();
+		return obj != null ? (DDD) obj.clone() : null;
 	}
 
 	/**
@@ -211,7 +221,7 @@ public class BrasilAPI {
 	 */
 	public static Feriados[] feriados(String ano) {
 		Feriados[] obj = (Feriados[]) api(Feriados[].class, "feriados/v1/", ano);
-		return (Feriados[]) obj.clone();
+		return obj != null ? (Feriados[]) obj.clone() : null;
 	}
 
 	/**
@@ -224,7 +234,7 @@ public class BrasilAPI {
 	 */
 	public static FipeMarca[] fipeMarcas(String tipoVeiculo) {
 		FipeMarca[] obj = (FipeMarca[]) api(FipeMarca[].class, "fipe/marcas/v1/", tipoVeiculo);
-		return (FipeMarca[]) obj.clone();
+		return obj != null ? (FipeMarca[]) obj.clone() : null;
 	}
 
 	/**
@@ -236,7 +246,7 @@ public class BrasilAPI {
 	 */
 	public static FipePreco[] fipePrecos(String codigoFipe) {
 		FipePreco[] obj = (FipePreco[]) api(FipePreco[].class, "fipe/preco/v1/", codigoFipe);
-		return (FipePreco[]) obj.clone();
+		return obj != null ? (FipePreco[]) obj.clone() : null;
 	}
 
 	/**
@@ -246,7 +256,7 @@ public class BrasilAPI {
 	 */
 	public static FipeTabela[] fipeTabelas() {
 		FipeTabela[] obj = (FipeTabela[]) api(FipeTabela[].class, "fipe/tabelas/v1", "");
-		return (FipeTabela[]) obj.clone();
+		return obj != null ? (FipeTabela[]) obj.clone() : null;
 	}
 
 	/**
@@ -257,7 +267,7 @@ public class BrasilAPI {
 	 */
 	public static IBGEMunicipio[] ibgeMunicipios(String siglaUF) {
 		IBGEMunicipio[] obj = (IBGEMunicipio[]) api(IBGEMunicipio[].class, "ibge/municipios/v1/", siglaUF);
-		return (IBGEMunicipio[]) obj.clone();
+		return obj != null ? (IBGEMunicipio[]) obj.clone() : null;
 	}
 
 	/**
@@ -282,7 +292,7 @@ public class BrasilAPI {
 
 		IBGEMunicipio[] obj = (IBGEMunicipio[]) api(IBGEMunicipio[].class, "ibge/municipios/v1/",
 				siglaUF + providesParameter);
-		return (IBGEMunicipio[]) obj.clone();
+		return obj != null ? (IBGEMunicipio[]) obj.clone() : null;
 	}
 
 	/**
@@ -292,7 +302,7 @@ public class BrasilAPI {
 	 */
 	public static IBGEUF[] ibgeUf() {
 		IBGEUF[] obj = (IBGEUF[]) api(IBGEUF[].class, "ibge/uf/v1", "");
-		return (IBGEUF[]) obj.clone();
+		return obj != null ? (IBGEUF[]) obj.clone() : null;
 	}
 
 	/**
@@ -303,7 +313,7 @@ public class BrasilAPI {
 	 */
 	public static IBGEUF ibgeUf(String sigla) {
 		IBGEUF obj = (IBGEUF) api(IBGEUF.class, "ibge/uf/v1/", sigla);
-		return (IBGEUF) obj.clone();
+		return obj != null ? (IBGEUF) obj.clone() : null;
 	}
 
 	/**
@@ -317,7 +327,7 @@ public class BrasilAPI {
 	 */
 	public static ISBN isbn(String isbn) {
 		ISBN obj = (ISBN) api(ISBN.class, "isbn/v1/", isbn);
-		return (ISBN) obj.clone();
+		return obj != null ? (ISBN) obj.clone() : null;
 	}
 
 	/**
@@ -347,7 +357,7 @@ public class BrasilAPI {
 		}
 
 		ISBN obj = (ISBN) api(ISBN.class, "isbn/v1/", isbn + providesParameter);
-		return (ISBN) obj.clone();
+		return obj != null ? (ISBN) obj.clone() : null;
 	}
 
 	/**
@@ -357,7 +367,7 @@ public class BrasilAPI {
 	 */
 	public static NCM[] ncm() {
 		NCM[] obj = (NCM[]) api(NCM[].class, "ncm/v1", "");
-		return (NCM[]) obj.clone();
+		return obj != null ? (NCM[]) obj.clone() : null;
 	}
 
 	/**
@@ -368,7 +378,7 @@ public class BrasilAPI {
 	 */
 	public static NCM ncm(String code) {
 		NCM obj = (NCM) api(NCM.class, "ncm/v1/", code);
-		return (NCM) obj.clone();
+		return obj != null ? (NCM) obj.clone() : null;
 	}
 
 	/**
@@ -379,7 +389,7 @@ public class BrasilAPI {
 	 */
 	public static NCM[] ncmSearch(String code) {
 		NCM[] obj = (NCM[]) api(NCM[].class, "ncm/v1?search=", code);
-		return (NCM[]) obj.clone();
+		return obj != null ? (NCM[]) obj.clone() : null;
 	}
 
 	/**
@@ -390,7 +400,7 @@ public class BrasilAPI {
 	 */
 	public static RegistroBR registroBR(String domain) {
 		RegistroBR obj = (RegistroBR) api(RegistroBR.class, "registrobr/v1/", domain);
-		return (RegistroBR) obj.clone();
+		return obj != null ? (RegistroBR) obj.clone() : null;
 	}
 
 	/**
@@ -400,7 +410,7 @@ public class BrasilAPI {
 	 */
 	public static Taxa[] taxas() {
 		Taxa[] obj = (Taxa[]) api(Taxa[].class, "taxas/v1", "");
-		return (Taxa[]) obj.clone();
+		return obj != null ? (Taxa[]) obj.clone() : null;
 	}
 
 	/**
@@ -411,38 +421,86 @@ public class BrasilAPI {
 	 */
 	public static Taxa taxa(String sigla) {
 		Taxa obj = (Taxa) api(Taxa.class, "taxas/v1/", sigla);
-		return (Taxa) obj.clone();
+		return obj != null ? (Taxa) obj.clone() : null;
 	}
 
 	/**
-	 * M�todo responsável por verificar se o Cache está habilitado e fazer enviar os
+	 * Método responsável por verificar se o Cache está habilitado e fazer enviar os
 	 * dados para conexão com a WEB, após isso fazer a conversão do dado bruto em
 	 * Json para o Objeto em questão.
 	 * 
 	 * @param classAPIModel Classe Objeto da qual está tratando.
 	 * @param parameter     da URL.
-	 * @param code          valor enviada com o par�metro.
+	 * @param code          valor enviada com o parâmetro.
 	 * @return {@link Object}
 	 */
 	private static Object api(Class<?> classAPIModel, String parameter, String code) {
+		code = code.replaceAll("/", "");
 		if (Cache.getEnableCache()) {
 			Object obj = Cache.getCache(classAPIModel, code);
 
 			if (obj == null) {
-				String json = Service.connection(parameter, code);
-				obj = gson.fromJson(json, classAPIModel);
-				Cache.setCache(classAPIModel, code, obj);
+				String json = Service.connection(parameter + code);
+				if (json != null) {
+					obj = gson.fromJson(json, classAPIModel);
+					Cache.setCache(classAPIModel, code, obj);
+				}
 			}
 
 			return obj;
 		} else {
-			String json = Service.connection(parameter, code);
+			String json = Service.connection(parameter + code);
 			return gson.fromJson(json, classAPIModel);
 		}
 	}
 
 	public static void main(String[] args) {
-		System.out.println("Start");
+		BrasilAPI.setEnableCache(false);
+		BrasilAPI.setEnableLog(false);
+		//BrasilAPI.setCacheTime(2050L);
+		long inicio = System.currentTimeMillis();
+		
+//		System.out.println(BrasilAPI.bank("01"));
+		BrasilAPI.bank("57");
+//		System.out.println(BrasilAPI.bank("01"));
+//		System.out.println(BrasilAPI.bank("01"));
+//		System.out.println(BrasilAPI.bank("77"));
+//		System.out.println(BrasilAPI.bank("01"));
+//		System.out.println(BrasilAPI.bank("77"));
+//		System.out.println(BrasilAPI.bank("01"));
+//		System.out.println(BrasilAPI.bank("77"));
+//		System.out.println(BrasilAPI.bank("01"));
+//		System.out.println(BrasilAPI.bank("01"));
+//		System.out.println(BrasilAPI.bank("77"));
+//		System.out.println(BrasilAPI.bank("01"));
+//		System.out.println(BrasilAPI.bank("01"));
+//		System.out.println(BrasilAPI.bank("77"));
+//		System.out.println(BrasilAPI.bank("01"));
+//		System.out.println(BrasilAPI.bank("77"));
+//		System.out.println(BrasilAPI.bank("01"));
+//		System.out.println(BrasilAPI.bank("77"));
+//		System.out.println(BrasilAPI.bank("01"));
+		
+		
+		BrasilAPI.bank("01");
+		BrasilAPI.bank("01");
+		BrasilAPI.bank("77");
+		BrasilAPI.bank("01");
+		BrasilAPI.bank("77");
+		BrasilAPI.bank("01");
+		BrasilAPI.bank("77");
+		BrasilAPI.bank("01");
+		BrasilAPI.bank("01");
+		BrasilAPI.bank("77");
+		BrasilAPI.bank("01");
+		BrasilAPI.bank("01");
+		BrasilAPI.bank("77");
+		BrasilAPI.bank("01");
+		BrasilAPI.bank("77");
+		BrasilAPI.bank("01");
+		BrasilAPI.bank("77");
+		BrasilAPI.bank("01");
+		System.out.println(System.currentTimeMillis() - inicio);
 	}
 
 }

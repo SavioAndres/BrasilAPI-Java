@@ -1,46 +1,39 @@
 package br.com.brasilapi;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
 
 class Service {
-	private static boolean enableLog = false;
-
+	private static HttpsURLConnection connector;
+	
 	protected Service() {
 	}
-
-	protected static void setEnableLog(boolean enableLog) {
-		Service.enableLog = enableLog;
+	
+	protected static HttpsURLConnection getHttpsURLConnection() {
+		return connector;
 	}
 
-	protected static boolean getEnableLog() {
-		return Service.enableLog;
-	}
-
-	protected static String connection(String urlParameter, String code) {
+	protected static String connection(String urlParameter) {
 		String json = null;
 
 		try {
-			code = code.replaceAll("/", "");
+			URL url = new URL("https://brasilapi.com.br/api/" + urlParameter);
 
-			URL url = new URL("https://brasilapi.com.br/api/" + urlParameter + code);
+			Log.setConsole("Acessando: " + url);
 
-			if (Service.enableLog) {
-				System.out.println("Acessando: " + url);
+			connector = (HttpsURLConnection) url.openConnection();
+			connector.setDoOutput(true);
+			connector.setRequestMethod("GET");
+
+			if (Log.getEnable() && connector.getResponseCode() != HttpsURLConnection.HTTP_OK) {
+				Log.setConsoleError("ERROR. HTTP error code: " + connector.getResponseCode() + "\n");
 			}
-
-			HttpsURLConnection conector = (HttpsURLConnection) url.openConnection();
-			conector.setDoOutput(true);
-			conector.setRequestMethod("GET");
-
-			if (conector.getResponseCode() != 200) {
-				System.err.print("ERROR. HTTP error code: " + conector.getResponseCode());
-			}
-
-			BufferedReader br = new BufferedReader(new InputStreamReader(conector.getInputStream(), "UTF-8"));
+			
+			BufferedReader br = new BufferedReader(new InputStreamReader(connector.getInputStream(), "UTF-8"));
 
 			String output, retorno = "";
 
@@ -50,14 +43,11 @@ class Service {
 
 			json = retorno;
 
-			if (Service.enableLog) {
-				System.out.println("Json retornado: " + json);
-			}
-
-			conector.disconnect();
-
-		} catch (Exception e) {
-			e.printStackTrace();
+			Log.setConsole("Json retornado: " + json);
+			
+		} catch (IOException e) {
+			//conector.disconnect();
+			//e.printStackTrace();
 		}
 
 		return json;

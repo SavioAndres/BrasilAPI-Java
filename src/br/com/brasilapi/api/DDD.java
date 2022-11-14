@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * DDD significa Discagem Direta à Distância. é um sistema de ligação telefônica
- * automática entre diferentes �reas urbanas nacionais. O DDD é um código
+ * automática entre diferentes áreas urbanas nacionais. O DDD é um código
  * constituído por 2 dígitos que identificam as principais cidades do país e
  * devem ser adicionados ao nº de telefone, juntamente com o código da
  * operadora.

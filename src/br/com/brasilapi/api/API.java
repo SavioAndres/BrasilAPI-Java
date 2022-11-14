@@ -1,14 +1,14 @@
 package br.com.brasilapi.api;
 
 class API implements Cloneable {
-
+	
 	@Override
 	public Object clone() {
 		try {
 			return super.clone();
 		} catch (CloneNotSupportedException e) {
-			e.printStackTrace();
+			return null;
 		}
-		return null;
 	}
+	
 }
