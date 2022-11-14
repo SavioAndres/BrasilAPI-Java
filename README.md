@@ -1,7 +1,14 @@
 ## BrasilAPI-Java
-Biblioteca criada para facilitar o acesso à API BrasilAPI na linguagem de programação Java.
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Java CI with Maven](https://github.com/SavioAndres/BrasilAPI-Java/actions/workflows/maven.yml/badge.svg)](https://github.com/SavioAndres/BrasilAPI-Java/actions/workflows/maven.yml)
 
-https://github.com/BrasilAPI/BrasilAPI
+Biblioteca criada para facilitar o acesso à API [BrasilAPI](https://github.com/BrasilAPI/BrasilAPI) na linguagem de programação Java.
+
+## Informações
+- Suporte à Java 8 em diante.
+
+### Melhorias futuras
+- Integração ao Maven Central.
 
 ## Instalação
 ### Download da biblioteca
@@ -32,7 +39,7 @@ BrasilAPI.setEnableCache(true);
 BrasilAPI.setCacheTimeMinutes(10L);
 
 // Alguns outros métodos implementados de exemplo:
-Bank[] bank = BrasilAPI.banks();
+Bank[] banks = BrasilAPI.banks();
 Bank bank = BrasilAPI.bank("1");
 CEP cep = new CEP();
 CNPJ cnpj = BrasilAPI.cnpj("06.990.590/0001-23");
