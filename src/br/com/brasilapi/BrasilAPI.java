@@ -35,7 +35,7 @@ import br.com.brasilapi.api.Taxa;
  * devagar for a fonte dos dados, nós queremos disponibilizá-la da forma mais
  * rápida e moderna possível.
  * 
- * @author Sávio Andres {@link <a href="https://savio.pw">https://savio.pw</a>}
+ * @author Sávio Andres <a href="https://savio.pw">https://savio.pw</a>
  * @see <a href=
  *      "https://brasilapi.com.br/docs">https://brasilapi.com.br/docs</a>
  * @see <a href=
@@ -47,8 +47,9 @@ public class BrasilAPI {
 	private static Gson gson = new Gson();
 
 	/**
-	 * 
-	 * @return
+	 * Retorna a conexão relaizada ao endpoint da API, 
+	 * dando total liberdade para manipular como desejar.
+	 * @return HttpsURLConnection
 	 */
 	public static HttpsURLConnection getHttpsURLConnection() {
 		return Service.getHttpsURLConnection();
@@ -57,7 +58,7 @@ public class BrasilAPI {
 	/**
 	 * Habilitar ou desabilitar Log.
 	 * 
-	 * @param enableLog
+	 * @param enableLog Ativar ou desativar Log.
 	 */
 	public static void setEnableLog(boolean enableLog) {
 		Log.setEnable(enableLog);
@@ -76,7 +77,7 @@ public class BrasilAPI {
 	 * Habilitar ou desabilitar Cache. Milissegundos padrão para o tempo de vida do
 	 * cache é de 600000, equivalente a 10 minutos.
 	 * 
-	 * @param enableCache
+	 * @param enableCache Ativar ou desativar Cache.
 	 */
 	public static void setEnableCache(boolean enableCache) {
 		Cache.setEnableCache(enableCache);
@@ -90,21 +91,21 @@ public class BrasilAPI {
 	public static boolean getEnableCache() {
 		return Cache.getEnableCache();
 	}
-
+	
 	/**
 	 * Definir o tempo de vida do Cache em <strong>milissegundos</strong>, o tempo
 	 * padrão é de 600000 milissegundos, equivalente a 10 minutos.
 	 * 
-	 * @param time
+	 * @param time Defina o tempo em milissegundos. Ex: 60000L.
 	 */
 	public static void setCacheTime(Long time) {
 		Cache.setCacheTime(time);
 	}
-
+	
 	/**
 	 * Obter o tempo de vida do Cache em <strong>milissegundos</strong>.
 	 * 
-	 * @return Long milissegundos
+	 * @return Obtenha o tempo definido em milissegundos.
 	 */
 	public static Long getCacheTime() {
 		return Cache.getCacheTime();
@@ -114,7 +115,7 @@ public class BrasilAPI {
 	 * Definir o tempo de vida do Cache em <strong>minutos</strong>, o tempo padrão
 	 * é de 600000 milissegundos, equivalente a 10 minutos.
 	 * 
-	 * @param time
+	 * @param time Defina o tempo em minutos. Ex: 10L.
 	 */
 	public static void setCacheTimeMinutes(Long time) {
 		Cache.setCacheTime(time * 60000);
@@ -190,7 +191,7 @@ public class BrasilAPI {
 	 * pessoa jurídica e outros tipos de arranjo jurídico sem personalidade jurídica
 	 * junto à Receita Federal.
 	 * 
-	 * @param cnpj
+	 * @param cnpj Número do CNPJ
 	 * @return {@link CNPJ}
 	 */
 	public static CNPJ cnpj(String cnpj) {
@@ -205,7 +206,7 @@ public class BrasilAPI {
 	 * devem ser adicionados ao nº de telefone, juntamente com o código da
 	 * operadora.
 	 * 
-	 * @param ddd
+	 * @param ddd Código do DDD. Ex: 79.
 	 * @return {@link DDD}
 	 */
 	public static DDD ddd(String ddd) {
@@ -216,7 +217,7 @@ public class BrasilAPI {
 	/**
 	 * Lista os feriados nacionais de determinado ano.
 	 * 
-	 * @param ano
+	 * @param ano Ano que deseja obter os feriados.
 	 * @return {@link Feriados}
 	 */
 	public static Feriados[] feriados(String ano) {
@@ -322,7 +323,7 @@ public class BrasilAPI {
 	 * O código informado pode conter traços (-) e ambos os formatos são aceitos,
 	 * sendo eles o obsoleto de 10 dígitos e o atual de 13 dígitos.
 	 * 
-	 * @param isbn
+	 * @param isbn Código isbn.
 	 * @return {@link ISBN}
 	 */
 	public static ISBN isbn(String isbn) {
@@ -340,7 +341,7 @@ public class BrasilAPI {
 	 * realizado uma busca em todos os provedores e o que retornar as informações
 	 * mais rapidamente será o escolhido.
 	 * 
-	 * @param isbn
+	 * @param isbn Código isbn.
 	 * @param providers Array de String. Provedores dos dados. Provedores
 	 *                  disponíves: cbl, mercado-editorial, open-library,
 	 *                  google-books.
@@ -373,7 +374,7 @@ public class BrasilAPI {
 	/**
 	 * Busca as informações de um NCM a partir de um código.
 	 * 
-	 * @param code
+	 * @param code Código da Nomenclatura Comum do Mercosul.
 	 * @return Array de {@link NCM}
 	 */
 	public static NCM ncm(String code) {
@@ -384,7 +385,7 @@ public class BrasilAPI {
 	/**
 	 * Pesquisa por NCMs a partir de um código ou descrição.
 	 * 
-	 * @param code ou descrição
+	 * @param code ou descrição da Nomenclatura Comum do Mercosul.
 	 * @return Array de {@link NCM}
 	 */
 	public static NCM[] ncmSearch(String code) {
@@ -395,7 +396,7 @@ public class BrasilAPI {
 	/**
 	 * Avalia o status de um dominio .br
 	 * 
-	 * @param domain
+	 * @param domain Endereço eletrônico. Ex: savio.pw
 	 * @return {@link RegistroBR}
 	 */
 	public static RegistroBR registroBR(String domain) {
@@ -416,7 +417,7 @@ public class BrasilAPI {
 	/**
 	 * Busca as informações de uma taxa a partir do seu nome/sigla.
 	 * 
-	 * @param sigla
+	 * @param sigla Ex: SELIC.
 	 * @return {@link Taxa}
 	 */
 	public static Taxa taxa(String sigla) {
