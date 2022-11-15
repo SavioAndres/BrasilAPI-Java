@@ -455,52 +455,16 @@ public class BrasilAPI {
 	}
 
 	public static void main(String[] args) {
-		BrasilAPI.setEnableCache(false);
-		BrasilAPI.setEnableLog(false);
-		//BrasilAPI.setCacheTime(2050L);
-		long inicio = System.currentTimeMillis();
+		final String VERSION = "v1.0.5";
 		
-//		System.out.println(BrasilAPI.bank("01"));
-		BrasilAPI.bank("57");
-//		System.out.println(BrasilAPI.bank("01"));
-//		System.out.println(BrasilAPI.bank("01"));
-//		System.out.println(BrasilAPI.bank("77"));
-//		System.out.println(BrasilAPI.bank("01"));
-//		System.out.println(BrasilAPI.bank("77"));
-//		System.out.println(BrasilAPI.bank("01"));
-//		System.out.println(BrasilAPI.bank("77"));
-//		System.out.println(BrasilAPI.bank("01"));
-//		System.out.println(BrasilAPI.bank("01"));
-//		System.out.println(BrasilAPI.bank("77"));
-//		System.out.println(BrasilAPI.bank("01"));
-//		System.out.println(BrasilAPI.bank("01"));
-//		System.out.println(BrasilAPI.bank("77"));
-//		System.out.println(BrasilAPI.bank("01"));
-//		System.out.println(BrasilAPI.bank("77"));
-//		System.out.println(BrasilAPI.bank("01"));
-//		System.out.println(BrasilAPI.bank("77"));
-//		System.out.println(BrasilAPI.bank("01"));
-		
-		
-		BrasilAPI.bank("01");
-		BrasilAPI.bank("01");
-		BrasilAPI.bank("77");
-		BrasilAPI.bank("01");
-		BrasilAPI.bank("77");
-		BrasilAPI.bank("01");
-		BrasilAPI.bank("77");
-		BrasilAPI.bank("01");
-		BrasilAPI.bank("01");
-		BrasilAPI.bank("77");
-		BrasilAPI.bank("01");
-		BrasilAPI.bank("01");
-		BrasilAPI.bank("77");
-		BrasilAPI.bank("01");
-		BrasilAPI.bank("77");
-		BrasilAPI.bank("01");
-		BrasilAPI.bank("77");
-		BrasilAPI.bank("01");
-		System.out.println(System.currentTimeMillis() - inicio);
+		System.out.println(""
+				+ "  ____                _ _    _    ____ ___          _                  \r\n"
+				+ " | __ ) _ __ __ _ ___(_) |  / \\  |  _ \\_ _|        | | __ ___   ____ _ \r\n"
+				+ " |  _ \\| '__/ _` / __| | | / _ \\ | |_) | |_____ _  | |/ _` \\ \\ / / _` |\r\n"
+				+ " | |_) | | | (_| \\__ \\ | |/ ___ \\|  __/| |_____| |_| | (_| |\\ V / (_| |\r\n"
+				+ " |____/|_|  \\__,_|___/_|_/_/   \\_\\_|  |___|     \\___/ \\__,_| \\_/ \\__,_|\r\n"
+				+ "\r\n BrasilAPI-Java. Version \u001B[42m" + VERSION + "\u001B[0m"
+				+ "\r\n https://github.com/SavioAndres/BrasilAPI-Java");
 	}
 
 }

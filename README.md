@@ -4,6 +4,14 @@
 
 Biblioteca criada para facilitar o acesso à API [BrasilAPI](https://github.com/BrasilAPI/BrasilAPI) na linguagem de programação Java.
 
+```
+  ____                _ _    _    ____ ___          _                  
+ | __ ) _ __ __ _ ___(_) |  / \  |  _ \_ _|        | | __ ___   ____ _ 
+ |  _ \| '__/ _` / __| | | / _ \ | |_) | |_____ _  | |/ _` \ \ / / _` |
+ | |_) | | | (_| \__ \ | |/ ___ \|  __/| |_____| |_| | (_| |\ V / (_| |
+ |____/|_|  \__,_|___/_|_/_/   \_\_|  |___|     \___/ \__,_| \_/ \__,_|
+```
+
 ## Informações
 - Suporte à Java 8 em diante.
 
