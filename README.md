@@ -1,5 +1,5 @@
 ## BrasilAPI-Java
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/SavioAndres/BrasilAPI-Java/blob/main/LICENSE)
 [![Java CI with Maven](https://github.com/SavioAndres/BrasilAPI-Java/actions/workflows/maven.yml/badge.svg)](https://github.com/SavioAndres/BrasilAPI-Java/actions/workflows/maven.yml)
 
 Biblioteca criada para facilitar o acesso à API [BrasilAPI](https://github.com/BrasilAPI/BrasilAPI) na linguagem de programação Java.
@@ -13,7 +13,7 @@ Biblioteca criada para facilitar o acesso à API [BrasilAPI](https://github.com/
 ```
 
 ## Informações
-- Suporte à Java 8 em diante.
+- Suporte à Java 8 ou superior.
 
 ### Melhorias futuras
 - Integração ao Maven Central.

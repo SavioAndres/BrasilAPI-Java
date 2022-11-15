@@ -17,6 +17,7 @@ br\com\brasilapi\api\CEP2Location.class
 br\com\brasilapi\api\ISBN.class
 br\com\brasilapi\api\CNPJ.class
 br\com\brasilapi\api\FipeMarca.class
+br\com\brasilapi\Log.class
 br\com\brasilapi\api\IBGEMunicipio.class
 br\com\brasilapi\api\ISBNRetailPrice.class
 br\com\brasilapi\api\NCM.class
