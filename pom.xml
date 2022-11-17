@@ -54,8 +54,8 @@
   </distributionManagement>
   
   <build>
-    <sourceDirectory>src/br/com/brasilapi</sourceDirectory>
-    <testSourceDirectory>src/test/br/com/brasilapi</testSourceDirectory>
+    <sourceDirectory>src/main/java/br/com/brasilapi</sourceDirectory>
+    <testSourceDirectory>src/test/java/br/com/brasilapi</testSourceDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>

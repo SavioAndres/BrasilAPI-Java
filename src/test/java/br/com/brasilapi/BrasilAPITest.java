@@ -1,10 +1,9 @@
-package test.br.com.brasilapi;
+package br.com.brasilapi;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import br.com.brasilapi.BrasilAPI;
 import br.com.brasilapi.api.Bank;
 import br.com.brasilapi.api.CEP;
 import br.com.brasilapi.api.CEP2;
