@@ -152,7 +152,7 @@ public class BrasilAPI {
 	}
 
 	/**
-	 * Adicione o código do CEP e obtenha o objeto CEP. M�todo da versão 1.
+	 * Adicione o código do CEP e obtenha o objeto CEP. Método da versão 1.
 	 * 
 	 * O CEP (Código de Endereçamento Postal) é um sistema de códigos que visa
 	 * racionalizar o processo de encaminhamento e entrega de correspondências
@@ -201,7 +201,7 @@ public class BrasilAPI {
 
 	/**
 	 * DDD significa Discagem Direta à Distância. é um sistema de ligação telefônica
-	 * automática entre diferentes �reas urbanas nacionais. O DDD é um código
+	 * automática entre diferentes áreas urbanas nacionais. O DDD é um código
 	 * constituído por 2 dígitos que identificam as principais cidades do país e
 	 * devem ser adicionados ao nº de telefone, juntamente com o código da
 	 * operadora.

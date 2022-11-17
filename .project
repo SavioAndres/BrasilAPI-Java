@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>BrasilAPI-Java</name>
-	<comment></comment>
+	<comment>Biblioteca criada para facilitar o acesso à API BrasilAPI na linguagem de programação Java.</comment>
 	<projects>
 	</projects>
 	<buildSpec>

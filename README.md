@@ -47,24 +47,24 @@ BrasilAPI.setEnableCache(true);
 BrasilAPI.setCacheTimeMinutes(10L);
 
 // Alguns outros métodos implementados de exemplo:
-Bank[] banks = BrasilAPI.banks();
-Bank bank = BrasilAPI.bank("1");
-CEP cep = new CEP();
-CNPJ cnpj = BrasilAPI.cnpj("06.990.590/0001-23");
-DDD ddd = BrasilAPI.ddd("79");
-Feriados[] feriados = BrasilAPI.feriados("2023");
-FipeMarca[] fipeMarcas = BrasilAPI.fipeMarcas("carros");
-FipePreco[] fipePrecos = BrasilAPI.fipePrecos("031049-2");
-FipeTabela[] fipeTabelas = BrasilAPI.fipeTabelas();
-IBGEMunicipio[] ibgeMunicipios = BrasilAPI.ibgeMunicipios("SE");
-IBGEUF[] ibgeUfs = BrasilAPI.ibgeUf();
-IBGEUF ibgeUf = BrasilAPI.ibgeUf("SE");
-ISBN isbn = BrasilAPI.isbn("9788567097688");
-NCM[] ncms = BrasilAPI.ncm();
-NCM ncm = BrasilAPI.ncm("01");
-NCM[] ncmSearch = BrasilAPI.ncmSearch("Animais vivos.");
-RegistroBR registroBR = BrasilAPI.registroBR("savio.pw");
-Taxa[] taxas = BrasilAPI.taxas();
-Taxa taxa = BrasilAPI.taxa("SELIC");
+Bank[] banks                    = BrasilAPI.banks();
+Bank bank                       = BrasilAPI.bank("1");
+CEP cep                         = BrasilAPI.cep("04538133");
+CNPJ cnpj                       = BrasilAPI.cnpj("06.990.590/0001-23");
+DDD ddd                         = BrasilAPI.ddd("79");
+Feriados[] feriados             = BrasilAPI.feriados("2023");
+FipeMarca[] fipeMarcas          = BrasilAPI.fipeMarcas("carros");
+FipePreco[] fipePrecos          = BrasilAPI.fipePrecos("031049-2");
+FipeTabela[] fipeTabelas        = BrasilAPI.fipeTabelas();
+IBGEMunicipio[] ibgeMunicipios  = BrasilAPI.ibgeMunicipios("SE");
+IBGEUF[] ibgeUfs                = BrasilAPI.ibgeUf();
+IBGEUF ibgeUf                   = BrasilAPI.ibgeUf("SE");
+ISBN isbn                       = BrasilAPI.isbn("9788567097688");
+NCM[] ncms                      = BrasilAPI.ncm();
+NCM ncm                         = BrasilAPI.ncm("01");
+NCM[] ncmSearch                 = BrasilAPI.ncmSearch("Animais vivos.");
+RegistroBR registroBR           = BrasilAPI.registroBR("savio.pw");
+Taxa[] taxas                    = BrasilAPI.taxas();
+Taxa taxa                       = BrasilAPI.taxa("SELIC");
 
 ```
