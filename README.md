@@ -2,6 +2,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/SavioAndres/BrasilAPI-Java/blob/main/LICENSE)
 [![Java CI with Maven](https://github.com/SavioAndres/BrasilAPI-Java/actions/workflows/maven.yml/badge.svg)](https://github.com/SavioAndres/BrasilAPI-Java/actions/workflows/maven.yml)
 [![CodeQL](https://github.com/SavioAndres/BrasilAPI-Java/actions/workflows/codeql.yml/badge.svg)](https://github.com/SavioAndres/BrasilAPI-Java/actions/workflows/codeql.yml)
+[![JitPack](https://jitpack.io/v/SavioAndres/BrasilAPI-Java.svg)](https://jitpack.io/#SavioAndres/BrasilAPI-Java/v1.0.5)
 
 Biblioteca criada para facilitar o acesso à API [BrasilAPI](https://github.com/BrasilAPI/BrasilAPI) na linguagem de programação Java.
 
@@ -16,21 +17,25 @@ Biblioteca criada para facilitar o acesso à API [BrasilAPI](https://github.com/
 ## Informações
 - Suporte à Java 8 ou superior.
 
-### Melhorias futuras
-- Integração ao Maven Central.
-
 ## Instalação
-### Download da biblioteca
-<a href="https://github.com/SavioAndres/BrasilAPI-Java/releases/download/v1.0.0/BrasilAPI.jar">BrasilAPI.jar</a>
-
-### Dependência Maven
+### Maven
 ```xml
-<dependency>
-    <groupId>com.google.code.gson</groupId>
-    <artifactId>gson</artifactId>
-    <version>2.10</version>
-</dependency>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.github.SavioAndres</groupId>
+  		<artifactId>BrasilAPI-Java</artifactId>
+  		<version>v1.0.5</version>
+  	</dependency>
+  </dependencies>
+  <repositories>
+	<repository>
+	    <id>jitpack.io</id>
+	    <url>https://jitpack.io</url>
+	</repository>
+  </repositories>
 ```
+### Demais gerenciadores:
+Gradle, SBT e Leiningen disponíveis em: [JitPack BrasilAPI-Java](https://jitpack.io/#SavioAndres/BrasilAPI-Java/v1.0.5)
 
 ## Exemplo de utilização
 ```java
