@@ -8,6 +8,7 @@ import br.com.brasilapi.api.Bank;
 import br.com.brasilapi.api.CEP;
 import br.com.brasilapi.api.CEP2;
 import br.com.brasilapi.api.CNPJ;
+import br.com.brasilapi.api.Corretora;
 import br.com.brasilapi.api.DDD;
 import br.com.brasilapi.api.Feriados;
 import br.com.brasilapi.api.FipeMarca;
@@ -197,6 +198,17 @@ public class BrasilAPI {
 	public static CNPJ cnpj(String cnpj) {
 		CNPJ obj = (CNPJ) api(CNPJ.class, "cnpj/v1/", cnpj);
 		return obj != null ? (CNPJ) obj.clone() : null;
+	}
+	
+	/**
+	 * Informações referentes a Corretoras ativas listadas na CVM.
+	 * 
+	 * @param cnpj
+	 * @return {@link Corretora}
+	 */
+	public static Corretora corretora(String cnpj) {
+		Corretora obj = (Corretora) api(Corretora.class, "cvm/corretoras/v1/", cnpj);
+		return obj != null ? (Corretora) obj.clone() : null;
 	}
 
 	/**
@@ -456,7 +468,7 @@ public class BrasilAPI {
 	}
 
 	public static void main(String[] args) {
-		final String VERSION = "v1.0.5";
+		final String VERSION = "v1.1.0";
 		
 		System.out.println(""
 				+ "  ____                _ _    _    ____ ___          _                  \r\n"
