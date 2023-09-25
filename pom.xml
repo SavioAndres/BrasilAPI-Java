@@ -39,7 +39,6 @@
   
   <properties>
   	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  	<mavenVersion>3.0</mavenVersion>
   </properties>
   
   <distributionManagement>
@@ -54,8 +53,6 @@
   </distributionManagement>
   
   <build>
-    <sourceDirectory>src/main/java/br/com/brasilapi</sourceDirectory>
-    <testSourceDirectory>src/test/java/br/com/brasilapi</testSourceDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -80,9 +77,9 @@
   </dependencyManagement>
   <dependencies>
   	<dependency>
-	    <groupId>com.google.code.gson</groupId>
-	    <artifactId>gson</artifactId>
-	    <version>2.10</version>
+		<groupId>com.google.code.gson</groupId>
+		<artifactId>gson</artifactId>
+		<version>2.10</version>
 	</dependency>
   	<dependency>
 		<groupId>org.junit.jupiter</groupId>
