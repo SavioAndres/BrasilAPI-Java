@@ -8,13 +8,13 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 
 class Service {
-	private static HttpsURLConnection connector;
+	private static HttpsURLConnection connection;
 	
 	protected Service() {
 	}
 	
 	protected static HttpsURLConnection getHttpsURLConnection() {
-		return connector;
+		return connection;
 	}
 
 	protected static String connection(String urlParameter) {
@@ -25,15 +25,15 @@ class Service {
 
 			Log.setConsole("Acessando: " + url);
 
-			connector = (HttpsURLConnection) url.openConnection();
-			connector.setDoOutput(true);
-			connector.setRequestMethod("GET");
+			connection = (HttpsURLConnection) url.openConnection();
+			connection.setDoOutput(true);
+			connection.setRequestMethod("GET");
 
-			if (Log.getEnable() && connector.getResponseCode() != HttpsURLConnection.HTTP_OK) {
-				Log.setConsoleError("ERROR. HTTP error code: " + connector.getResponseCode() + "\n");
+			if (Log.getEnable() && connection.getResponseCode() != HttpsURLConnection.HTTP_OK) {
+				Log.setConsoleError("ERROR. HTTP error code: " + connection.getResponseCode() + "\n");
 			}
 			
-			BufferedReader br = new BufferedReader(new InputStreamReader(connector.getInputStream(), "UTF-8"));
+			BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
 
 			String output, retorno = "";
 

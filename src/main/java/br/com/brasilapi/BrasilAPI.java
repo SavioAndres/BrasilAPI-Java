@@ -8,6 +8,11 @@ import br.com.brasilapi.api.Bank;
 import br.com.brasilapi.api.CEP;
 import br.com.brasilapi.api.CEP2;
 import br.com.brasilapi.api.CNPJ;
+import br.com.brasilapi.api.CPTEC;
+import br.com.brasilapi.api.CPTECClimaAeroporto;
+import br.com.brasilapi.api.CPTECClimaCapital;
+import br.com.brasilapi.api.CPTECLocalidade;
+import br.com.brasilapi.api.CPTECPrevisaoMeteorologica;
 import br.com.brasilapi.api.Corretora;
 import br.com.brasilapi.api.DDD;
 import br.com.brasilapi.api.Feriados;
@@ -200,8 +205,18 @@ public class BrasilAPI {
 		return obj != null ? (CNPJ) obj.clone() : null;
 	}
 	
+//	/**
+//	 * Retorna informações referentes as Corretoras ativas listadas na CVM.
+//	 * 
+//	 * @return Array de {@link Corretora}
+//	 */
+//	public static Corretora[] corretoras() {
+//		Corretora[] obj = (Corretora[]) api(Corretora[].class, "cvm/corretoras/v1/", "");
+//		return obj != null ? (Corretora[]) obj.clone() : null;
+//	}
+	
 	/**
-	 * Informações referentes a Corretoras ativas listadas na CVM.
+	 * Retorna informações referentes a determinada Corretora ativa listada na CVM.
 	 * 
 	 * @param cnpj
 	 * @return {@link Corretora}
@@ -210,7 +225,26 @@ public class BrasilAPI {
 		Corretora obj = (Corretora) api(Corretora.class, "cvm/corretoras/v1/", cnpj);
 		return obj != null ? (Corretora) obj.clone() : null;
 	}
-
+	
+	public static CPTECLocalidade[] cptecLocalidade() {
+		CPTEC[] obj = (CPTEC[]) api(CPTEC[].class, "cptec/v1/cidade", "");
+		return obj != null ? (CPTEC[]) obj.clone() : null;
+	}
+	
+	public static CPTECLocalidade[] cptecLocalidade(String nomeCidade) {
+		CPTEC[] obj = (CPTEC[]) api(CPTEC[].class, "cptec/v1/cidade", nomeCidade);
+		return obj != null ? (CPTECLocalidade[]) obj.clone() : null;
+	}
+	
+	public static CPTECClimaCapital[] cptecCondicoesAtuaisCapitais() {
+		CPTEC[] obj = (CPTEC[]) api(CPTEC[].class, "cptec/v1/clima/capital", "");
+		return obj != null ? (CPTECClimaCapital[]) obj.clone() : null;
+	}
+	
+	public static CPTECClimaAeroporto[] cptecCondicoesAtuaisAeroporto(String icaoCode) {
+		CPTEC[] obj = (CPTEC[]) api(CPTEC[].class, "cptec/v1/clima/aeroporto", icaoCode);
+		return obj != null ? (CPTECClimaAeroporto[]) obj.clone() : null;
+	}
 	/**
 	 * DDD significa Discagem Direta à Distância. é um sistema de ligação telefônica
 	 * automática entre diferentes áreas urbanas nacionais. O DDD é um código
@@ -478,6 +512,7 @@ public class BrasilAPI {
 				+ " |____/|_|  \\__,_|___/_|_/_/   \\_\\_|  |___|     \\___/ \\__,_| \\_/ \\__,_|\r\n"
 				+ "\r\n BrasilAPI-Java. Version \u001B[42m" + VERSION + "\u001B[0m"
 				+ "\r\n https://github.com/SavioAndres/BrasilAPI-Java");
+		System.out.println(cptecLocalidade());
 	}
 
 }

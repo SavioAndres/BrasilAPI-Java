@@ -1,6 +1,5 @@
 package br.com.brasilapi.api;
 
-import java.util.Date;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -29,15 +28,15 @@ public class Corretora extends API {
 	private String complemento;
 	private String logradouro;
 	@SerializedName("data_patrimonio_liquido")
-	private Date dataPatrimonioLiquido;
+	private String dataPatrimonioLiquido;
 	@SerializedName("valor_patrimonio_liquido")
 	private Double valorPatrimonioLiquido;
 	@SerializedName("codigo_cvm")
-	private Long codigoCVM;
+	private String codigoCVM;
 	@SerializedName("data_inicio_situacao")
-	private Date dataInicioSituacao;
+	private String dataInicioSituacao;
 	@SerializedName("data_registro")
-	private Date dataRegistro;
+	private String dataRegistro;
 	
 	public String getCnpj() {
 		return cnpj;
@@ -123,10 +122,10 @@ public class Corretora extends API {
 	public void setLogradouro(String logradouro) {
 		this.logradouro = logradouro;
 	}
-	public Date getDataPatrimonioLiquido() {
+	public String getDataPatrimonioLiquido() {
 		return dataPatrimonioLiquido;
 	}
-	public void setDataPatrimonioLiquido(Date dataPatrimonioLiquido) {
+	public void setDataPatrimonioLiquido(String dataPatrimonioLiquido) {
 		this.dataPatrimonioLiquido = dataPatrimonioLiquido;
 	}
 	public Double getValorPatrimonioLiquido() {
@@ -135,22 +134,22 @@ public class Corretora extends API {
 	public void setValorPatrimonioLiquido(Double valorPatrimonioLiquido) {
 		this.valorPatrimonioLiquido = valorPatrimonioLiquido;
 	}
-	public Long getCodigoCVM() {
+	public String getCodigoCVM() {
 		return codigoCVM;
 	}
-	public void setCodigoCVM(Long codigoCVM) {
+	public void setCodigoCVM(String codigoCVM) {
 		this.codigoCVM = codigoCVM;
 	}
-	public Date getDataInicioSituacao() {
+	public String getDataInicioSituacao() {
 		return dataInicioSituacao;
 	}
-	public void setDataInicioSituacao(Date dataInicioSituacao) {
+	public void setDataInicioSituacao(String dataInicioSituacao) {
 		this.dataInicioSituacao = dataInicioSituacao;
 	}
-	public Date getDataRegistro() {
+	public String getDataRegistro() {
 		return dataRegistro;
 	}
-	public void setDataRegistro(Date dataRegistro) {
+	public void setDataRegistro(String dataRegistro) {
 		this.dataRegistro = dataRegistro;
 	}
 	@Override
