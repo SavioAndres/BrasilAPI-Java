@@ -1,6 +1,7 @@
 package br.com.brasilapi.api;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * DDD significa Discagem Direta à Distância. é um sistema de ligação telefônica
@@ -31,6 +32,27 @@ public class DDD extends API {
 
 	public void setCities(String[] cities) {
 		this.cities = cities;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(cities);
+		result = prime * result + Objects.hash(state);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DDD other = (DDD) obj;
+		return Arrays.equals(cities, other.cities) && Objects.equals(state, other.state);
 	}
 
 	@Override

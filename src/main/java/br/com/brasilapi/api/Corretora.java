@@ -1,6 +1,8 @@
 package br.com.brasilapi.api;
 
 
+import java.util.Objects;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -152,6 +154,35 @@ public class Corretora extends API {
 	public void setDataRegistro(String dataRegistro) {
 		this.dataRegistro = dataRegistro;
 	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(bairro, cep, cnpj, codigoCVM, complemento, dataInicioSituacao, dataPatrimonioLiquido,
+				dataRegistro, email, logradouro, municipio, nomeComercial, nomeSocial, pais, status, telefone, type, uf,
+				valorPatrimonioLiquido);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Corretora other = (Corretora) obj;
+		return Objects.equals(bairro, other.bairro) && Objects.equals(cep, other.cep)
+				&& Objects.equals(cnpj, other.cnpj) && Objects.equals(codigoCVM, other.codigoCVM)
+				&& Objects.equals(complemento, other.complemento)
+				&& Objects.equals(dataInicioSituacao, other.dataInicioSituacao)
+				&& Objects.equals(dataPatrimonioLiquido, other.dataPatrimonioLiquido)
+				&& Objects.equals(dataRegistro, other.dataRegistro) && Objects.equals(email, other.email)
+				&& Objects.equals(logradouro, other.logradouro) && Objects.equals(municipio, other.municipio)
+				&& Objects.equals(nomeComercial, other.nomeComercial) && Objects.equals(nomeSocial, other.nomeSocial)
+				&& Objects.equals(pais, other.pais) && Objects.equals(status, other.status)
+				&& Objects.equals(telefone, other.telefone) && Objects.equals(type, other.type)
+				&& Objects.equals(uf, other.uf) && Objects.equals(valorPatrimonioLiquido, other.valorPatrimonioLiquido);
+	}
+	
 	@Override
 	public String toString() {
 		return "Corretora [cnpj=" + cnpj + ", type=" + type + ", nomeSocial=" + nomeSocial + ", nomeComercial="

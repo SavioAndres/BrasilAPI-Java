@@ -1,5 +1,7 @@
 package br.com.brasilapi.api;
 
+import java.util.Objects;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -77,6 +79,26 @@ public class NCM extends API {
 
 	public void setAnoAto(String anoAto) {
 		this.anoAto = anoAto;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(anoAto, codigo, dataFim, dataInicio, descricao, numeroAto, tipoAto);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		NCM other = (NCM) obj;
+		return Objects.equals(anoAto, other.anoAto) && Objects.equals(codigo, other.codigo)
+				&& Objects.equals(dataFim, other.dataFim) && Objects.equals(dataInicio, other.dataInicio)
+				&& Objects.equals(descricao, other.descricao) && Objects.equals(numeroAto, other.numeroAto)
+				&& Objects.equals(tipoAto, other.tipoAto);
 	}
 
 	@Override

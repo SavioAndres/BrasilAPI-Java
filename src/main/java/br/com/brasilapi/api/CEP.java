@@ -1,5 +1,7 @@
 package br.com.brasilapi.api;
 
+import java.util.Objects;
+
 /**
  * Classe CEP. Representa o CEP com seus atributos.
  * 
@@ -69,6 +71,25 @@ public class CEP extends API {
 
 	public void setService(String service) {
 		this.service = service;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cep, city, neighborhood, service, state, street);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CEP other = (CEP) obj;
+		return Objects.equals(cep, other.cep) && Objects.equals(city, other.city)
+				&& Objects.equals(neighborhood, other.neighborhood) && Objects.equals(service, other.service)
+				&& Objects.equals(state, other.state) && Objects.equals(street, other.street);
 	}
 
 	@Override

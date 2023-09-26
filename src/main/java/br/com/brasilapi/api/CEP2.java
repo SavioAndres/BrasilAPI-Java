@@ -1,5 +1,7 @@
 package br.com.brasilapi.api;
 
+import java.util.Objects;
+
 /**
  * Classe CEP2. Representa o CEP com seus atributos.
  * 
@@ -80,6 +82,26 @@ public class CEP2 extends API {
 	}
 
 	@Override
+	public int hashCode() {
+		return Objects.hash(cep, city, location, neighborhood, service, state, street);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CEP2 other = (CEP2) obj;
+		return Objects.equals(cep, other.cep) && Objects.equals(city, other.city)
+				&& Objects.equals(location, other.location) && Objects.equals(neighborhood, other.neighborhood)
+				&& Objects.equals(service, other.service) && Objects.equals(state, other.state)
+				&& Objects.equals(street, other.street);
+	}
+
+	@Override
 	public String toString() {
 		return "Cep [cep=" + cep + ", state=" + state + ", city=" + city + ", neighborhood=" + neighborhood
 				+ ", street=" + street + ", service=" + service + ", location=" + location + "]";
@@ -103,6 +125,29 @@ public class CEP2 extends API {
 
 		public void setCoordinates(Coordinates coordinates) {
 			this.coordinates = coordinates;
+		}
+
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + getEnclosingInstance().hashCode();
+			result = prime * result + Objects.hash(coordinates, type);
+			return result;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Location other = (Location) obj;
+			if (!getEnclosingInstance().equals(other.getEnclosingInstance()))
+				return false;
+			return Objects.equals(coordinates, other.coordinates) && Objects.equals(type, other.type);
 		}
 
 		@Override
@@ -132,10 +177,42 @@ public class CEP2 extends API {
 			}
 
 			@Override
+			public int hashCode() {
+				final int prime = 31;
+				int result = 1;
+				result = prime * result + getEnclosingInstance().hashCode();
+				result = prime * result + Objects.hash(latitude, longitude);
+				return result;
+			}
+
+			@Override
+			public boolean equals(Object obj) {
+				if (this == obj)
+					return true;
+				if (obj == null)
+					return false;
+				if (getClass() != obj.getClass())
+					return false;
+				Coordinates other = (Coordinates) obj;
+				if (!getEnclosingInstance().equals(other.getEnclosingInstance()))
+					return false;
+				return Objects.equals(latitude, other.latitude) && Objects.equals(longitude, other.longitude);
+			}
+
+			@Override
 			public String toString() {
 				return "CepLocationCoordinates [longitude=" + longitude + ", latitude=" + latitude + "]";
 			}
 
+			private Location getEnclosingInstance() {
+				return Location.this;
+			}
+
+		}
+
+
+		private CEP2 getEnclosingInstance() {
+			return CEP2.this;
 		}
 
 	}

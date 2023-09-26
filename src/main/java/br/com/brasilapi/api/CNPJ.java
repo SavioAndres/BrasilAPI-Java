@@ -1,6 +1,7 @@
 package br.com.brasilapi.api;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -485,6 +486,74 @@ public class CNPJ extends API {
 	}
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(cnaesSecundarios);
+		result = prime * result + Arrays.hashCode(qsa);
+		result = prime * result + Objects.hash(bairro, capitalSocial, cep, cnaeFiscal, cnaeFiscalDescricao, cnpj,
+				codigoMunicipio, codigoMunicipioIbge, codigoNaturezaJuridica, codigoPais, codigoPorte, complemento,
+				dataExclusaoDoMei, dataExclusaoDoSimples, dataInicioAtividade, dataOpcaoPeloMei, dataOpcaoPeloSimples,
+				dataSituacaoCadastral, dataSituacaoEspecial, dddFax, dddTelefone1, dddTelefone2,
+				descricaoIdentificadorMatrizFilial, descricaoMotivoSituacaoCadastral, descricaoPorte,
+				descricaoSituacaoCadastral, descricaoTipoDeLogradouro, email, enteFederativoResponsavel,
+				identificadorMatrizFilial, logradouro, motivoSituacaoCadastral, municipio, naturezaJuridica,
+				nomeCidadeNoExterior, nomeFantasia, numero, opcaoPeloMei, opcaoPeloSimples, pais, porte,
+				qualificacaoDoResponsavel, razaoSocial, situacaoCadastral, situacaoEspecial, uf);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CNPJ other = (CNPJ) obj;
+		return Objects.equals(bairro, other.bairro) && Objects.equals(capitalSocial, other.capitalSocial)
+				&& Objects.equals(cep, other.cep) && Objects.equals(cnaeFiscal, other.cnaeFiscal)
+				&& Objects.equals(cnaeFiscalDescricao, other.cnaeFiscalDescricao)
+				&& Arrays.equals(cnaesSecundarios, other.cnaesSecundarios) && Objects.equals(cnpj, other.cnpj)
+				&& Objects.equals(codigoMunicipio, other.codigoMunicipio)
+				&& Objects.equals(codigoMunicipioIbge, other.codigoMunicipioIbge)
+				&& Objects.equals(codigoNaturezaJuridica, other.codigoNaturezaJuridica)
+				&& Objects.equals(codigoPais, other.codigoPais) && Objects.equals(codigoPorte, other.codigoPorte)
+				&& Objects.equals(complemento, other.complemento)
+				&& Objects.equals(dataExclusaoDoMei, other.dataExclusaoDoMei)
+				&& Objects.equals(dataExclusaoDoSimples, other.dataExclusaoDoSimples)
+				&& Objects.equals(dataInicioAtividade, other.dataInicioAtividade)
+				&& Objects.equals(dataOpcaoPeloMei, other.dataOpcaoPeloMei)
+				&& Objects.equals(dataOpcaoPeloSimples, other.dataOpcaoPeloSimples)
+				&& Objects.equals(dataSituacaoCadastral, other.dataSituacaoCadastral)
+				&& Objects.equals(dataSituacaoEspecial, other.dataSituacaoEspecial)
+				&& Objects.equals(dddFax, other.dddFax) && Objects.equals(dddTelefone1, other.dddTelefone1)
+				&& Objects.equals(dddTelefone2, other.dddTelefone2)
+				&& Objects.equals(descricaoIdentificadorMatrizFilial, other.descricaoIdentificadorMatrizFilial)
+				&& Objects.equals(descricaoMotivoSituacaoCadastral, other.descricaoMotivoSituacaoCadastral)
+				&& Objects.equals(descricaoPorte, other.descricaoPorte)
+				&& Objects.equals(descricaoSituacaoCadastral, other.descricaoSituacaoCadastral)
+				&& Objects.equals(descricaoTipoDeLogradouro, other.descricaoTipoDeLogradouro)
+				&& Objects.equals(email, other.email)
+				&& Objects.equals(enteFederativoResponsavel, other.enteFederativoResponsavel)
+				&& Objects.equals(identificadorMatrizFilial, other.identificadorMatrizFilial)
+				&& Objects.equals(logradouro, other.logradouro)
+				&& Objects.equals(motivoSituacaoCadastral, other.motivoSituacaoCadastral)
+				&& Objects.equals(municipio, other.municipio)
+				&& Objects.equals(naturezaJuridica, other.naturezaJuridica)
+				&& Objects.equals(nomeCidadeNoExterior, other.nomeCidadeNoExterior)
+				&& Objects.equals(nomeFantasia, other.nomeFantasia) && Objects.equals(numero, other.numero)
+				&& Objects.equals(opcaoPeloMei, other.opcaoPeloMei)
+				&& Objects.equals(opcaoPeloSimples, other.opcaoPeloSimples) && Objects.equals(pais, other.pais)
+				&& Objects.equals(porte, other.porte) && Arrays.equals(qsa, other.qsa)
+				&& Objects.equals(qualificacaoDoResponsavel, other.qualificacaoDoResponsavel)
+				&& Objects.equals(razaoSocial, other.razaoSocial)
+				&& Objects.equals(situacaoCadastral, other.situacaoCadastral)
+				&& Objects.equals(situacaoEspecial, other.situacaoEspecial) && Objects.equals(uf, other.uf);
+	}
+
+	@Override
 	public String toString() {
 		return "CNPJ [uf=" + uf + ", cep=" + cep + ", qsa=" + Arrays.toString(qsa) + ", cnpj=" + cnpj + ", pais=" + pais
 				+ ", email=" + email + ", porte=" + porte + ", bairro=" + bairro + ", numero=" + numero + ", dddFax="
@@ -651,6 +720,44 @@ public class CNPJ extends API {
 		}
 
 		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + getEnclosingInstance().hashCode();
+			result = prime * result + Objects.hash(cnpjCpfDoSocio, codigoFaixaEtaria, codigoPais,
+					codigoQualificacaoRepresentanteLegal, codigoQualificacaoSocio, cpfRepresentanteLegal,
+					dataEntradaSociedade, faixaEtaria, identificadorDeSocio, nomeRepresentanteLegal, nomeSocio, pais,
+					qualificacaoRepresentanteLegal, qualificacaoSocio);
+			return result;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Qsa other = (Qsa) obj;
+			if (!getEnclosingInstance().equals(other.getEnclosingInstance()))
+				return false;
+			return Objects.equals(cnpjCpfDoSocio, other.cnpjCpfDoSocio)
+					&& Objects.equals(codigoFaixaEtaria, other.codigoFaixaEtaria)
+					&& Objects.equals(codigoPais, other.codigoPais)
+					&& Objects.equals(codigoQualificacaoRepresentanteLegal, other.codigoQualificacaoRepresentanteLegal)
+					&& Objects.equals(codigoQualificacaoSocio, other.codigoQualificacaoSocio)
+					&& Objects.equals(cpfRepresentanteLegal, other.cpfRepresentanteLegal)
+					&& Objects.equals(dataEntradaSociedade, other.dataEntradaSociedade)
+					&& Objects.equals(faixaEtaria, other.faixaEtaria)
+					&& Objects.equals(identificadorDeSocio, other.identificadorDeSocio)
+					&& Objects.equals(nomeRepresentanteLegal, other.nomeRepresentanteLegal)
+					&& Objects.equals(nomeSocio, other.nomeSocio) && Objects.equals(pais, other.pais)
+					&& Objects.equals(qualificacaoRepresentanteLegal, other.qualificacaoRepresentanteLegal)
+					&& Objects.equals(qualificacaoSocio, other.qualificacaoSocio);
+		}
+
+		@Override
 		public String toString() {
 			return "CNPJQsa [pais=" + pais + ", nomeSocio=" + nomeSocio + ", codigoPais=" + codigoPais + ", faixaEtaria="
 					+ faixaEtaria + ", cnpjCpfDoSocio=" + cnpjCpfDoSocio + ", qualificacaoSocio=" + qualificacaoSocio
@@ -659,6 +766,10 @@ public class CNPJ extends API {
 					+ ", nomeRepresentanteLegal=" + nomeRepresentanteLegal + ", codigoQualificacaoSocio="
 					+ codigoQualificacaoSocio + ", qualificacaoRepresentanteLegal=" + qualificacaoRepresentanteLegal
 					+ ", codigoQualificacaoRepresentanteLegal=" + codigoQualificacaoRepresentanteLegal + "]";
+		}
+
+		private CNPJ getEnclosingInstance() {
+			return CNPJ.this;
 		}
 
 	}
@@ -684,8 +795,35 @@ public class CNPJ extends API {
 		}
 
 		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + getEnclosingInstance().hashCode();
+			result = prime * result + Objects.hash(codigo, descricao);
+			return result;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			CnaesSecundario other = (CnaesSecundario) obj;
+			if (!getEnclosingInstance().equals(other.getEnclosingInstance()))
+				return false;
+			return Objects.equals(codigo, other.codigo) && Objects.equals(descricao, other.descricao);
+		}
+
+		@Override
 		public String toString() {
 			return "CnpjCnaesSecundario [codigo=" + codigo + ", descricao=" + descricao + "]";
+		}
+
+		private CNPJ getEnclosingInstance() {
+			return CNPJ.this;
 		}
 
 	}

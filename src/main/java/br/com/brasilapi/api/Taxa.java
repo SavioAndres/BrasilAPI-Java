@@ -1,5 +1,7 @@
 package br.com.brasilapi.api;
 
+import java.util.Objects;
+
 /**
  * Taxas de juros e índices oficiais do Brasil.
  * 
@@ -25,6 +27,23 @@ public class Taxa extends API {
 
 	public void setValor(Float valor) {
 		this.valor = valor;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(nome, valor);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Taxa other = (Taxa) obj;
+		return Objects.equals(nome, other.nome) && Objects.equals(valor, other.valor);
 	}
 
 	@Override

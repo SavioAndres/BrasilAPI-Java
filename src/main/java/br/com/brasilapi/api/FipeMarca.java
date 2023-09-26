@@ -1,5 +1,7 @@
 package br.com.brasilapi.api;
 
+import java.util.Objects;
+
 /**
  * Informações sobre Preço Médio de Veículos fornecido pela FIPE (Fundação
  * Instituto de Pesquisas Econômicas).
@@ -26,6 +28,23 @@ public class FipeMarca extends API {
 
 	public void setValor(String valor) {
 		this.valor = valor;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(nome, valor);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FipeMarca other = (FipeMarca) obj;
+		return Objects.equals(nome, other.nome) && Objects.equals(valor, other.valor);
 	}
 
 	@Override
