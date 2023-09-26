@@ -21,7 +21,7 @@ public class CEP2 extends API {
 	private String neighborhood;
 	private String street;
 	private String service;
-	private CEP2Location location;
+	private Location location;
 
 	public String getCep() {
 		return cep;
@@ -71,11 +71,11 @@ public class CEP2 extends API {
 		this.service = service;
 	}
 
-	public CEP2Location getLocation() {
+	public Location getLocation() {
 		return location;
 	}
 
-	public void setLocation(CEP2Location location) {
+	public void setLocation(Location location) {
 		this.location = location;
 	}
 
@@ -84,4 +84,60 @@ public class CEP2 extends API {
 		return "Cep [cep=" + cep + ", state=" + state + ", city=" + city + ", neighborhood=" + neighborhood
 				+ ", street=" + street + ", service=" + service + ", location=" + location + "]";
 	}
+	
+	public class Location {
+		private String type;
+		private Coordinates coordinates;
+
+		public String getType() {
+			return type;
+		}
+
+		public void setType(String type) {
+			this.type = type;
+		}
+
+		public Coordinates getCoordinates() {
+			return coordinates;
+		}
+
+		public void setCoordinates(Coordinates coordinates) {
+			this.coordinates = coordinates;
+		}
+
+		@Override
+		public String toString() {
+			return "CepLocation [type=" + type + ", coordinates=" + coordinates + "]";
+		}
+		
+		
+		public class Coordinates {
+			private String longitude;
+			private String latitude;
+
+			public String getLongitude() {
+				return longitude;
+			}
+
+			public void setLongitude(String longitude) {
+				this.longitude = longitude;
+			}
+
+			public String getLatitude() {
+				return latitude;
+			}
+
+			public void setLatitude(String latitude) {
+				this.latitude = latitude;
+			}
+
+			@Override
+			public String toString() {
+				return "CepLocationCoordinates [longitude=" + longitude + ", latitude=" + latitude + "]";
+			}
+
+		}
+
+	}
+	
 }

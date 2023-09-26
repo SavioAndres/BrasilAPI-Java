@@ -20,7 +20,7 @@ public class ISBN extends API {
 	private String[] authors;
 	private String publisher;
 	private String synopsis;
-	private ISBNDimension dimensions;
+	private Dimension dimensions;
 	private Short year;
 	private String format;
 	@SerializedName("page_count")
@@ -28,7 +28,7 @@ public class ISBN extends API {
 	private String[] subjects;
 	private String location;
 	@SerializedName("retail_price")
-	private ISBNRetailPrice retailPrice;
+	private RetailPrice retailPrice;
 	@SerializedName("cover_url")
 	private String coverUrl;
 	private String provider;
@@ -81,11 +81,11 @@ public class ISBN extends API {
 		this.synopsis = synopsis;
 	}
 
-	public ISBNDimension getDimensions() {
+	public Dimension getDimensions() {
 		return dimensions;
 	}
 
-	public void setDimensions(ISBNDimension dimensions) {
+	public void setDimensions(Dimension dimensions) {
 		this.dimensions = dimensions;
 	}
 
@@ -129,11 +129,11 @@ public class ISBN extends API {
 		this.location = location;
 	}
 
-	public ISBNRetailPrice getRetailPrice() {
+	public RetailPrice getRetailPrice() {
 		return retailPrice;
 	}
 
-	public void setRetailPrice(ISBNRetailPrice retailPrice) {
+	public void setRetailPrice(RetailPrice retailPrice) {
 		this.retailPrice = retailPrice;
 	}
 
@@ -162,4 +162,68 @@ public class ISBN extends API {
 				+ coverUrl + ", provider=" + provider + "]";
 	}
 
+	public class Dimension {
+		private Float width;
+		private Float height;
+		private String unit;
+
+		public Float getWidth() {
+			return width;
+		}
+
+		public void setWidth(Float width) {
+			this.width = width;
+		}
+
+		public Float getHeight() {
+			return height;
+		}
+
+		public void setHeight(Float height) {
+			this.height = height;
+		}
+
+		public String getUnit() {
+			return unit;
+		}
+
+		public void setUnit(String unit) {
+			this.unit = unit;
+		}
+
+		@Override
+		public String toString() {
+			return "ISBNDimensions [width=" + width + ", height=" + height + ", unit=" + unit + "]";
+		}
+
+	}
+
+	
+	public class RetailPrice {
+		private String currency;
+		private Float amount;
+
+		public String getCurrency() {
+			return currency;
+		}
+
+		public void setCurrency(String currency) {
+			this.currency = currency;
+		}
+
+		public Float getAmount() {
+			return amount;
+		}
+
+		public void setAmount(Float amount) {
+			this.amount = amount;
+		}
+
+		@Override
+		public String toString() {
+			return "ISBNRetailPrice [currency=" + currency + ", amount=" + amount + "]";
+		}
+
+	}
+	
 }

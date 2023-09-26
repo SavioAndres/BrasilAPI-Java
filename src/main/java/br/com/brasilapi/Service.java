@@ -46,6 +46,7 @@ class Service {
 			Log.setConsole("Json retornado: " + json);
 			
 		} catch (IOException e) {
+			Log.setConsoleError(e.getMessage());
 			//conector.disconnect();
 			//e.printStackTrace();
 		}

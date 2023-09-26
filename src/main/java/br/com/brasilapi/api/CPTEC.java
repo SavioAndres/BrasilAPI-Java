@@ -3,21 +3,29 @@ package br.com.brasilapi.api;
 import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Objects;
 
-public class CPTEC extends API implements CPTECLocalidade, CPTECClimaCapital, CPTECClimaAeroporto, CPTECPrevisaoMeteorologica, CPTECPrevisaoOceanica {
+import com.google.gson.annotations.SerializedName;
+
+public class CPTEC extends API implements CPTECCidade, CPTECClimaCapital, CPTECClimaAeroporto, CPTECClimaPrevisao, CPTECOnda {
 	private String nome;
 	private String estado;
 	private Integer id;
+	@SerializedName("codigo_icao")
 	private String codigoIcao;
+	@SerializedName("atualizado_em")
 	private Timestamp atualizadoEm;
-	private String pressaoAtmosferica;
+	@SerializedName("pressao_atmosferica")
+	private Integer pressaoAtmosferica;
 	private String visibilidade;
 	private Integer vento;
+	@SerializedName("direcao_vento")
 	private Integer direcaoVento;
 	private Integer umidade;
 	private String condicao;
+	@SerializedName("condicao_desc")
 	private String condicaoDesc;
-	private Integer temp;
+	private Float temp;
 	private String cidade;
 	private Clima[] clima;
 	private Onda[] ondas;
@@ -46,83 +54,143 @@ public class CPTEC extends API implements CPTECLocalidade, CPTECClimaCapital, CP
 		this.id = id;
 	}
 
+	/**
+	 * Obtém o código ICAO do aeroporto.
+	 */
 	public String getCodigoIcao() {
 		return codigoIcao;
 	}
 
+	/**
+	 * Define o código ICAO do aeroporto.
+	 */
 	public void setCodigoIcao(String codigoIcao) {
 		this.codigoIcao = codigoIcao;
 	}
 
+	/**
+	 * Obtém a data de última atualização.
+	 */
 	public Timestamp getAtualizadoEm() {
 		return atualizadoEm;
 	}
 
+	/**
+	 * Define a data de última atualização.
+	 */
 	public void setAtualizadoEm(Timestamp atualizadoEm) {
 		this.atualizadoEm = atualizadoEm;
 	}
-
-	public String getPressaoAtmosferica() {
+	
+	/**
+	 * Obtém a pressão atmosférica medida na estação meteorológica do aeroporto expressa em hPa (Hectopascal).
+	 */
+	public Integer getPressaoAtmosferica() {
 		return pressaoAtmosferica;
 	}
 
-	public void setPressaoAtmosferica(String pressaoAtmosferica) {
+	/**
+	 * Define a pressão atmosférica medida na estação meteorológica do aeroporto expressa em hPa (Hectopascal).
+	 */
+	public void setPressaoAtmosferica(Integer pressaoAtmosferica) {
 		this.pressaoAtmosferica = pressaoAtmosferica;
 	}
 
+	/**
+	 * Obtém a condição atual de visibilidade em metros.
+	 */
 	public String getVisibilidade() {
 		return visibilidade;
 	}
 
+	/**
+	 * Define a condição atual de visibilidade em metros.
+	 */
 	public void setVisibilidade(String visibilidade) {
 		this.visibilidade = visibilidade;
 	}
 
+	/**
+	 * Obtém a intensidade do vendo em km/h.
+	 */
 	public Integer getVento() {
 		return vento;
 	}
 
+	/**
+	 * Define a intensidade do vendo em km/h.
+	 */
 	public void setVento(Integer vento) {
 		this.vento = vento;
 	}
 
+	/**
+	 * Obtém a direção do vento em graus de (0° a 360°).
+	 */
 	public Integer getDirecaoVento() {
 		return direcaoVento;
 	}
 
+	/**
+	 * Define a direção do vento em graus de (0° a 360°).
+	 */
 	public void setDirecaoVento(Integer direcaoVento) {
 		this.direcaoVento = direcaoVento;
 	}
 
+	/**
+	 * Obtém a umidade relativa do ar em porcentagem.
+	 */
 	public Integer getUmidade() {
 		return umidade;
 	}
 
+	/**
+	 * Define a umidade relativa do ar em porcentagem.
+	 */
 	public void setUmidade(Integer umidade) {
 		this.umidade = umidade;
 	}
 
+	/**
+	 * Obtém o código da condição meteorológica.
+	 */
 	public String getCondicao() {
 		return condicao;
 	}
 
+	/**
+	 * Define o código da condição meteorológica.
+	 */
 	public void setCondicao(String condicao) {
 		this.condicao = condicao;
 	}
 
+	/**
+	 * Obtém o texto descritivo para a condição meteorológica.
+	 */
 	public String getCondicaoDesc() {
 		return condicaoDesc;
 	}
 
+	/**
+	 * Define o texto descritivo para a condição meteorológica.
+	 */
 	public void setCondicaoDesc(String condicaoDesc) {
 		this.condicaoDesc = condicaoDesc;
 	}
 
-	public Integer getTemp() {
+	/**
+	 * Obtém a temperatura (em graus celsius).
+	 */
+	public Float getTemp() {
 		return temp;
 	}
 
-	public void setTemp(Integer temp) {
+	/**
+	 * Define a temperatura (em graus celsius).
+	 */
+	public void setTemp(Float temp) {
 		this.temp = temp;
 	}
 
@@ -134,10 +202,16 @@ public class CPTEC extends API implements CPTECLocalidade, CPTECClimaCapital, CP
 		this.cidade = cidade;
 	}
 
+	/**
+	 * Obtém a lista com condições climáticas dia a dia.
+	 */
 	public Clima[] getClima() {
 		return clima;
 	}
 
+	/**
+	 * Define a lista com condições climáticas dia a dia.
+	 */
 	public void setClima(Clima[] clima) {
 		this.clima = clima;
 	}
@@ -149,6 +223,36 @@ public class CPTEC extends API implements CPTECLocalidade, CPTECClimaCapital, CP
 	public void setOndas(Onda[] ondas) {
 		this.ondas = ondas;
 	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(clima);
+		result = prime * result + Arrays.hashCode(ondas);
+		result = prime * result + Objects.hash(atualizadoEm, cidade, codigoIcao, condicao, condicaoDesc, direcaoVento,
+				estado, id, nome, pressaoAtmosferica, temp, umidade, vento, visibilidade);
+		return result;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CPTEC other = (CPTEC) obj;
+		return Objects.equals(atualizadoEm, other.atualizadoEm) && Objects.equals(cidade, other.cidade)
+				&& Arrays.equals(clima, other.clima) && Objects.equals(codigoIcao, other.codigoIcao)
+				&& Objects.equals(condicao, other.condicao) && Objects.equals(condicaoDesc, other.condicaoDesc)
+				&& Objects.equals(direcaoVento, other.direcaoVento) && Objects.equals(estado, other.estado)
+				&& Objects.equals(id, other.id) && Objects.equals(nome, other.nome) && Arrays.equals(ondas, other.ondas)
+				&& Objects.equals(pressaoAtmosferica, other.pressaoAtmosferica) && Objects.equals(temp, other.temp)
+				&& Objects.equals(umidade, other.umidade) && Objects.equals(vento, other.vento)
+				&& Objects.equals(visibilidade, other.visibilidade);
+	}
 
 	@Override
 	public String toString() {
@@ -158,13 +262,16 @@ public class CPTEC extends API implements CPTECLocalidade, CPTECClimaCapital, CP
 				+ ", condicao=" + condicao + ", condicaoDesc=" + condicaoDesc + ", temp=" + temp + ", cidade=" + cidade
 				+ ", clima=" + Arrays.toString(clima) + ", ondas=" + Arrays.toString(ondas) + "]";
 	}
-
-	class Clima {
+	
+	
+	public class Clima {
 		private Date data;
 		private String condicao;
+		@SerializedName("condicao_desc")
 		private String condicaoDesc;
 		private Integer min;
 		private Integer max;
+		@SerializedName("indice_uv")
 		private Integer indiceUV;
 		
 		public Date getData() {
@@ -203,16 +310,47 @@ public class CPTEC extends API implements CPTECLocalidade, CPTECClimaCapital, CP
 		public void setIndiceUV(Integer indiceUV) {
 			this.indiceUV = indiceUV;
 		}
+		
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + getEnclosingInstance().hashCode();
+			result = prime * result + Objects.hash(condicao, condicaoDesc, data, indiceUV, max, min);
+			return result;
+		}
+		
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Clima other = (Clima) obj;
+			if (!getEnclosingInstance().equals(other.getEnclosingInstance()))
+				return false;
+			return Objects.equals(condicao, other.condicao) && Objects.equals(condicaoDesc, other.condicaoDesc)
+					&& Objects.equals(data, other.data) && Objects.equals(indiceUV, other.indiceUV)
+					&& Objects.equals(max, other.max) && Objects.equals(min, other.min);
+		}
+		
 		@Override
 		public String toString() {
 			return "Clima [data=" + data + ", condicao=" + condicao + ", condicaoDesc=" + condicaoDesc + ", min=" + min
 					+ ", max=" + max + ", indiceUV=" + indiceUV + "]";
 		}
+		
+		private CPTEC getEnclosingInstance() {
+			return CPTEC.this;
+		}
 	}
 	
-	class Onda {
+	public class Onda {
 		private Date data;
-		private DadoOnda[] dados_ondas;
+		@SerializedName("dados_ondas")
+		private DadoOnda[] dadosOndas;
 		
 		public Date getData() {
 			return data;
@@ -220,25 +358,54 @@ public class CPTEC extends API implements CPTECLocalidade, CPTECClimaCapital, CP
 		public void setData(Date data) {
 			this.data = data;
 		}
-		public DadoOnda[] getDados_ondas() {
-			return dados_ondas;
+		public DadoOnda[] getDadosOndas() {
+			return dadosOndas;
 		}
-		public void setDados_ondas(DadoOnda[] dados_ondas) {
-			this.dados_ondas = dados_ondas;
+		public void setDadosOndas(DadoOnda[] dadosOndas) {
+			this.dadosOndas = dadosOndas;
 		}
+		
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + getEnclosingInstance().hashCode();
+			result = prime * result + Arrays.hashCode(dadosOndas);
+			result = prime * result + Objects.hash(data);
+			return result;
+		}
+		
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Onda other = (Onda) obj;
+			if (!getEnclosingInstance().equals(other.getEnclosingInstance()))
+				return false;
+			return Arrays.equals(dadosOndas, other.dadosOndas) && Objects.equals(data, other.data);
+		}
+		
 		@Override
 		public String toString() {
-			return "Onda [data=" + data + ", dados_ondas=" + Arrays.toString(dados_ondas) + "]";
+			return "Onda [data=" + data + ", dados_ondas=" + Arrays.toString(dadosOndas) + "]";
 		}
-		
-		
-		class DadoOnda {
+
+		public class DadoOnda {
 			private String hora;
 			private Float vento;
+			@SerializedName("direcao_vento")
 			private String direcaoVento;
+			@SerializedName("direcao_vento_desc")
 			private String direcaoVentoDesc;
+			@SerializedName("altura_onda")
 			private Float alturaOnda;
+			@SerializedName("direcao_onda")
 			private String direcaoOnda;
+			@SerializedName("direcao_onda_desc")
 			private String direcaoOndaDesc;
 			private String agitation;
 			
@@ -290,12 +457,50 @@ public class CPTEC extends API implements CPTECLocalidade, CPTECClimaCapital, CP
 			public void setAgitation(String agitation) {
 				this.agitation = agitation;
 			}
+			
+			@Override
+			public int hashCode() {
+				final int prime = 31;
+				int result = 1;
+				result = prime * result + getEnclosingInstance().hashCode();
+				result = prime * result + Objects.hash(agitation, alturaOnda, direcaoOnda, direcaoOndaDesc,
+						direcaoVento, direcaoVentoDesc, hora, vento);
+				return result;
+			}
+			
+			@Override
+			public boolean equals(Object obj) {
+				if (this == obj)
+					return true;
+				if (obj == null)
+					return false;
+				if (getClass() != obj.getClass())
+					return false;
+				DadoOnda other = (DadoOnda) obj;
+				if (!getEnclosingInstance().equals(other.getEnclosingInstance()))
+					return false;
+				return Objects.equals(agitation, other.agitation) && Objects.equals(alturaOnda, other.alturaOnda)
+						&& Objects.equals(direcaoOnda, other.direcaoOnda)
+						&& Objects.equals(direcaoOndaDesc, other.direcaoOndaDesc)
+						&& Objects.equals(direcaoVento, other.direcaoVento)
+						&& Objects.equals(direcaoVentoDesc, other.direcaoVentoDesc) && Objects.equals(hora, other.hora)
+						&& Objects.equals(vento, other.vento);
+			}
+			
 			@Override
 			public String toString() {
 				return "DadoOnda [hora=" + hora + ", vento=" + vento + ", direcaoVento=" + direcaoVento
 						+ ", direcaoVentoDesc=" + direcaoVentoDesc + ", alturaOnda=" + alturaOnda + ", direcaoOnda="
 						+ direcaoOnda + ", direcaoOndaDesc=" + direcaoOndaDesc + ", agitation=" + agitation + "]";
 			}
+			
+			private Onda getEnclosingInstance() {
+				return Onda.this;
+			}
+		}
+
+		private CPTEC getEnclosingInstance() {
+			return CPTEC.this;
 		}
 	}
 	
