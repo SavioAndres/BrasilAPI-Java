@@ -1,6 +1,7 @@
 package br.com.brasilapi.api;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -94,6 +95,32 @@ public class RegistroBR extends API {
 
 	public void setSuggestions(String[] suggestions) {
 		this.suggestions = suggestions;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(hosts);
+		result = prime * result + Arrays.hashCode(suggestions);
+		result = prime * result + Objects.hash(exempt, expiresAt, fqdn, fqdnace, publicationStatus, status, statusCode);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RegistroBR other = (RegistroBR) obj;
+		return Objects.equals(exempt, other.exempt) && Objects.equals(expiresAt, other.expiresAt)
+				&& Objects.equals(fqdn, other.fqdn) && Objects.equals(fqdnace, other.fqdnace)
+				&& Arrays.equals(hosts, other.hosts) && Objects.equals(publicationStatus, other.publicationStatus)
+				&& Objects.equals(status, other.status) && Objects.equals(statusCode, other.statusCode)
+				&& Arrays.equals(suggestions, other.suggestions);
 	}
 
 	@Override

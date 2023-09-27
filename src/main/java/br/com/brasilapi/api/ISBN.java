@@ -1,6 +1,7 @@
 package br.com.brasilapi.api;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -20,7 +21,7 @@ public class ISBN extends API {
 	private String[] authors;
 	private String publisher;
 	private String synopsis;
-	private ISBNDimension dimensions;
+	private Dimension dimensions;
 	private Short year;
 	private String format;
 	@SerializedName("page_count")
@@ -28,7 +29,7 @@ public class ISBN extends API {
 	private String[] subjects;
 	private String location;
 	@SerializedName("retail_price")
-	private ISBNRetailPrice retailPrice;
+	private RetailPrice retailPrice;
 	@SerializedName("cover_url")
 	private String coverUrl;
 	private String provider;
@@ -81,11 +82,11 @@ public class ISBN extends API {
 		this.synopsis = synopsis;
 	}
 
-	public ISBNDimension getDimensions() {
+	public Dimension getDimensions() {
 		return dimensions;
 	}
 
-	public void setDimensions(ISBNDimension dimensions) {
+	public void setDimensions(Dimension dimensions) {
 		this.dimensions = dimensions;
 	}
 
@@ -129,11 +130,11 @@ public class ISBN extends API {
 		this.location = location;
 	}
 
-	public ISBNRetailPrice getRetailPrice() {
+	public RetailPrice getRetailPrice() {
 		return retailPrice;
 	}
 
-	public void setRetailPrice(ISBNRetailPrice retailPrice) {
+	public void setRetailPrice(RetailPrice retailPrice) {
 		this.retailPrice = retailPrice;
 	}
 
@@ -152,6 +153,36 @@ public class ISBN extends API {
 	public void setProvider(String provider) {
 		this.provider = provider;
 	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(authors);
+		result = prime * result + Arrays.hashCode(subjects);
+		result = prime * result + Objects.hash(coverUrl, dimensions, format, isbn, location, pageCount, provider,
+				publisher, retailPrice, subtitle, synopsis, title, year);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ISBN other = (ISBN) obj;
+		return Arrays.equals(authors, other.authors) && Objects.equals(coverUrl, other.coverUrl)
+				&& Objects.equals(dimensions, other.dimensions) && Objects.equals(format, other.format)
+				&& Objects.equals(isbn, other.isbn) && Objects.equals(location, other.location)
+				&& Objects.equals(pageCount, other.pageCount) && Objects.equals(provider, other.provider)
+				&& Objects.equals(publisher, other.publisher) && Objects.equals(retailPrice, other.retailPrice)
+				&& Arrays.equals(subjects, other.subjects) && Objects.equals(subtitle, other.subtitle)
+				&& Objects.equals(synopsis, other.synopsis) && Objects.equals(title, other.title)
+				&& Objects.equals(year, other.year);
+	}
 
 	@Override
 	public String toString() {
@@ -162,4 +193,123 @@ public class ISBN extends API {
 				+ coverUrl + ", provider=" + provider + "]";
 	}
 
+	public class Dimension {
+		private Float width;
+		private Float height;
+		private String unit;
+
+		public Float getWidth() {
+			return width;
+		}
+
+		public void setWidth(Float width) {
+			this.width = width;
+		}
+
+		public Float getHeight() {
+			return height;
+		}
+
+		public void setHeight(Float height) {
+			this.height = height;
+		}
+
+		public String getUnit() {
+			return unit;
+		}
+
+		public void setUnit(String unit) {
+			this.unit = unit;
+		}
+
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + getEnclosingInstance().hashCode();
+			result = prime * result + Objects.hash(height, unit, width);
+			return result;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Dimension other = (Dimension) obj;
+			if (!getEnclosingInstance().equals(other.getEnclosingInstance()))
+				return false;
+			return Objects.equals(height, other.height) && Objects.equals(unit, other.unit)
+					&& Objects.equals(width, other.width);
+		}
+
+		@Override
+		public String toString() {
+			return "Dimensions [width=" + width + ", height=" + height + ", unit=" + unit + "]";
+		}
+
+		private ISBN getEnclosingInstance() {
+			return ISBN.this;
+		}
+
+	}
+
+	
+	public class RetailPrice {
+		private String currency;
+		private Float amount;
+
+		public String getCurrency() {
+			return currency;
+		}
+
+		public void setCurrency(String currency) {
+			this.currency = currency;
+		}
+
+		public Float getAmount() {
+			return amount;
+		}
+
+		public void setAmount(Float amount) {
+			this.amount = amount;
+		}
+		
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + getEnclosingInstance().hashCode();
+			result = prime * result + Objects.hash(amount, currency);
+			return result;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			RetailPrice other = (RetailPrice) obj;
+			if (!getEnclosingInstance().equals(other.getEnclosingInstance()))
+				return false;
+			return Objects.equals(amount, other.amount) && Objects.equals(currency, other.currency);
+		}
+
+		@Override
+		public String toString() {
+			return "RetailPrice [currency=" + currency + ", amount=" + amount + "]";
+		}
+
+		private ISBN getEnclosingInstance() {
+			return ISBN.this;
+		}
+
+	}
+	
 }

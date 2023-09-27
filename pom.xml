@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>br.com.brasilapi</groupId>
   <artifactId>BrasilAPI-Java</artifactId>
-  <version>1.0.5</version>
+  <version>1.1.0</version>
   
   <name>BrasilAPI</name>
   <description>
@@ -39,7 +39,6 @@
   
   <properties>
   	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  	<mavenVersion>3.0</mavenVersion>
   </properties>
   
   <distributionManagement>
@@ -54,8 +53,6 @@
   </distributionManagement>
   
   <build>
-    <sourceDirectory>src/main/java/br/com/brasilapi</sourceDirectory>
-    <testSourceDirectory>src/test/java/br/com/brasilapi</testSourceDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -72,7 +69,7 @@
 		<dependency>
 			<groupId>org.junit</groupId>
 			<artifactId>junit-bom</artifactId>
-			<version>5.9.1</version>
+			<version>5.10.0</version>
 			<type>pom</type>
 			<scope>import</scope>
 		</dependency>
@@ -80,9 +77,9 @@
   </dependencyManagement>
   <dependencies>
   	<dependency>
-	    <groupId>com.google.code.gson</groupId>
-	    <artifactId>gson</artifactId>
-	    <version>2.10</version>
+		<groupId>com.google.code.gson</groupId>
+		<artifactId>gson</artifactId>
+		<version>2.10.1</version>
 	</dependency>
   	<dependency>
 		<groupId>org.junit.jupiter</groupId>

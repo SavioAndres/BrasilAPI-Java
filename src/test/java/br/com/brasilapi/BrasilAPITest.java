@@ -8,6 +8,12 @@ import br.com.brasilapi.api.Bank;
 import br.com.brasilapi.api.CEP;
 import br.com.brasilapi.api.CEP2;
 import br.com.brasilapi.api.CNPJ;
+import br.com.brasilapi.api.CPTECCidade;
+import br.com.brasilapi.api.CPTECClimaAeroporto;
+import br.com.brasilapi.api.CPTECClimaCapital;
+import br.com.brasilapi.api.CPTECClimaPrevisao;
+import br.com.brasilapi.api.CPTECOnda;
+import br.com.brasilapi.api.Corretora;
 import br.com.brasilapi.api.DDD;
 import br.com.brasilapi.api.Feriados;
 import br.com.brasilapi.api.FipeMarca;
@@ -17,6 +23,7 @@ import br.com.brasilapi.api.IBGEMunicipio;
 import br.com.brasilapi.api.IBGEUF;
 import br.com.brasilapi.api.ISBN;
 import br.com.brasilapi.api.NCM;
+import br.com.brasilapi.api.PIX;
 import br.com.brasilapi.api.RegistroBR;
 import br.com.brasilapi.api.Taxa;
 
@@ -71,6 +78,66 @@ class BrasilAPITest {
 	void cnpjPass() {
 		CNPJ cnpj = BrasilAPI.cnpj("06.990.590/0001-23");
 		assertEquals("06990590000123", cnpj.getCnpj());
+	}
+	
+	@Test
+	void corretorasPass() {
+		Corretora[] corretoras = BrasilAPI.corretoras();
+		assertNotNull(corretoras);
+	}
+	
+	@Test
+	void corretoraPass() {
+		Corretora corretora = BrasilAPI.corretora("02.332.886/0001-04");
+		assertEquals("02332886000104", corretora.getCnpj());
+	}
+	
+	@Test
+	void cptecListarLocalidadesPass() {
+		CPTECCidade[] cptecCidade = BrasilAPI.cptecListarLocalidades();
+		assertNotNull(cptecCidade);
+	}
+	
+	@Test
+	void cptecBuscarLocalidadesPass() {
+		CPTECCidade[] cptecCidade = BrasilAPI.cptecBuscarLocalidades("São Paulo");
+		assertNotNull(cptecCidade);
+	}
+	
+	@Test
+	void cptecCondicoesAtuaisCapitaisPass() {
+		CPTECClimaCapital[] cptecClimaCapital = BrasilAPI.cptecCondicoesAtuaisCapitais();
+		assertNotNull(cptecClimaCapital);
+	}
+	
+	@Test
+	void cptecCondicoesAtuaisAeroportoPass() {
+		CPTECClimaAeroporto cptecClimaAeroporto = BrasilAPI.cptecCondicoesAtuaisAeroporto("SBAR");
+		assertEquals("SBAR", cptecClimaAeroporto.getCodigoIcao());
+	}
+	
+	@Test
+	void cptecPrevisaoMeteorologicaCidadePass() {
+		CPTECClimaPrevisao cptecClimaPrevisao = BrasilAPI.cptecPrevisaoMeteorologicaCidade(442);
+		assertEquals("SP", cptecClimaPrevisao.getEstado());
+	}
+	
+	@Test
+	void cptecPrevisaoMeteorologicaCidadeDiasPass() {
+		CPTECClimaPrevisao cptecClimaPrevisao = BrasilAPI.cptecPrevisaoMeteorologicaCidade(442, 4);
+		assertEquals("SP", cptecClimaPrevisao.getEstado());
+	}
+	
+	@Test
+	void cptecPrevisaoOceanicaPass() {
+		CPTECOnda cptecOnda = BrasilAPI.cptecPrevisaoOceanica(241);
+		assertEquals("Rio de Janeiro", cptecOnda.getCidade());
+	}
+	
+	@Test
+	void cptecPrevisaoOceanicaDiasPass() {
+		CPTECOnda cptecOnda = BrasilAPI.cptecPrevisaoOceanica(241, 2);
+		assertEquals("Rio de Janeiro", cptecOnda.getCidade());
 	}
 
 	@Test
@@ -147,6 +214,12 @@ class BrasilAPITest {
 	void ncmSearchPass() {
 		NCM[] ncmSearch = BrasilAPI.ncmSearch("Animais vivos.");
 		assertNotNull(ncmSearch);
+	}
+	
+	@Test
+	void pixParticipantesPass() {
+		PIX[] pix = BrasilAPI.pixParticipantes();
+		assertNotNull(pix);
 	}
 
 	@Test

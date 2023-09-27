@@ -1,5 +1,7 @@
 package br.com.brasilapi.api;
 
+import java.util.Objects;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -28,6 +30,23 @@ public class IBGEMunicipio extends API {
 
 	public void setCodigoIbge(String codigoIbge) {
 		this.codigoIbge = codigoIbge;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(codigoIbge, nome);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		IBGEMunicipio other = (IBGEMunicipio) obj;
+		return Objects.equals(codigoIbge, other.codigoIbge) && Objects.equals(nome, other.nome);
 	}
 
 	@Override

@@ -8,6 +8,13 @@ import br.com.brasilapi.api.Bank;
 import br.com.brasilapi.api.CEP;
 import br.com.brasilapi.api.CEP2;
 import br.com.brasilapi.api.CNPJ;
+import br.com.brasilapi.api.CPTEC;
+import br.com.brasilapi.api.CPTECClimaAeroporto;
+import br.com.brasilapi.api.CPTECClimaCapital;
+import br.com.brasilapi.api.CPTECCidade;
+import br.com.brasilapi.api.CPTECClimaPrevisao;
+import br.com.brasilapi.api.CPTECOnda;
+import br.com.brasilapi.api.Corretora;
 import br.com.brasilapi.api.DDD;
 import br.com.brasilapi.api.Feriados;
 import br.com.brasilapi.api.FipeMarca;
@@ -17,6 +24,7 @@ import br.com.brasilapi.api.IBGEMunicipio;
 import br.com.brasilapi.api.IBGEUF;
 import br.com.brasilapi.api.ISBN;
 import br.com.brasilapi.api.NCM;
+import br.com.brasilapi.api.PIX;
 import br.com.brasilapi.api.RegistroBR;
 import br.com.brasilapi.api.Taxa;
 
@@ -44,6 +52,7 @@ import br.com.brasilapi.api.Taxa;
  *      "https://github.com/SavioAndres/BrasilAPI-Java">https://github.com/SavioAndres/BrasilAPI-Java</a>
  */
 public class BrasilAPI {
+	private static final String BAR = "<2F>";
 	private static Gson gson = new Gson();
 
 	/**
@@ -198,7 +207,127 @@ public class BrasilAPI {
 		CNPJ obj = (CNPJ) api(CNPJ.class, "cnpj/v1/", cnpj);
 		return obj != null ? (CNPJ) obj.clone() : null;
 	}
-
+	
+	/**
+	 * Retorna informações referentes as Corretoras ativas listadas na CVM.
+	 * 
+	 * @return Array de {@link Corretora}
+	 */
+	public static Corretora[] corretoras() {
+		Corretora[] obj = (Corretora[]) api(Corretora[].class, "cvm/corretoras/v1", "");
+		return obj != null ? (Corretora[]) obj.clone() : null;
+	}
+	
+	/**
+	 * Retorna informações referentes a determinada Corretora ativa listada na CVM.
+	 * 
+	 * @param cnpj
+	 * @return {@link Corretora}
+	 */
+	public static Corretora corretora(String cnpj) {
+		Corretora obj = (Corretora) api(Corretora.class, "cvm/corretoras/v1/", cnpj);
+		return obj != null ? (Corretora) obj.clone() : null;
+	}
+	
+	/**
+	 * Retorna listagem com todas as cidades junto a seus respectivos códigos presentes 
+	 * nos serviços da CPTEC. O Código destas cidades será utilizado para os serviços 
+	 * de meteorologia e a ondas (previsão oceânica) fornecido pelo centro. Leve em consideração 
+	 * que o WebService do CPTEC as vezes é instável, então se não encontrar uma determinada 
+	 * cidade na listagem completa, tente buscando por parte de seu nome no endpoint de busca.
+	 * 
+	 * @return Lista de {@link CPTECCidade}
+	 */
+	public static CPTECCidade[] cptecListarLocalidades() {
+		CPTEC[] obj = (CPTEC[]) api(CPTEC[].class, "cptec/v1/cidade", "");
+		return obj != null ? (CPTEC[]) obj.clone() : null;
+	}
+	
+	/**
+	 * Retorna listagem com todas as cidades correspondentes ao termo pesquisado 
+	 * junto a seus respectivos códigos presentes nos serviços da CPTEC. 
+	 * O Código destas cidades será utilizado para os serviços de 
+	 * meteorologia e a ondas (previsão oceânica) fornecido pelo centro.
+	 * 
+	 * @param nomeCidade
+	 * @return Lista de {@link CPTECCidade}
+	 */
+	public static CPTECCidade[] cptecBuscarLocalidades(String nomeCidade) {
+		CPTEC[] obj = (CPTEC[]) api(CPTEC[].class, "cptec/v1/cidade/", nomeCidade);
+		return obj != null ? (CPTECCidade[]) obj.clone() : null;
+	}
+	
+	/**
+	 * Retorna condições meteorológicas atuais nas capitais do país, 
+	 * com base nas estações de solo de seu aeroporto.
+	 * 
+	 * @return Lista de {@link CPTECClimaCapital}
+	 */
+	public static CPTECClimaCapital[] cptecCondicoesAtuaisCapitais() {
+		CPTEC[] obj = (CPTEC[]) api(CPTEC[].class, "cptec/v1/clima/capital", "");
+		return obj != null ? (CPTECClimaCapital[]) obj.clone() : null;
+	}
+	
+	/**
+	 * Retorna condições meteorológicas atuais no aeroporto solicitado. 
+	 * Este endpoint utiliza o código ICAO (4 dígitos) do aeroporto.
+	 * 
+	 * @param icaoCode Código ICAO do aeroporto
+	 * @return {@link CPTECClimaAeroporto}
+	 */
+	public static CPTECClimaAeroporto cptecCondicoesAtuaisAeroporto(String icaoCode) {
+		CPTEC obj = (CPTEC) api(CPTEC.class, "cptec/v1/clima/aeroporto/", icaoCode);
+		return obj != null ? (CPTECClimaAeroporto) obj.clone() : null;
+	}
+	
+	/**
+	 * Retorna Pervisão meteorológica para 1 dia na cidade informada.
+	 * 
+	 * @param codigoCidade
+	 * @return {@link CPTECClimaPrevisao}
+	 */
+	public static CPTECClimaPrevisao cptecPrevisaoMeteorologicaCidade(Integer codigoCidade) {
+		CPTEC obj = (CPTEC) api(CPTEC.class, "cptec/v1/clima/previsao/", String.valueOf(codigoCidade));
+		return obj != null ? (CPTECClimaPrevisao) obj.clone() : null;
+	}
+	
+	/**
+	 * Retorna a previsão meteorológica para a cidade informada para um período de 1 até 6 dias. 
+	 * Devido a inconsistências encontradas nos retornos da CPTEC nossa API só consegue 
+	 * retornar com precisão o período máximo de 6 dias.
+	 * 
+	 * @param codigoCidade
+	 * @param dias Número de dias, máximo 6.
+	 * @return {@link CPTECClimaPrevisao}
+	 */
+	public static CPTECClimaPrevisao cptecPrevisaoMeteorologicaCidade(Integer codigoCidade, Integer dias) {
+		CPTEC obj = (CPTEC) api(CPTEC.class, "cptec/v1/clima/previsao/", codigoCidade + BAR + dias);
+		return obj != null ? (CPTECClimaPrevisao) obj.clone() : null;
+	}
+	
+	/**
+	 * Retorna a previsão oceânica para a cidade informada para 1 dia.
+	 * 
+	 * @param codigoCidade
+	 * @return {@link CPTECOnda}
+	 */
+	public static CPTECOnda cptecPrevisaoOceanica(Integer codigoCidade) {
+		CPTEC obj = (CPTEC) api(CPTEC.class, "cptec/v1/ondas/", String.valueOf(codigoCidade));
+		return obj != null ? (CPTECOnda) obj.clone() : null;
+	}
+	
+	/**
+	 * Retorna a previsão oceânica para a cidade informada para um período de, até, 6 dias.
+	 * 
+	 * @param codigoCidade
+	 * @param dias Número de dias, máximo 6.
+	 * @return {@link CPTECOnda}
+	 */
+	public static CPTECOnda cptecPrevisaoOceanica(Integer codigoCidade, Integer dias) {
+		CPTEC obj = (CPTEC) api(CPTEC.class, "cptec/v1/ondas/", codigoCidade + BAR + dias);
+		return obj != null ? (CPTECOnda) obj.clone() : null;
+	}
+	
 	/**
 	 * DDD significa Discagem Direta à Distância. é um sistema de ligação telefônica
 	 * automática entre diferentes áreas urbanas nacionais. O DDD é um código
@@ -392,6 +521,16 @@ public class BrasilAPI {
 		NCM[] obj = (NCM[]) api(NCM[].class, "ncm/v1?search=", code);
 		return obj != null ? (NCM[]) obj.clone() : null;
 	}
+	
+	/**
+	 * Retorna informações de todos os participantes do PIX no dia atual ou anterior.
+	 * 
+	 * @return Array de {@link PIX}
+	 */
+	public static PIX[] pixParticipantes() {
+		PIX[] obj = (PIX[]) api(PIX[].class, "pix/v1/participants", "");
+		return obj != null ? (PIX[]) obj.clone() : null;
+	}
 
 	/**
 	 * Avalia o status de um dominio .br
@@ -436,27 +575,32 @@ public class BrasilAPI {
 	 * @return {@link Object}
 	 */
 	private static Object api(Class<?> classAPIModel, String parameter, String code) {
-		code = code.replaceAll("/", "");
-		if (Cache.getEnableCache()) {
-			Object obj = Cache.getCache(classAPIModel, code);
-
-			if (obj == null) {
-				String json = Service.connection(parameter + code);
-				if (json != null) {
-					obj = gson.fromJson(json, classAPIModel);
-					Cache.setCache(classAPIModel, code, obj);
+		try {
+			code = code.replaceAll("/", "").replaceAll(BAR, "/");
+			if (Cache.getEnableCache()) {
+				Object obj = Cache.getCache(classAPIModel, code);
+	
+				if (obj == null) {
+					String json = Service.connection(parameter + code);
+					if (json != null) {
+						obj = gson.fromJson(json, classAPIModel);
+						Cache.setCache(classAPIModel, code, obj);
+					}
 				}
+	
+				return obj;
+			} else {
+				String json = Service.connection(parameter + code);
+				return gson.fromJson(json, classAPIModel);
 			}
-
-			return obj;
-		} else {
-			String json = Service.connection(parameter + code);
-			return gson.fromJson(json, classAPIModel);
+		} catch (Exception e) {
+			Log.setConsoleError(e.getMessage());
+			return null;
 		}
 	}
 
 	public static void main(String[] args) {
-		final String VERSION = "v1.0.5";
+		final String VERSION = "v1.1.0";
 		
 		System.out.println(""
 				+ "  ____                _ _    _    ____ ___          _                  \r\n"

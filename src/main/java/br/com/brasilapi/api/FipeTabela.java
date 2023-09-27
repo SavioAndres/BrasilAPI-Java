@@ -1,5 +1,7 @@
 package br.com.brasilapi.api;
 
+import java.util.Objects;
+
 /**
  * Lista as tabelas de referência existentes. FIPE (Fundação
  * Instituto de Pesquisas Econômicas).
@@ -26,6 +28,23 @@ public class FipeTabela extends API {
 
 	public void setMes(String mes) {
 		this.mes = mes;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(codigo, mes);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FipeTabela other = (FipeTabela) obj;
+		return Objects.equals(codigo, other.codigo) && Objects.equals(mes, other.mes);
 	}
 
 	@Override

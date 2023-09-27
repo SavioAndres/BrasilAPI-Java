@@ -1,5 +1,7 @@
 package br.com.brasilapi.api;
 
+import java.util.Objects;
+
 /**
  * Retorna informações de todos os bancos do Brasil.
  * 
@@ -45,6 +47,24 @@ public class Bank extends API {
 		this.fullName = fullName;
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(code, fullName, ispb, name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Bank other = (Bank) obj;
+		return Objects.equals(code, other.code) && Objects.equals(fullName, other.fullName)
+				&& Objects.equals(ispb, other.ispb) && Objects.equals(name, other.name);
+	}
+	
 	@Override
 	public String toString() {
 		return "Banks [ispb=" + ispb + ", name=" + name + ", code=" + code + ", fullName=" + fullName + "]";

@@ -1,6 +1,7 @@
 package br.com.brasilapi.api;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -17,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class CNPJ extends API {
 	private String uf;
 	private String cep;
-	private CNPJQsa[] qsa;
+	private Qsa[] qsa;
 	private String cnpj;
 	private String pais;
 	private String email;
@@ -52,7 +53,7 @@ public class CNPJ extends API {
 	@SerializedName("codigo_municipio")
 	private Integer codigoMunicipio;
 	@SerializedName("cnaes_secundarios")
-	private CNPJCnaesSecundario[] cnaesSecundarios;
+	private CnaesSecundario[] cnaesSecundarios;
 	@SerializedName("natureza_juridica")
 	private String naturezaJuridica;
 	@SerializedName("situacao_especial")
@@ -116,11 +117,11 @@ public class CNPJ extends API {
 		this.cep = cep;
 	}
 
-	public CNPJQsa[] getQsa() {
+	public Qsa[] getQsa() {
 		return qsa;
 	}
 
-	public void setQsa(CNPJQsa[] qsa) {
+	public void setQsa(Qsa[] qsa) {
 		this.qsa = qsa;
 	}
 
@@ -292,11 +293,11 @@ public class CNPJ extends API {
 		this.codigoMunicipio = codigoMunicipio;
 	}
 
-	public CNPJCnaesSecundario[] getCnaesSecundarios() {
+	public CnaesSecundario[] getCnaesSecundarios() {
 		return cnaesSecundarios;
 	}
 
-	public void setCnaesSecundarios(CNPJCnaesSecundario[] cnaesSecundarios) {
+	public void setCnaesSecundarios(CnaesSecundario[] cnaesSecundarios) {
 		this.cnaesSecundarios = cnaesSecundarios;
 	}
 
@@ -485,6 +486,74 @@ public class CNPJ extends API {
 	}
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(cnaesSecundarios);
+		result = prime * result + Arrays.hashCode(qsa);
+		result = prime * result + Objects.hash(bairro, capitalSocial, cep, cnaeFiscal, cnaeFiscalDescricao, cnpj,
+				codigoMunicipio, codigoMunicipioIbge, codigoNaturezaJuridica, codigoPais, codigoPorte, complemento,
+				dataExclusaoDoMei, dataExclusaoDoSimples, dataInicioAtividade, dataOpcaoPeloMei, dataOpcaoPeloSimples,
+				dataSituacaoCadastral, dataSituacaoEspecial, dddFax, dddTelefone1, dddTelefone2,
+				descricaoIdentificadorMatrizFilial, descricaoMotivoSituacaoCadastral, descricaoPorte,
+				descricaoSituacaoCadastral, descricaoTipoDeLogradouro, email, enteFederativoResponsavel,
+				identificadorMatrizFilial, logradouro, motivoSituacaoCadastral, municipio, naturezaJuridica,
+				nomeCidadeNoExterior, nomeFantasia, numero, opcaoPeloMei, opcaoPeloSimples, pais, porte,
+				qualificacaoDoResponsavel, razaoSocial, situacaoCadastral, situacaoEspecial, uf);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CNPJ other = (CNPJ) obj;
+		return Objects.equals(bairro, other.bairro) && Objects.equals(capitalSocial, other.capitalSocial)
+				&& Objects.equals(cep, other.cep) && Objects.equals(cnaeFiscal, other.cnaeFiscal)
+				&& Objects.equals(cnaeFiscalDescricao, other.cnaeFiscalDescricao)
+				&& Arrays.equals(cnaesSecundarios, other.cnaesSecundarios) && Objects.equals(cnpj, other.cnpj)
+				&& Objects.equals(codigoMunicipio, other.codigoMunicipio)
+				&& Objects.equals(codigoMunicipioIbge, other.codigoMunicipioIbge)
+				&& Objects.equals(codigoNaturezaJuridica, other.codigoNaturezaJuridica)
+				&& Objects.equals(codigoPais, other.codigoPais) && Objects.equals(codigoPorte, other.codigoPorte)
+				&& Objects.equals(complemento, other.complemento)
+				&& Objects.equals(dataExclusaoDoMei, other.dataExclusaoDoMei)
+				&& Objects.equals(dataExclusaoDoSimples, other.dataExclusaoDoSimples)
+				&& Objects.equals(dataInicioAtividade, other.dataInicioAtividade)
+				&& Objects.equals(dataOpcaoPeloMei, other.dataOpcaoPeloMei)
+				&& Objects.equals(dataOpcaoPeloSimples, other.dataOpcaoPeloSimples)
+				&& Objects.equals(dataSituacaoCadastral, other.dataSituacaoCadastral)
+				&& Objects.equals(dataSituacaoEspecial, other.dataSituacaoEspecial)
+				&& Objects.equals(dddFax, other.dddFax) && Objects.equals(dddTelefone1, other.dddTelefone1)
+				&& Objects.equals(dddTelefone2, other.dddTelefone2)
+				&& Objects.equals(descricaoIdentificadorMatrizFilial, other.descricaoIdentificadorMatrizFilial)
+				&& Objects.equals(descricaoMotivoSituacaoCadastral, other.descricaoMotivoSituacaoCadastral)
+				&& Objects.equals(descricaoPorte, other.descricaoPorte)
+				&& Objects.equals(descricaoSituacaoCadastral, other.descricaoSituacaoCadastral)
+				&& Objects.equals(descricaoTipoDeLogradouro, other.descricaoTipoDeLogradouro)
+				&& Objects.equals(email, other.email)
+				&& Objects.equals(enteFederativoResponsavel, other.enteFederativoResponsavel)
+				&& Objects.equals(identificadorMatrizFilial, other.identificadorMatrizFilial)
+				&& Objects.equals(logradouro, other.logradouro)
+				&& Objects.equals(motivoSituacaoCadastral, other.motivoSituacaoCadastral)
+				&& Objects.equals(municipio, other.municipio)
+				&& Objects.equals(naturezaJuridica, other.naturezaJuridica)
+				&& Objects.equals(nomeCidadeNoExterior, other.nomeCidadeNoExterior)
+				&& Objects.equals(nomeFantasia, other.nomeFantasia) && Objects.equals(numero, other.numero)
+				&& Objects.equals(opcaoPeloMei, other.opcaoPeloMei)
+				&& Objects.equals(opcaoPeloSimples, other.opcaoPeloSimples) && Objects.equals(pais, other.pais)
+				&& Objects.equals(porte, other.porte) && Arrays.equals(qsa, other.qsa)
+				&& Objects.equals(qualificacaoDoResponsavel, other.qualificacaoDoResponsavel)
+				&& Objects.equals(razaoSocial, other.razaoSocial)
+				&& Objects.equals(situacaoCadastral, other.situacaoCadastral)
+				&& Objects.equals(situacaoEspecial, other.situacaoEspecial) && Objects.equals(uf, other.uf);
+	}
+
+	@Override
 	public String toString() {
 		return "CNPJ [uf=" + uf + ", cep=" + cep + ", qsa=" + Arrays.toString(qsa) + ", cnpj=" + cnpj + ", pais=" + pais
 				+ ", email=" + email + ", porte=" + porte + ", bairro=" + bairro + ", numero=" + numero + ", dddFax="
@@ -509,4 +578,253 @@ public class CNPJ extends API {
 				+ ", descricaoIdentificadorMatrizFilial=" + descricaoIdentificadorMatrizFilial + "]";
 	}
 
+	public class Qsa {
+		private String pais;
+		@SerializedName("nome_socio")
+		private String nomeSocio;
+		@SerializedName("codigo_pais")
+		private Integer codigoPais;
+		@SerializedName("faixa_etaria")
+		private String faixaEtaria;
+		@SerializedName("cnpj_cpf_do_socio")
+		private String cnpjCpfDoSocio;
+		@SerializedName("qualificacao_socio")
+		private String qualificacaoSocio;
+		@SerializedName("codigo_faixa_etaria")
+		private Integer codigoFaixaEtaria;
+		@SerializedName("data_entrada_sociedade")
+		private String dataEntradaSociedade;
+		@SerializedName("identificador_de_socio")
+		private Integer identificadorDeSocio;
+		@SerializedName("cpf_representante_legal")
+		private String cpfRepresentanteLegal;
+		@SerializedName("nome_representante_legal")
+		private String nomeRepresentanteLegal;
+		@SerializedName("codigo_qualificacao_socio")
+		private Integer codigoQualificacaoSocio;
+		@SerializedName("qualificacao_representante_legal")
+		private String qualificacaoRepresentanteLegal;
+		@SerializedName("codigo_qualificacao_representante_legal")
+		private Integer codigoQualificacaoRepresentanteLegal;
+
+		public String getPais() {
+			return pais;
+		}
+
+		public void setPais(String pais) {
+			this.pais = pais;
+		}
+
+		public String getNomeSocio() {
+			return nomeSocio;
+		}
+
+		public void setNomeSocio(String nomeSocio) {
+			this.nomeSocio = nomeSocio;
+		}
+
+		public Integer getCodigoPais() {
+			return codigoPais;
+		}
+
+		public void setCodigoPais(Integer codigoPais) {
+			this.codigoPais = codigoPais;
+		}
+
+		public String getFaixaEtaria() {
+			return faixaEtaria;
+		}
+
+		public void setFaixaEtaria(String faixaEtaria) {
+			this.faixaEtaria = faixaEtaria;
+		}
+
+		public String getCnpjCpfDoSocio() {
+			return cnpjCpfDoSocio;
+		}
+
+		public void setCnpjCpfDoSocio(String cnpjCpfDoSocio) {
+			this.cnpjCpfDoSocio = cnpjCpfDoSocio;
+		}
+
+		public String getQualificacaoSocio() {
+			return qualificacaoSocio;
+		}
+
+		public void setQualificacaoSocio(String qualificacaoSocio) {
+			this.qualificacaoSocio = qualificacaoSocio;
+		}
+
+		public Integer getCodigoFaixaEtaria() {
+			return codigoFaixaEtaria;
+		}
+
+		public void setCodigoFaixaEtaria(Integer codigoFaixaEtaria) {
+			this.codigoFaixaEtaria = codigoFaixaEtaria;
+		}
+
+		public String getDataEntradaSociedade() {
+			return dataEntradaSociedade;
+		}
+
+		public void setDataEntradaSociedade(String dataEntradaSociedade) {
+			this.dataEntradaSociedade = dataEntradaSociedade;
+		}
+
+		public Integer getIdentificadorDeSocio() {
+			return identificadorDeSocio;
+		}
+
+		public void setIdentificadorDeSocio(Integer identificadorDeSocio) {
+			this.identificadorDeSocio = identificadorDeSocio;
+		}
+
+		public String getCpfRepresentanteLegal() {
+			return cpfRepresentanteLegal;
+		}
+
+		public void setCpfRepresentanteLegal(String cpfRepresentanteLegal) {
+			this.cpfRepresentanteLegal = cpfRepresentanteLegal;
+		}
+
+		public String getNomeRepresentanteLegal() {
+			return nomeRepresentanteLegal;
+		}
+
+		public void setNomeRepresentanteLegal(String nomeRepresentanteLegal) {
+			this.nomeRepresentanteLegal = nomeRepresentanteLegal;
+		}
+
+		public Integer getCodigoQualificacaoSocio() {
+			return codigoQualificacaoSocio;
+		}
+
+		public void setCodigoQualificacaoSocio(Integer codigoQualificacaoSocio) {
+			this.codigoQualificacaoSocio = codigoQualificacaoSocio;
+		}
+
+		public String getQualificacaoRepresentanteLegal() {
+			return qualificacaoRepresentanteLegal;
+		}
+
+		public void setQualificacaoRepresentanteLegal(String qualificacaoRepresentanteLegal) {
+			this.qualificacaoRepresentanteLegal = qualificacaoRepresentanteLegal;
+		}
+
+		public Integer getCodigoQualificacaoRepresentanteLegal() {
+			return codigoQualificacaoRepresentanteLegal;
+		}
+
+		public void setCodigoQualificacaoRepresentanteLegal(Integer codigoQualificacaoRepresentanteLegal) {
+			this.codigoQualificacaoRepresentanteLegal = codigoQualificacaoRepresentanteLegal;
+		}
+
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + getEnclosingInstance().hashCode();
+			result = prime * result + Objects.hash(cnpjCpfDoSocio, codigoFaixaEtaria, codigoPais,
+					codigoQualificacaoRepresentanteLegal, codigoQualificacaoSocio, cpfRepresentanteLegal,
+					dataEntradaSociedade, faixaEtaria, identificadorDeSocio, nomeRepresentanteLegal, nomeSocio, pais,
+					qualificacaoRepresentanteLegal, qualificacaoSocio);
+			return result;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Qsa other = (Qsa) obj;
+			if (!getEnclosingInstance().equals(other.getEnclosingInstance()))
+				return false;
+			return Objects.equals(cnpjCpfDoSocio, other.cnpjCpfDoSocio)
+					&& Objects.equals(codigoFaixaEtaria, other.codigoFaixaEtaria)
+					&& Objects.equals(codigoPais, other.codigoPais)
+					&& Objects.equals(codigoQualificacaoRepresentanteLegal, other.codigoQualificacaoRepresentanteLegal)
+					&& Objects.equals(codigoQualificacaoSocio, other.codigoQualificacaoSocio)
+					&& Objects.equals(cpfRepresentanteLegal, other.cpfRepresentanteLegal)
+					&& Objects.equals(dataEntradaSociedade, other.dataEntradaSociedade)
+					&& Objects.equals(faixaEtaria, other.faixaEtaria)
+					&& Objects.equals(identificadorDeSocio, other.identificadorDeSocio)
+					&& Objects.equals(nomeRepresentanteLegal, other.nomeRepresentanteLegal)
+					&& Objects.equals(nomeSocio, other.nomeSocio) && Objects.equals(pais, other.pais)
+					&& Objects.equals(qualificacaoRepresentanteLegal, other.qualificacaoRepresentanteLegal)
+					&& Objects.equals(qualificacaoSocio, other.qualificacaoSocio);
+		}
+
+		@Override
+		public String toString() {
+			return "Qsa [pais=" + pais + ", nomeSocio=" + nomeSocio + ", codigoPais=" + codigoPais + ", faixaEtaria="
+					+ faixaEtaria + ", cnpjCpfDoSocio=" + cnpjCpfDoSocio + ", qualificacaoSocio=" + qualificacaoSocio
+					+ ", codigoFaixaEtaria=" + codigoFaixaEtaria + ", dataEntradaSociedade=" + dataEntradaSociedade
+					+ ", identificadorDeSocio=" + identificadorDeSocio + ", cpfRepresentanteLegal=" + cpfRepresentanteLegal
+					+ ", nomeRepresentanteLegal=" + nomeRepresentanteLegal + ", codigoQualificacaoSocio="
+					+ codigoQualificacaoSocio + ", qualificacaoRepresentanteLegal=" + qualificacaoRepresentanteLegal
+					+ ", codigoQualificacaoRepresentanteLegal=" + codigoQualificacaoRepresentanteLegal + "]";
+		}
+
+		private CNPJ getEnclosingInstance() {
+			return CNPJ.this;
+		}
+
+	}
+	
+	public class CnaesSecundario {
+		private Long codigo;
+		private String descricao;
+
+		public Long getCodigo() {
+			return codigo;
+		}
+
+		public void setCodigo(Long codigo) {
+			this.codigo = codigo;
+		}
+
+		public String getDescricao() {
+			return descricao;
+		}
+
+		public void setDescricao(String descricao) {
+			this.descricao = descricao;
+		}
+
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + getEnclosingInstance().hashCode();
+			result = prime * result + Objects.hash(codigo, descricao);
+			return result;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			CnaesSecundario other = (CnaesSecundario) obj;
+			if (!getEnclosingInstance().equals(other.getEnclosingInstance()))
+				return false;
+			return Objects.equals(codigo, other.codigo) && Objects.equals(descricao, other.descricao);
+		}
+
+		@Override
+		public String toString() {
+			return "CnaesSecundario [codigo=" + codigo + ", descricao=" + descricao + "]";
+		}
+
+		private CNPJ getEnclosingInstance() {
+			return CNPJ.this;
+		}
+
+	}
 }
