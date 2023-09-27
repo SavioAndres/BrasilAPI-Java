@@ -24,6 +24,7 @@ import br.com.brasilapi.api.IBGEMunicipio;
 import br.com.brasilapi.api.IBGEUF;
 import br.com.brasilapi.api.ISBN;
 import br.com.brasilapi.api.NCM;
+import br.com.brasilapi.api.PIX;
 import br.com.brasilapi.api.RegistroBR;
 import br.com.brasilapi.api.Taxa;
 
@@ -51,6 +52,7 @@ import br.com.brasilapi.api.Taxa;
  *      "https://github.com/SavioAndres/BrasilAPI-Java">https://github.com/SavioAndres/BrasilAPI-Java</a>
  */
 public class BrasilAPI {
+	private static final String BAR = "<2F>";
 	private static Gson gson = new Gson();
 
 	/**
@@ -206,15 +208,15 @@ public class BrasilAPI {
 		return obj != null ? (CNPJ) obj.clone() : null;
 	}
 	
-//	/**
-//	 * Retorna informações referentes as Corretoras ativas listadas na CVM.
-//	 * 
-//	 * @return Array de {@link Corretora}
-//	 */
-//	public static Corretora[] corretoras() {
-//		Corretora[] obj = (Corretora[]) api(Corretora[].class, "cvm/corretoras/v1/", "");
-//		return obj != null ? (Corretora[]) obj.clone() : null;
-//	}
+	/**
+	 * Retorna informações referentes as Corretoras ativas listadas na CVM.
+	 * 
+	 * @return Array de {@link Corretora}
+	 */
+	public static Corretora[] corretoras() {
+		Corretora[] obj = (Corretora[]) api(Corretora[].class, "cvm/corretoras/v1", "");
+		return obj != null ? (Corretora[]) obj.clone() : null;
+	}
 	
 	/**
 	 * Retorna informações referentes a determinada Corretora ativa listada na CVM.
@@ -251,7 +253,7 @@ public class BrasilAPI {
 	 * @return Lista de {@link CPTECCidade}
 	 */
 	public static CPTECCidade[] cptecBuscarLocalidades(String nomeCidade) {
-		CPTEC[] obj = (CPTEC[]) api(CPTEC[].class, "cptec/v1/cidade", nomeCidade);
+		CPTEC[] obj = (CPTEC[]) api(CPTEC[].class, "cptec/v1/cidade/", nomeCidade);
 		return obj != null ? (CPTECCidade[]) obj.clone() : null;
 	}
 	
@@ -299,7 +301,7 @@ public class BrasilAPI {
 	 * @return {@link CPTECClimaPrevisao}
 	 */
 	public static CPTECClimaPrevisao cptecPrevisaoMeteorologicaCidade(Integer codigoCidade, Integer dias) {
-		CPTEC obj = (CPTEC) api(CPTEC.class, "cptec/v1/clima/previsao/" + codigoCidade + "/", String.valueOf(dias));
+		CPTEC obj = (CPTEC) api(CPTEC.class, "cptec/v1/clima/previsao/", codigoCidade + BAR + dias);
 		return obj != null ? (CPTECClimaPrevisao) obj.clone() : null;
 	}
 	
@@ -322,7 +324,7 @@ public class BrasilAPI {
 	 * @return {@link CPTECOnda}
 	 */
 	public static CPTECOnda cptecPrevisaoOceanica(Integer codigoCidade, Integer dias) {
-		CPTEC obj = (CPTEC) api(CPTEC.class, "cptec/v1/ondas/" + codigoCidade + "/", String.valueOf(dias));
+		CPTEC obj = (CPTEC) api(CPTEC.class, "cptec/v1/ondas/", codigoCidade + BAR + dias);
 		return obj != null ? (CPTECOnda) obj.clone() : null;
 	}
 	
@@ -519,6 +521,16 @@ public class BrasilAPI {
 		NCM[] obj = (NCM[]) api(NCM[].class, "ncm/v1?search=", code);
 		return obj != null ? (NCM[]) obj.clone() : null;
 	}
+	
+	/**
+	 * Retorna informações de todos os participantes do PIX no dia atual ou anterior.
+	 * 
+	 * @return Array de {@link PIX}
+	 */
+	public static PIX[] pixParticipantes() {
+		PIX[] obj = (PIX[]) api(PIX[].class, "pix/v1/participants", "");
+		return obj != null ? (PIX[]) obj.clone() : null;
+	}
 
 	/**
 	 * Avalia o status de um dominio .br
@@ -564,7 +576,7 @@ public class BrasilAPI {
 	 */
 	private static Object api(Class<?> classAPIModel, String parameter, String code) {
 		try {
-			code = code.replaceAll("/", "");
+			code = code.replaceAll("/", "").replaceAll(BAR, "/");
 			if (Cache.getEnableCache()) {
 				Object obj = Cache.getCache(classAPIModel, code);
 	
@@ -598,8 +610,6 @@ public class BrasilAPI {
 				+ " |____/|_|  \\__,_|___/_|_/_/   \\_\\_|  |___|     \\___/ \\__,_| \\_/ \\__,_|\r\n"
 				+ "\r\n BrasilAPI-Java. Version \u001B[42m" + VERSION + "\u001B[0m"
 				+ "\r\n https://github.com/SavioAndres/BrasilAPI-Java");
-		Log.setEnable(true);
-		System.out.println(cptecPrevisaoMeteorologicaCidade(241, 2));
 	}
 
 }

@@ -1,6 +1,5 @@
 package br.com.brasilapi.api;
 
-
 import java.util.Objects;
 
 import com.google.gson.annotations.SerializedName;
@@ -32,7 +31,7 @@ public class Corretora extends API {
 	@SerializedName("data_patrimonio_liquido")
 	private String dataPatrimonioLiquido;
 	@SerializedName("valor_patrimonio_liquido")
-	private Double valorPatrimonioLiquido;
+	private String valorPatrimonioLiquido;
 	@SerializedName("codigo_cvm")
 	private String codigoCVM;
 	@SerializedName("data_inicio_situacao")
@@ -130,10 +129,10 @@ public class Corretora extends API {
 	public void setDataPatrimonioLiquido(String dataPatrimonioLiquido) {
 		this.dataPatrimonioLiquido = dataPatrimonioLiquido;
 	}
-	public Double getValorPatrimonioLiquido() {
+	public String getValorPatrimonioLiquido() {
 		return valorPatrimonioLiquido;
 	}
-	public void setValorPatrimonioLiquido(Double valorPatrimonioLiquido) {
+	public void setValorPatrimonioLiquido(String valorPatrimonioLiquido) {
 		this.valorPatrimonioLiquido = valorPatrimonioLiquido;
 	}
 	public String getCodigoCVM() {

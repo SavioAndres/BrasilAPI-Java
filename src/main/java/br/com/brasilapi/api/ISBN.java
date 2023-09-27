@@ -248,7 +248,7 @@ public class ISBN extends API {
 
 		@Override
 		public String toString() {
-			return "ISBNDimensions [width=" + width + ", height=" + height + ", unit=" + unit + "]";
+			return "Dimensions [width=" + width + ", height=" + height + ", unit=" + unit + "]";
 		}
 
 		private ISBN getEnclosingInstance() {
@@ -303,7 +303,7 @@ public class ISBN extends API {
 
 		@Override
 		public String toString() {
-			return "ISBNRetailPrice [currency=" + currency + ", amount=" + amount + "]";
+			return "RetailPrice [currency=" + currency + ", amount=" + amount + "]";
 		}
 
 		private ISBN getEnclosingInstance() {

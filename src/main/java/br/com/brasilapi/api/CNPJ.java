@@ -759,7 +759,7 @@ public class CNPJ extends API {
 
 		@Override
 		public String toString() {
-			return "CNPJQsa [pais=" + pais + ", nomeSocio=" + nomeSocio + ", codigoPais=" + codigoPais + ", faixaEtaria="
+			return "Qsa [pais=" + pais + ", nomeSocio=" + nomeSocio + ", codigoPais=" + codigoPais + ", faixaEtaria="
 					+ faixaEtaria + ", cnpjCpfDoSocio=" + cnpjCpfDoSocio + ", qualificacaoSocio=" + qualificacaoSocio
 					+ ", codigoFaixaEtaria=" + codigoFaixaEtaria + ", dataEntradaSociedade=" + dataEntradaSociedade
 					+ ", identificadorDeSocio=" + identificadorDeSocio + ", cpfRepresentanteLegal=" + cpfRepresentanteLegal
@@ -819,7 +819,7 @@ public class CNPJ extends API {
 
 		@Override
 		public String toString() {
-			return "CnpjCnaesSecundario [codigo=" + codigo + ", descricao=" + descricao + "]";
+			return "CnaesSecundario [codigo=" + codigo + ", descricao=" + descricao + "]";
 		}
 
 		private CNPJ getEnclosingInstance() {

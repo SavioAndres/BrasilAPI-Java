@@ -152,7 +152,7 @@ public class CEP2 extends API {
 
 		@Override
 		public String toString() {
-			return "CepLocation [type=" + type + ", coordinates=" + coordinates + "]";
+			return "Location [type=" + type + ", coordinates=" + coordinates + "]";
 		}
 		
 		
@@ -201,7 +201,7 @@ public class CEP2 extends API {
 
 			@Override
 			public String toString() {
-				return "CepLocationCoordinates [longitude=" + longitude + ", latitude=" + latitude + "]";
+				return "Coordinates [longitude=" + longitude + ", latitude=" + latitude + "]";
 			}
 
 			private Location getEnclosingInstance() {
