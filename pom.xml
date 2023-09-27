@@ -41,17 +41,6 @@
   	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   
-  <distributionManagement>
-    <repository>
-      <id>${distribution.release.id}</id>
-      <url>${distribution.release.url}</url>
-    </repository>
-    <snapshotRepository>
-      <id>${distribution.snapshot.id}</id>
-      <url>${distribution.snapshot.url}</url>
-    </snapshotRepository>
-  </distributionManagement>
-  
   <build>
     <plugins>
       <plugin>
