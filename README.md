@@ -53,44 +53,37 @@ BrasilAPI.setEnableCache(true);
 BrasilAPI.setCacheTimeMinutes(10L);
 
 // Alguns outros métodos implementados de exemplo:
-Bank[] banks                    			= BrasilAPI.banks();
-Bank bank                       			= BrasilAPI.bank("1");
-CEP cep                         			= BrasilAPI.cep("04538133");
-CNPJ cnpj                       			= BrasilAPI.cnpj("06.990.590/0001-23");
-Corretora[] corretoras 						= BrasilAPI.corretoras();
-Corretora corretora 							= BrasilAPI.corretora("02.332.886/0001-04");
-CPTECCidade[] cptecCidades 					= BrasilAPI.cptecListarLocalidades();
-CPTECCidade[] cptecCidade 					= BrasilAPI.cptecBuscarLocalidades("São Paulo");
+Bank[] banks                    		= BrasilAPI.banks();
+Bank bank                       		= BrasilAPI.bank("1");
+CEP cep                         		= BrasilAPI.cep("04538133");
+CNPJ cnpj                       		= BrasilAPI.cnpj("06.990.590/0001-23");
+Corretora[] corretoras 				= BrasilAPI.corretoras();
+Corretora corretora 				= BrasilAPI.corretora("02.332.886/0001-04");
+CPTECCidade[] cptecCidades 			= BrasilAPI.cptecListarLocalidades();
+CPTECCidade[] cptecCidade 			= BrasilAPI.cptecBuscarLocalidades("São Paulo");
 CPTECClimaCapital[] cptecClimaCapital 		= BrasilAPI.cptecCondicoesAtuaisCapitais();
 CPTECClimaAeroporto cptecClimaAeroporto 	= BrasilAPI.cptecCondicoesAtuaisAeroporto("SBAR");
 CPTECClimaPrevisao cptecClimaPrevisao 		= BrasilAPI.cptecPrevisaoMeteorologicaCidade(442);
 CPTECClimaPrevisao cptecClimaPrevisaoDias 	= BrasilAPI.cptecPrevisaoMeteorologicaCidade(442, 4);
-CPTECOnda cptecOnda 							= BrasilAPI.cptecPrevisaoOceanica(241);
-CPTECOnda cptecOndaDias 						= BrasilAPI.cptecPrevisaoOceanica(241, 2);
-DDD ddd                         			= BrasilAPI.ddd("79");
-Feriados[] feriados             			= BrasilAPI.feriados("2023");
-FipeMarca[] fipeMarcas          			= BrasilAPI.fipeMarcas("carros");
-FipePreco[] fipePrecos          			= BrasilAPI.fipePrecos("031049-2");
-FipeTabela[] fipeTabelas        			= BrasilAPI.fipeTabelas();
-IBGEMunicipio[] ibgeMunicipios  			= BrasilAPI.ibgeMunicipios("SE");
-IBGEUF[] ibgeUfs                			= BrasilAPI.ibgeUf();
-IBGEUF ibgeUf                   			= BrasilAPI.ibgeUf("SE");
-ISBN isbn                       			= BrasilAPI.isbn("9788567097688");
-NCM[] ncms                      			= BrasilAPI.ncm();
-NCM ncm                         			= BrasilAPI.ncm("01");
-NCM[] ncmSearch                 			= BrasilAPI.ncmSearch("Animais vivos.");
-PIX[] pix 										= BrasilAPI.pixParticipantes();
-RegistroBR registroBR           			= BrasilAPI.registroBR("savio.pw");
-Taxa[] taxas                    			= BrasilAPI.taxas();
-Taxa taxa                       			= BrasilAPI.taxa("SELIC");
+CPTECOnda cptecOnda 				= BrasilAPI.cptecPrevisaoOceanica(241);
+CPTECOnda cptecOndaDias 			= BrasilAPI.cptecPrevisaoOceanica(241, 2);
+DDD ddd                         		= BrasilAPI.ddd("79");
+Feriados[] feriados             		= BrasilAPI.feriados("2023");
+FipeMarca[] fipeMarcas          		= BrasilAPI.fipeMarcas("carros");
+FipePreco[] fipePrecos          		= BrasilAPI.fipePrecos("031049-2");
+FipeTabela[] fipeTabelas        		= BrasilAPI.fipeTabelas();
+IBGEMunicipio[] ibgeMunicipios  		= BrasilAPI.ibgeMunicipios("SE");
+IBGEUF[] ibgeUfs                		= BrasilAPI.ibgeUf();
+IBGEUF ibgeUf                   		= BrasilAPI.ibgeUf("SE");
+ISBN isbn                       		= BrasilAPI.isbn("9788567097688");
+NCM[] ncms                      		= BrasilAPI.ncm();
+NCM ncm                         		= BrasilAPI.ncm("01");
+NCM[] ncmSearch                 		= BrasilAPI.ncmSearch("Animais vivos.");
+PIX[] pix 					= BrasilAPI.pixParticipantes();
+RegistroBR registroBR           		= BrasilAPI.registroBR("savio.pw");
+Taxa[] taxas                    		= BrasilAPI.taxas();
+Taxa taxa                       		= BrasilAPI.taxa("SELIC");
 
 ```
-
-### Vídeo demonstração
-<video width="100%" controls="" autoplay="" loop="" muted="" controlslist="nodownload" velocity="1.25">
-    <source src="https://savio.pw/assets/video/biblioteca-brasilapi-java-utilizando.mp4" type="video/mp4">
-    <track label="Português" kind="subtitles" srclang="pt-br" src="https://savio.pw/assets/subtitle/biblioteca_brasilapi_java_utilizando_pt_br.vtt" default="">
-    <track label="English" kind="subtitles" srclang="en" src="https://savio.pw/assets/subtitle/biblioteca_brasilapi_java_utilizando_en.vtt">
-</video>
 
 Saiba mais em: [Biblioteca BrasilAPI-Java](https://savio.pw/posts/biblioteca-brasilapi-java)
