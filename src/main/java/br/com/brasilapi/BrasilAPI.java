@@ -43,6 +43,7 @@ import br.com.brasilapi.api.Taxa;
  * devagar for a fonte dos dados, nós queremos disponibilizá-la da forma mais
  * rápida e moderna possível.
  * 
+ * @version 1.1.0
  * @author Sávio Andres <a href="https://savio.pw">https://savio.pw</a>
  * @see <a href=
  *      "https://brasilapi.com.br/docs">https://brasilapi.com.br/docs</a>
