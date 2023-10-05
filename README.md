@@ -24,7 +24,7 @@ Biblioteca criada para facilitar o acesso à API [BrasilAPI](https://github.com/
   	<dependency>
 	    <groupId>com.github.SavioAndres</groupId>
 	    <artifactId>BrasilAPI-Java</artifactId>
-	    <version>v1.0.5</version>
+	    <version>v1.1.0</version>
   	</dependency>
   </dependencies>
   <repositories>
