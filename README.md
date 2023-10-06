@@ -2,7 +2,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/SavioAndres/BrasilAPI-Java/blob/main/LICENSE)
 [![Java CI with Maven](https://github.com/SavioAndres/BrasilAPI-Java/actions/workflows/maven.yml/badge.svg)](https://github.com/SavioAndres/BrasilAPI-Java/actions/workflows/maven.yml)
 [![CodeQL](https://github.com/SavioAndres/BrasilAPI-Java/actions/workflows/codeql.yml/badge.svg)](https://github.com/SavioAndres/BrasilAPI-Java/actions/workflows/codeql.yml)
-[![JitPack](https://jitpack.io/v/SavioAndres/BrasilAPI-Java.svg)](https://jitpack.io/#SavioAndres/BrasilAPI-Java/v1.1.0)
+[![JitPack](https://jitpack.io/v/SavioAndres/BrasilAPI-Java.svg)](https://jitpack.io/#SavioAndres/BrasilAPI-Java/1.1.0)
 
 Biblioteca criada para facilitar o acesso à API [BrasilAPI](https://github.com/BrasilAPI/BrasilAPI) na linguagem de programação Java.
 
@@ -24,7 +24,7 @@ Biblioteca criada para facilitar o acesso à API [BrasilAPI](https://github.com/
   	<dependency>
 	    <groupId>com.github.SavioAndres</groupId>
 	    <artifactId>BrasilAPI-Java</artifactId>
-	    <version>v1.1.0</version>
+	    <version>1.1.0</version>
   	</dependency>
   </dependencies>
   <repositories>
@@ -35,7 +35,7 @@ Biblioteca criada para facilitar o acesso à API [BrasilAPI](https://github.com/
   </repositories>
 ```
 ### Demais gerenciadores:
-Gradle, SBT e Leiningen disponíveis em: [JitPack BrasilAPI-Java](https://jitpack.io/#SavioAndres/BrasilAPI-Java/v1.0.5)
+Gradle, SBT e Leiningen disponíveis em: [JitPack BrasilAPI-Java](https://jitpack.io/#SavioAndres/BrasilAPI-Java/1.1.0)
 
 ## Exemplo de utilização
 ```java
