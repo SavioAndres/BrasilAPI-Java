@@ -27,3 +27,4 @@ target/*
 .settings/*
 .idea/*
 .classpath
+bin/*
